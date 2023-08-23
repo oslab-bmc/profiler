@@ -1,0 +1,189 @@
+# cat trace
+# tracer: function_graph
+#
+# CPU  DURATION                  FUNCTION CALLS
+# |     |   |                     |   |   |   |
+ 0)               |  __probe_kernel_read() {
+ 0)               |    __check_object_size() {
+ 0)   2.082 us    |      check_stack_object();
+ 0)   7.445 us    |    }
+ 0) + 26.259 us   |  }
+ ------------------------------------------
+ 0)    <...>-11    =>    <...>-1    
+ ------------------------------------------
+
+ 0)               |  tracepoint_probe_register() {
+ 0)               |    tracepoint_probe_register_prio() {
+ 0)   1.480 us    |      mutex_lock();
+ 0)               |      __kmalloc() {
+ 0)   1.658 us    |        kmalloc_slab();
+ 0)   1.207 us    |        should_failslab();
+ 0)   7.729 us    |      }
+ 0)   1.162 us    |      static_key_count();
+ 0)               |      static_key_slow_inc() {
+ 0)               |        cpus_read_lock() {
+ 0)   1.510 us    |          __percpu_down_read();
+ 0)   4.203 us    |        }
+ 0)               |        static_key_slow_inc_cpuslocked() {
+ 0)   1.195 us    |          lockdep_assert_cpus_held();
+ 0)   1.551 us    |          mutex_lock();
+ 0)               |          jump_label_update() {
+ 0)   1.517 us    |            __module_address();
+ 0)               |            __jump_label_update() {
+ 0)   2.095 us    |              kernel_text_address();
+ 0) ! 110.298 us  |              arch_jump_label_transform();
+ 0)   1.506 us    |              kernel_text_address();
+ 0) + 86.645 us   |              arch_jump_label_transform();
+ 0) ! 210.233 us  |            }
+ 0) ! 216.215 us  |          }
+ 0)   1.388 us    |          mutex_unlock();
+ 0) ! 226.885 us  |        }
+ 0)               |        cpus_read_unlock() {
+ 0)               |          __percpu_up_read() {
+ 0)   1.165 us    |            rcuwait_wake_up();
+ 0)   3.487 us    |          }
+ 0)   6.176 us    |        }
+ 0) ! 242.712 us  |      }
+ 0)   1.178 us    |      mutex_unlock();
+ 0) ! 264.933 us  |    }
+ 0) ! 270.116 us  |  }
+ 0)               |  tracepoint_probe_register() {
+ 0)               |    tracepoint_probe_register_prio() {
+ 0)   1.208 us    |      mutex_lock();
+ 0)               |      __kmalloc() {
+ 0)   1.178 us    |        kmalloc_slab();
+ 0)   1.170 us    |        should_failslab();
+ 0)   5.963 us    |      }
+ 0)   1.174 us    |      static_key_count();
+ 0)               |      static_key_slow_inc() {
+ 0)               |        cpus_read_lock() {
+ 0)   1.163 us    |          __percpu_down_read();
+ 0)   3.532 us    |        }
+ 0)               |        static_key_slow_inc_cpuslocked() {
+ 0)   1.168 us    |          lockdep_assert_cpus_held();
+ 0)   1.185 us    |          mutex_lock();
+ 0)               |          jump_label_update() {
+ 0)   1.365 us    |            __module_address();
+ 0)               |            __jump_label_update() {
+ 0)   1.175 us    |              kernel_text_address();
+ 0) + 80.512 us   |              arch_jump_label_transform();
+ 0) + 86.107 us   |            }
+ 0) + 91.012 us   |          }
+ 0)   1.368 us    |          mutex_unlock();
+ 0) ! 100.508 us  |        }
+ 0)               |        cpus_read_unlock() {
+ 0)               |          __percpu_up_read() {
+ 0)   1.284 us    |            rcuwait_wake_up();
+ 0)   3.702 us    |          }
+ 0)   5.971 us    |        }
+ 0) ! 114.613 us  |      }
+ 0)   1.237 us    |      mutex_unlock();
+ 0) ! 131.142 us  |    }
+ 0) ! 133.646 us  |  }
+ 0)               |  tracepoint_probe_register() {
+ 0)               |    tracepoint_probe_register_prio() {
+ 0)   1.218 us    |      mutex_lock();
+ 0)               |      __kmalloc() {
+ 0)   1.205 us    |        kmalloc_slab();
+ 0)   1.191 us    |        should_failslab();
+ 0)   5.840 us    |      }
+ 0)   1.166 us    |      static_key_count();
+ 0)   1.191 us    |      mutex_unlock();
+ 0) + 16.370 us   |    }
+ 0) + 18.887 us   |  }
+ 0)               |  release_early_probes() {
+ 0)               |    call_rcu() {
+ 0)               |      __call_rcu() {
+ 0)   1.508 us    |        rcu_segcblist_enqueue();
+ 0)   6.265 us    |      }
+ 0)   9.473 us    |    }
+ 0) + 22.508 us   |  }
+ 0)               |  bus_probe_device() {
+ 0)               |    device_initial_probe() {
+ 0)               |      __device_attach() {
+ 0)   1.414 us    |        mutex_lock();
+ 0)               |        __pm_runtime_resume() {
+ 0)   1.392 us    |          _raw_spin_lock_irqsave();
+ 0)   2.885 us    |          rpm_resume();
+ 0)   1.202 us    |          _raw_spin_unlock_irqrestore();
+ 0) + 14.391 us   |        }
+ 0)               |        bus_for_each_drv() {
+ 0)   1.215 us    |          _raw_spin_lock_irqsave();
+ 0)   1.207 us    |          _raw_spin_unlock_irqrestore();
+ 0)               |          __device_attach_driver() {
+ 0)               |            platform_match() {
+ 0)   6.015 us    |              of_match_device();
+ 0)   9.327 us    |            }
+ 0) + 12.069 us   |          }
+ 0)   1.199 us    |          _raw_spin_lock_irqsave();
+ 0)   1.180 us    |          _raw_spin_unlock_irqrestore();
+ 0)               |          __device_attach_driver() {
+ 0)               |            platform_match() {
+ 0)   6.928 us    |              of_match_device();
+ 0)   9.476 us    |            }
+ 0) + 11.962 us   |          }
+ 0)   1.222 us    |          _raw_spin_lock_irqsave();
+ 0)   1.196 us    |          _raw_spin_unlock_irqrestore();
+ 0)               |          __device_attach_driver() {
+ 0)               |            platform_match() {
+ 0)   1.161 us    |              of_match_device();
+ 0)   3.835 us    |            }
+ 0)   6.420 us    |          }
+ 0)   1.215 us    |          _raw_spin_lock_irqsave();
+ 0)   1.249 us    |          _raw_spin_unlock_irqrestore();
+ 0)               |          __device_attach_driver() {
+ 0)               |            platform_match() {
+ 0)   4.938 us    |              of_match_device();
+ 0)   7.880 us    |            }
+ 0) + 10.318 us   |          }
+ 0)   1.207 us    |          _raw_spin_lock_irqsave();
+ 0)   1.183 us    |          _raw_spin_unlock_irqrestore();
+ 0)               |          __device_attach_driver() {
+ 0)               |            platform_match() {
+ 0)   5.155 us    |              of_match_device();
+ 0)   7.653 us    |            }
+ 0) + 10.080 us   |          }
+ 0)   1.195 us    |          _raw_spin_lock_irqsave();
+ 0)   1.181 us    |          _raw_spin_unlock_irqrestore();
+ 0)               |          __device_attach_driver() {
+ 0)               |            platform_match() {
+ 0)   4.952 us    |              of_match_device();
+ 0)   7.615 us    |            }
+ 0)   9.995 us    |          }
+ 0)   1.220 us    |          _raw_spin_lock_irqsave();
+ 0)   1.212 us    |          _raw_spin_unlock_irqrestore();
+ 0)               |          __device_attach_driver() {
+ 0)               |            platform_match() {
+ 0)   5.391 us    |              of_match_device();
+ 0)   7.945 us    |            }
+ 0) + 10.313 us   |          }
+ 0)   1.208 us    |          _raw_spin_lock_irqsave();
+ 0)   1.191 us    |          _raw_spin_unlock_irqrestore();
+ 0)               |          __device_attach_driver() {
+ 0)               |            platform_match() {
+ 0)   9.255 us    |              of_match_device();
+ 0) + 11.854 us   |            }
+ 0) + 14.367 us   |          }
+ 0)   1.213 us    |          _raw_spin_lock_irqsave();
+ 0)   1.187 us    |          _raw_spin_unlock_irqrestore();
+ 0) ! 142.893 us  |        }
+ 0)               |        __pm_runtime_idle() {
+ 0)   1.197 us    |          _raw_spin_lock_irqsave();
+ 0)               |          rpm_idle() {
+ 0)   1.817 us    |            rpm_check_suspend_allowed();
+ 0)   4.948 us    |          }
+ 0)   1.190 us    |          _raw_spin_unlock_irqrestore();
+ 0) + 12.356 us   |        }
+ 0)               |        __pm_runtime_idle() {
+ 0)   1.234 us    |          _raw_spin_lock_irqsave();
+ 0)               |          rpm_idle() {
+ 0)   1.340 us    |            rpm_check_suspend_allowed();
+ 0)   3.617 us    |          }
+ 0)   1.177 us    |          _raw_spin_unlock_irqrestore();
+ 0) + 10.552 us   |        }
+ 0)   1.192 us    |        mutex_unlock();
+ 0) ! 194.448 us  |      }
+ 0) ! 198.021 us  |    }
+ 0)   1.178 us    |    mutex_lock();
+ 0)   1.191 us    |    mutex_unlock();
+ 0) ! 214.000 us  |  }

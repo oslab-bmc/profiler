@@ -1,0 +1,206 @@
+{
+    "GET /cpuinfo/on 200": {
+        "Count": 40,
+        "Time": [
+            {
+                "response_time_1": 35150
+            },
+            {
+                "response_time_2": 30619
+            },
+            {
+                "response_time_3": 31099
+            },
+            {
+                "response_time_4": 1669917338490
+            },
+            {
+                "response_time_5": 1669917343303
+            },
+            {
+                "response_time_6": 1669917367609
+            },
+            {
+                "response_time_7": 1669917368748
+            },
+            {
+                "response_time_8": 1669917376862
+            },
+            {
+                "response_time_9": 1669917385082
+            },
+            {
+                "response_time_10": 1669917407774
+            },
+            {
+                "response_time_11": 1669917436935
+            },
+            {
+                "response_time_12": 1669918122090
+            },
+            {
+                "response_time_13": 1669918150928
+            },
+            {
+                "response_time_14": 1669918242095
+            },
+            {
+                "response_time_15": 1669918270958
+            },
+            {
+                "response_time_16": 1669946493769
+            },
+            {
+                "response_time_17": 1669946613771
+            },
+            {
+                "response_time_18": 1669946642029
+            },
+            {
+                "response_time_19": 1669946733773
+            },
+            {
+                "response_time_20": 1669946762030
+            },
+            {
+                "response_time_21": 1669946853774
+            },
+            {
+                "response_time_22": 1669946882031
+            },
+            {
+                "response_time_23": 1669946973777
+            },
+            {
+                "response_time_24": 1669947002032
+            },
+            {
+                "response_time_25": 1669947093779
+            },
+            {
+                "response_time_26": 1669947122033
+            },
+            {
+                "response_time_27": 1669947213787
+            },
+            {
+                "response_time_28": 1669947242055
+            },
+            {
+                "response_time_29": 1669947580149
+            },
+            {
+                "response_time_30": 1669947626501
+            },
+            {
+                "response_time_31": 1669953111275
+            },
+            {
+                "response_time_32": 1669953116039
+            },
+            {
+                "response_time_33": 1669953120317
+            },
+            {
+                "response_time_34": 1669953121619
+            },
+            {
+                "response_time_35": 1669953121786
+            },
+            {
+                "response_time_36": 1669953122252
+            },
+            {
+                "response_time_37": 1669953122418
+            },
+            {
+                "response_time_38": 1669953122582
+            },
+            {
+                "response_time_39": 1669953122751
+            },
+            {
+                "response_time_40": 1669953122919
+            }
+        ]
+    },
+    "GET /fan 200": {
+        "Count": 5,
+        "Time": [
+            {
+                "response_time_1": 999999
+            },
+            {
+                "response_time_2": 1001440
+            },
+            {
+                "response_time_3": 999940
+            },
+            {
+                "response_time_4": 999948
+            },
+            {
+                "response_time_5": 1000758
+            }
+        ]
+    },
+    "GET /request/report 200": {
+        "Count": 1,
+        "Time": [
+            {
+                "response_time_1": 219
+            }
+        ]
+    },
+    "GET /stat_mem/result 200": {
+        "Count": 8,
+        "Time": [
+            {
+                "response_time_1": 6137
+            },
+            {
+                "response_time_2": 2196
+            },
+            {
+                "response_time_3": 6186
+            },
+            {
+                "response_time_4": 2171
+            },
+            {
+                "response_time_5": 6223
+            },
+            {
+                "response_time_6": 2041
+            },
+            {
+                "response_time_7": 2229
+            },
+            {
+                "response_time_8": 2170
+            }
+        ]
+    },
+    "POST /fan/do 200": {
+        "Count": 2,
+        "Time": [
+            {
+                "response_time_1": 165
+            },
+            {
+                "response_time_2": 84
+            }
+        ]
+    },
+    "POST /fan/end 200": {
+        "Count": 2,
+        "Time": [
+            {
+                "response_time_1": 56
+            },
+            {
+                "response_time_2": 38
+            }
+        ]
+    }
+}

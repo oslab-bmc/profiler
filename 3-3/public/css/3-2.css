@@ -1,0 +1,452 @@
+body {
+	text-align: center;
+	font-family: sans-serif;
+	padding: 1%;
+	background: #f1f1f1;
+}
+
+.main {
+	height: 98%;
+	border: #fff;
+	border-radius: 20px;
+	text-align: center;
+	background: white;
+
+	box-shadow: 0px 10px 20px 5px rgba(0, 0, 0, 0.5);
+	transform: translateY(-5px);
+
+	float: top;
+	overflow: hidden;
+
+#margin: 30px;
+}
+
+.main .left {
+	width: 10%;
+	height: 100%;
+	float: left;
+	box-sizing: border-box;
+
+#border: solid;
+#border-color: blue;
+}
+
+.main .left .text {
+#border: solid;
+#border-color: black;
+	position: relative;
+	top: 0%;
+	box-sizing: border-box;
+}
+
+.main .left .text p {
+	font-size: 40px;
+	font-weight: bold;
+}
+
+.main .left .left_bottom {
+	position: relative;
+	top: 0%;
+#border: solid;
+#border-color: black;
+
+	width: 100%;
+	height: 90%;
+	float: left;
+	box-sizing: border-box;
+}
+
+.main .left .left_bottom ul {
+	list-style-type: none;
+
+	width: 100%;
+
+	position: relative;
+	display: block;
+	padding: 10px 20px;
+
+	margin-bottom: 10px;
+#background-color: #fff;
+
+#border:1px solid black;
+
+	position: relative;
+	top: 0%;
+	left: 0%;
+
+	float: left;
+
+	box-sizing: border-box;
+}
+
+#outside_li {
+	list-style-type: none;
+	background: white;
+	color: #2753FF;
+
+	border: 1px solid #E0E0E0;
+	border-radius: 20px;
+	font-size: 30px;
+	padding: 10px;
+	margin-top: 20px;
+
+	box-shadow: 0 5px 25px rgba(0,0,0,.1);
+	transition: transform 0.5s;
+}
+
+#outside_li:hover {
+	transform: scale(1.1);
+	z-index: 100;
+	box-shadow: 0 5px 25px rgba(0,0,0,.2);
+}
+
+.right {
+	width: 90%;
+	height: 10%;
+
+	float: left;
+	text-align: left;
+	box-sizing: border-box;
+
+	border-bottom: solid;
+	border-bottom-color: #E0E0E0;
+}
+
+.right .text {
+	text-align: left;
+}
+
+.right .img {
+	width: 10%;
+	height: 100%;
+
+	position: relative;
+	top: 10%;
+	left: 2%;
+	float: left;
+	box-sizing: border-box;
+}
+
+.right_bottom {
+	width: 90%;
+	height: 90%;
+	
+#border: solid;
+#border-color: red;
+
+	position: relative;
+	top: 0%;
+	left: 0;
+	float: left;
+	box-sizing: border-box;
+}
+
+#code_view {
+	width: 95%;
+	height: 45%;
+
+	position: relative;
+	top: 0%;
+	float: left;
+	box-sizing: border-box;
+
+	box-shadow: 0 5px 25px rgba(0,0,0,.2);
+
+	margin: 1.5%;
+}
+
+#code_view_left_div {
+    width: 45%;
+    height: 85%;
+	padding: 0 1% 1% 1%;
+	margin: 1%;
+    float: left;
+    text-align: left;
+    top: 0;
+    box-sizing: border-box;
+}
+
+#code_view_left {
+	width: 95%;
+	height: 95%;
+	overflow: scroll;
+	margin-left: 2%;
+
+	background: white;
+}
+
+.code_view_right {
+    width: 50%;
+    height: 97%;
+
+    padding: 1% 5px 5px;
+    /* border: solid red; */
+    text-align: left;
+    float: left;
+    overflow: hidden;
+    box-sizing: border-box;
+
+	margin-left: 3%;
+}
+
+.main .right_bottom .perf_view {
+	width: 95%;
+	height: 45%;
+
+	top: 0%;
+	float: left;
+	box-sizing: border-box;
+	
+	box-shadow: 0 5px 25px rgba(0,0,0,.2);
+
+	padding: 1% 0.5% 0.5% 1%;
+	margin-left: 1.5%;
+}
+.perf_title{
+	width: auto;
+	margin:0%;
+	text-align: left; 
+	padding-left: auto;
+	font-size: 35px
+}
+.sub_title{
+	float: left;
+	width: auto;
+	margin-left:5%;
+	text-align: left; 
+	padding-left: auto;
+	font-size: 35px
+}
+.main .right_bottom .perf_view .pie_chart {
+	width: 40%;
+	height: 80%;
+
+	margin: 0 auto;
+	padding: 0;
+	position: relative;
+	top: 12%;
+	float: left;
+	box-sizing: border-box;
+}
+.main .right_bottom .perf_view .line_chart {
+	width: 60%;
+	height: 80%;
+
+	margin: 0;
+	padding: 0;
+
+	position: relative;
+	float: left;
+	box-sizing: border-box;
+}
+
+.kernel_version {
+	height: 100%;
+	width: 10%;
+	border: #fff;
+	border-top-left-radius: 20px;
+	border-bottom-left-radius: 20px;
+	border-right: solid;
+	border-right-color: #E0E0E0;
+	text-align: center;
+	background: #F9F9F9;
+	box-sizing: border-box;
+}
+
+.select_mode_bar {
+	height: 5%;
+	float: bottom;
+	text-align: center;
+
+	margin: 15px;
+}
+.test_button_bar {
+	height: 5%;
+	float: bottom;
+	text-align: center;
+
+	margin: 5%;
+}
+.boot_mode {
+	width: 32%;
+	height: 100%;
+
+	position: relative;
+	float: left;
+	box-sizing: border-box;
+
+	margin: 0.65%;
+}
+
+#boot_mode_button {
+	width: 100%;
+	height: 100%;
+	background: white;
+	color: #2753FF;
+
+	border: 1px solid #E0E0E0;
+	border-radius: 20px;
+	font-size: 30px;
+	padding: 10px;
+	margin-top: 20px;
+
+	box-shadow: 0 5px 25px rgba(0,0,0,.1);
+	transition: transform 0.5s;
+}
+
+#boot_mode_button:hover {
+	transform: scale(1.1);
+	z-index: 100;
+	box-shadow: 0 5px 25px rgba(0,0,0,.2);
+}
+
+.app_mode {
+	width: 32%;
+	height: 100%;
+
+	position: relative;
+	float: left;
+	box-sizing: border-box;
+
+	margin: 0.65%;
+}
+
+#app_mode_button {
+	width: 100%;
+	height: 100%;
+	background: white;
+	color: #2753FF;
+
+	border: 1px solid #E0E0E0;
+	border-radius: 20px;
+	font-size: 30px;
+	padding: 10px;
+	margin-top: 20px;
+
+	box-shadow: 0 5px 25px rgba(0,0,0,.1);
+	transition: transform 0.5s;
+}
+
+#app_mode_button:hover {
+	transform: scale(1.1);
+	z-index: 100;
+	box-shadow: 0 5px 25px rgba(0,0,0,.2);
+}
+
+.exit {
+	width: 32%;
+	height: 100%;
+
+	position: relative;
+	float: left;
+	box-sizing: border-box;
+
+	margin: 0.65%;
+}
+
+#exit_button {
+	width: 100%;
+	height: 100%;
+	background: white;
+	color: #2753FF;
+
+	border: 1px solid #E0E0E0;
+	border-radius: 20px;
+	font-size: 30px;
+	padding: 10px;
+	margin-top: 20px;
+
+	box-shadow: 0 5px 25px rgba(0,0,0,.1);
+	transition: transform 0.5s;
+}
+
+#exit_button:hover {
+	transform: scale(1.1);
+	z-index: 100;
+	box-shadow: 0 5px 25px rgba(0,0,0,.2);
+}
+
+#tooltip_div {
+	width: 500px;
+}
+
+#tooltip {
+	width: 500px;
+}
+
+#tooltip_table {
+	border-collapse: collapse;
+	border-radius: 5px;
+	overflow: hidden;
+	box-shadow: 0 2px 5px rgba(0,0,0,.25);
+	text-align: center;
+
+	width: 600px;
+}
+
+#tooltip_table>tbody>tr>td:last-child {
+	border-right: 0;
+}
+
+#tooltip_table tbody td,
+#tooltip_table thead>tr>th {
+	float: left;
+}
+
+#tooltip_table thead {
+	width: 100%;
+}
+
+#tooltip tr>td {
+	width: 30%;
+	overflow: hidden;
+	white-space: nowrap;
+	padding: 0;
+}
+
+#func_name_td {
+	width: 300px;
+	overflow-x: hidden;
+	white-space: nowrap;
+	padding: 0;
+}
+
+#func_count_td {
+	width: 100px;
+	overflow-x: hidden;
+	white-space: nowrap;
+	padding: 0;
+}
+
+#func_time_td {
+	width: 185px;
+	overflow-x: hidden;
+	white-space: nowrap;
+	padding: 0;
+}
+
+#tooltip_table thead>tr>th {
+	font-weight: bold;
+#background: #2753FF;
+	background: black;
+	color: white;
+
+	width: 200px;
+	padding: 0;
+	float: left;
+}
+
+#tooltip_table tbody {
+	display: block;
+	height: 150px;
+	overflow-y: auto;
+}
+
+#tooltip_table tr {
+	display: block;
+}
+
+
+#pageChanger{
+	
+}

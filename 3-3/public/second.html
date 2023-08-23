@@ -1,0 +1,84 @@
+<html>
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script type="text/javascript" defer src="/secondpage_script.js"></script>
+    <script type="text/javascript" defer src="/cpuUsageChart.js"></script>
+    <title>profiling tool project 1</title>
+  </head>
+<body>
+<div class="main">
+  <div class="left">
+    <div class="text">
+      <p style="font-size: 30px;">Profiler communication information</p>
+    </div>
+	<div id="left_bottom" class="left_bottom">
+	</div>
+  </div>
+
+  <div class="right">
+      <div class="img">
+          <img src="profiling_tool_icon.png" height=75% alt="My Image">
+      </div>
+      <div class="text">
+        <h1 style="font-size: 45px">Full Stack Profiler for Baseboard Management Controller</h1>
+        <p>Soongsil Univ. OSLAB</p>
+      </div>
+    </div>
+  <div class="right_bottom">
+    <div class="code_view" id="code_view">
+      <div class="code_view_left" id="code_view_left_div">
+        <div id="code_view_title">
+          <!-- <h1 style="font-size: 45px">Code</h1> -->
+          <h1 style="font-size: auto;">HTTP response Time report</h1>
+        </div>
+        <div id="view_CPU" class="view_CPU"></div>
+          </div>
+        <div id="response_time" class="response_time">
+          <!-- <pre>
+            <code id="code_view_right_div"></code>
+          </pre> -->
+      </div>
+      </div>
+      <div class="perf_view">
+        <!-- <h1 style="text-align: left; font-size: 45px">Performance</h1> -->
+        <h1 style="text-align: left; font-size: auto;">Performance</h1>
+        <!-- <div id="line_chart" class="line_chart"></div><<< response chart
+        <div id="pie_chart" class="pie_chart"></div><<< mem -->
+        <span id="processor_div" class="processor_div">
+          <div id="prosessor_list" class="prosessor_list"></div><!--<<< processer info-->
+          <div id="prosessor_info" class="prosessor_info"></div>
+        </span>
+        <div id="prosessor_usage" class="prosessor_usage"></div><!--<<< cpu usage %-->
+    </div>
+  </div>
+  <div class="kernel_version">
+  </div>
+</div>
+<div class="select_mode_bar">
+  <div class="boot_mode">
+    <button id="boot_mode_button" onclick="boot_mode_handler(event)">Boot Mode</button>
+  </div>
+  <div class="app_mode">
+    <button id="app_mode_button" onclick="app_mode_handler(event)">Application Mode</button>
+  </div>
+  <div class="exit">
+    <button id="exit_button" onclick="exit_handler(event)">Exit</button>
+  </div>
+  
+</div>
+  <!--기능 테스트 용 버튼-->
+ <div class ="test_button_bar">
+  <div style="float: right; margin-right: 5%; margin-top:0.5%;"><button id="" onclick="get_Http_Code_List()">[TEST] Request_List()</button></div>    
+  <div style="float: right; margin-right: 5%; margin-top:0.5%;"><button id="" onclick="TEST_Request_report()">[TEST] Request_report()</button></div>    
+  <div style="float: right; margin-right: 5%; margin-top:0.5%;"><button id="" onclick="TEST_STOP_BUTTON1()">[TEST] STOP_getStats()</button></div>
+  <div style="float: right; margin-right: 5%; margin-top:0.5%;"><button id="" onclick="Before_Page()">[TEST] Before_Page()</button></div>
+  <div style="float: right; margin-right: 5%; margin-top:0.5%;"><button id="" onclick="TEST_STOP_BUTTON2()">[TEST] STOP_getCPU&Memory()</button></div>
+  <div style="float: right; margin-right: 5%; margin-top:0.5%;"><button id="" onclick="TEST_BUTTON_GET_JSON()">[TEST] TEST_BUTTON_GET_JSON()</button></div>
+</div>
+<link href="/css/secondpage_css.css" rel="stylesheet"/>
+<link href="/css/directoryListCSS.css" rel="stylesheet"/>
+</body>

@@ -1,0 +1,99 @@
+<html>
+  <head>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    
+    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+	  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script type="text/javascript" defer src="/script.js"></script>
+    <script type="text/javascript" defer src="/getDirectoryTree.js"></script>
+    <script type="text/javascript" defer src="/getFileInfo.js"></script>
+    <title>profiling tool project 1</title>
+  </head>
+<body>
+<div class="main">
+  <div class="left">
+    <div class="text">
+      <p>Kernel Version Management</p>
+    </div>
+	<div class="left_bottom">
+	  <ul id="kernel_version_list">
+	</div>
+  </div>
+
+  <div class="right">
+      <div class="img">
+          <img src="profiling_tool_icon.png" height=75% alt="My Image">
+      </div>
+      <div class="text">
+        <h1 style="font-size: 45px">Full Stack Profiler for Baseboard Management Controller</h1>
+        <p>Soongsil Univ. OSLAB</p>
+      </div>
+    </div>
+    
+  <div class="right_bottom">
+    <div class="code_view" id="code_view">
+        <div class="code_view_left" id="code_view_left_div">
+			<div id="code_view_title">
+				<h1 style="font-size: 35px">Code</h1>
+			</div>
+            <div id="code_view_left" class="directory-list"></div>
+        </div>
+        <div class="code_view_right">
+			<pre>
+				<code id="code_view_right_div">
+				</code>
+			</pre>
+        </div>
+	  </div>
+	  <div class="perf_view">
+		  
+      <span style="float: left; width: 100%;">
+        <div>
+          <h1 class="perf_title">Performance</h1>
+        </div>
+        <!--V1 전력소모량-->
+        <span class="sub_title">
+          <p1>First Version: </p1>
+          <span id="v1_Power_usage"> ... </span>
+          <p1>Ws</p1>
+        </span>
+        <!--V2 전력소모량-->
+        <span class="sub_title">
+          <p1>Second Version: </p1>
+          <span id="v2_Power_usage"> ... </span>
+          <p1>Ws</p1>
+        </span>
+      </span>
+		  <div class="line_chart"></div>
+		  <div class="pie_chart"></div>
+	  </div>
+
+    
+  </div>
+  <div class="kernel_version">
+  </div>
+</div>
+<div class="select_mode_bar">
+  <div class="boot_mode">
+    <button id="boot_mode_button" onclick="boot_mode_handler(event)">Boot Mode</button>
+  </div>
+  <div class="app_mode">
+    <button id="app_mode_button" onclick="app_mode_handler(event)">Application Mode</button>
+  </div>
+  <div class="exit">
+    <button id="exit_button" onclick="exit_handler(event)">Exit</button>
+  </div>
+  
+</div>
+  <!--기능 테스트 용 버튼-->
+ <div class ="test_button_bar">
+    <div style="float: right; margin-right: 5%; margin-top:0.5%;"><button id="" onclick="request_count_handler()">Call Counter</button> </div>
+    <div style="float: right; margin-right: 5%; margin-top:0.5%;"><button id="" onclick="get_CPU_Memory_INFO_handler()">get CPU & Memory info</button> </div>
+    <div style="float: right; margin-right: 5%; margin-top:0.5%;"><button id="" onclick="nextPage()">next_page</button> </div>
+    <!-- <div style="float: right; margin-right: 5%; margin-top:0.5%;"><a href="http://192.168.0.6:4000/secondPage">NEXT</a></div> -->
+    <div style="float: right; margin-right: 5%; margin-top:0.5%;"><button id="fan_button" onclick="fan_mode_handler()">Fan Test Button</button></div>
+</div>
+<link href="/css/3-2.css" rel="stylesheet"/>
+<link href="/css/directoryListCSS.css" rel="stylesheet"/>
+</body>

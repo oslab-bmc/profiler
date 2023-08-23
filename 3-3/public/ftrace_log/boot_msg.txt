@@ -1,0 +1,2609 @@
+[    0.000000] Booting Linux on physical CPU 0xf00
+[    0.000000] Linux version 5.4.62 (keti@keti) (gcc version 9.3.0 (Buildroot v00.05.06-33-g307eaf0-dirty)) #11 SMP Thu Sep 15 14:58:07 KST 2022
+[    0.000000] CPU: ARMv7 Processor [410fc075] revision 5 (ARMv7), cr=10c5387d
+[    0.000000] CPU: div instructions available: patching division code
+[    0.000000] CPU: PIPT / VIPT nonaliasing data cache, VIPT aliasing instruction cache
+[    0.000000] OF: fdt: Machine model: AST2600 EVB
+[    0.000000] Memory policy: Data cache writealloc
+[    0.000000] Reserved memory: created CMA memory pool at 0xb8000000, size 64 MiB
+[    0.000000] OF: reserved mem: initialized node video, compatible id shared-dma-pool
+[    0.000000] Reserved memory: created CMA memory pool at 0xb7000000, size 16 MiB
+[    0.000000] OF: reserved mem: initialized node framebuffer, compatible id shared-dma-pool
+[    0.000000] Reserved memory: created DMA memory pool at 0xb5000000, size 32 MiB
+[    0.000000] OF: reserved mem: initialized node ssp_memory, compatible id shared-dma-pool
+[    0.000000] Reserved memory: created DMA memory pool at 0xb4f00000, size 1 MiB
+[    0.000000] OF: reserved mem: initialized node bmc_dev_memory, compatible id shared-dma-pool
+[    0.000000] Reserved memory: created CMA memory pool at 0xb0000000, size 64 MiB
+[    0.000000] OF: reserved mem: initialized node rvas, compatible id shared-dma-pool
+[    0.000000] Reserved memory: created DMA memory pool at 0xbf000000, size 16 MiB
+[    0.000000] OF: reserved mem: initialized node region@bf000000, compatible id shared-dma-pool
+[    0.000000] cma: Reserved 16 MiB at 0xaf000000
+[    0.000000] On node 0 totalpages: 237312
+[    0.000000]   Normal zone: 1920 pages used for memmap
+[    0.000000]   Normal zone: 0 pages reserved
+[    0.000000]   Normal zone: 237312 pages, LIFO batch:63
+[    0.000000] percpu: Embedded 20 pages/cpu s49484 r8192 d24244 u81920
+[    0.000000] pcpu-alloc: s49484 r8192 d24244 u81920 alloc=20*4096
+[    0.000000] pcpu-alloc: [0] 0 [0] 1 
+[    0.000000] Built 1 zonelists, mobility grouping on.  Total pages: 235392
+[    0.000000] Kernel command line: console=ttyS4,115200n8 root=/dev/ram ro ramdisk_size=30880 initcall_debug=1 ftrace=function_graph ftrace_graph_max_depth=8 ftrace_graph_filter=ast8250_probe
+[    0.000000] Dentry cache hash table entries: 131072 (order: 7, 524288 bytes, linear)
+[    0.000000] Inode-cache hash table entries: 65536 (order: 6, 262144 bytes, linear)
+[    0.000000] mem auto-init: stack:off, heap alloc:off, heap free:off
+[    0.000000] Memory: 744848K/949248K available (10240K kernel code, 641K rwdata, 2512K rodata, 1024K init, 419K bss, 40560K reserved, 163840K cma-reserved, 0K highmem)
+[    0.000000] random: get_random_u32 called from cache_alloc_refill+0x438/0x990 with crng_init=0
+[    0.000000] ftrace: allocating 32025 entries in 63 pages
+[    0.000000] rcu: Hierarchical RCU implementation.
+[    0.000000] rcu:     RCU event tracing is enabled.
+[    0.000000] rcu: RCU calculated value of scheduler-enlistment delay is 10 jiffies.
+[    0.000000] NR_IRQS: 16, nr_irqs: 16, preallocated irqs: 16
+[    0.000000] arch_timer: cp15 timer(s) running at 1200.00MHz (phys).
+[    0.000000] clocksource: arch_sys_counter: mask: 0xffffffffffffff max_cycles: 0x114c1bbbeec, max_idle_ns: 440795229572 ns
+[    0.000005] sched_clock: 56 bits at 1200MHz, resolution 0ns, wraps every 2199023255551ns
+[    0.000015] Switching to timer-based delay loop, resolution 0ns
+[    0.000800] calling  univ8250_console_init+0x0/0x44 @ 0
+[    0.000811] [OSLAB] user : 0, nice : 0, system : 0, idle : 0, iowait : 0, irq : 0, softirq : 0
+[    0.000817] [OSLAB] MemTotal : 744848, MemFree : 735936
+[    0.000843] initcall univ8250_console_init+0x0/0x44 returned 0 after 0 usecs
+[    0.000878] Calibrating delay loop (skipped), value calculated using timer frequency.. 2400.00 BogoMIPS (lpj=12000000)
+[    0.000892] pid_max: default: 32768 minimum: 301
+[    0.001117] Mount-cache hash table entries: 2048 (order: 1, 8192 bytes, linear)
+[    0.001130] Mountpoint-cache hash table entries: 2048 (order: 1, 8192 bytes, linear)
+[    0.001818] CPU: Testing write buffer coherency: ok
+[    0.002818] calling  trace_init_flags_sys_exit+0x0/0x30 @ 1
+[    0.002831] [OSLAB] user : 0, nice : 0, system : 0, idle : 0, iowait : 0, irq : 0, softirq : 0
+[    0.002839] [OSLAB] MemTotal : 744848, MemFree : 735336
+[    0.002849] initcall trace_init_flags_sys_exit+0x0/0x30 returned 0 after 0 usecs
+[    0.002856] calling  trace_init_flags_sys_enter+0x0/0x30 @ 1
+[    0.002861] [OSLAB] user : 0, nice : 0, system : 0, idle : 0, iowait : 0, irq : 0, softirq : 0
+[    0.002865] [OSLAB] MemTotal : 744848, MemFree : 735336
+[    0.002873] initcall trace_init_flags_sys_enter+0x0/0x30 returned 0 after 0 usecs
+[    0.002881] calling  cpu_suspend_alloc_sp+0x0/0x88 @ 1
+[    0.002886] [OSLAB] user : 0, nice : 0, system : 0, idle : 0, iowait : 0, irq : 0, softirq : 0
+[    0.002890] [OSLAB] MemTotal : 744848, MemFree : 735336
+[    0.002899] initcall cpu_suspend_alloc_sp+0x0/0x88 returned 0 after 0 usecs
+[    0.002906] calling  init_static_idmap+0x0/0x124 @ 1
+[    0.002912] [OSLAB] user : 0, nice : 0, system : 0, idle : 0, iowait : 0, irq : 0, softirq : 0
+[    0.002915] [OSLAB] MemTotal : 744848, MemFree : 735336
+[    0.002943] Setting up static identity map for 0x80100000 - 0x80100060
+[    0.002956] initcall init_static_idmap+0x0/0x124 returned 0 after 0 usecs
+[    0.002962] calling  spawn_ksoftirqd+0x0/0x60 @ 1
+[    0.002967] [OSLAB] user : 0, nice : 0, system : 0, idle : 0, iowait : 0, irq : 0, softirq : 0
+[    0.002971] [OSLAB] MemTotal : 744848, MemFree : 735320
+[    0.003084] initcall spawn_ksoftirqd+0x0/0x60 returned 0 after 0 usecs
+[    0.003093] calling  migration_init+0x0/0x58 @ 1
+[    0.003099] [OSLAB] user : 0, nice : 0, system : 0, idle : 0, iowait : 0, irq : 0, softirq : 0
+[    0.003103] [OSLAB] MemTotal : 744848, MemFree : 735312
+[    0.003111] initcall migration_init+0x0/0x58 returned 0 after 0 usecs
+[    0.003118] calling  srcu_bootup_announce+0x0/0x4c @ 1
+[    0.003124] [OSLAB] user : 0, nice : 0, system : 0, idle : 0, iowait : 0, irq : 0, softirq : 0
+[    0.003127] [OSLAB] MemTotal : 744848, MemFree : 735312
+[    0.003130] rcu: Hierarchical SRCU implementation.
+[    0.003140] initcall srcu_bootup_announce+0x0/0x4c returned 0 after 0 usecs
+[    0.003146] calling  rcu_sysrq_init+0x0/0x30 @ 1
+[    0.003151] [OSLAB] user : 0, nice : 0, system : 0, idle : 0, iowait : 0, irq : 0, softirq : 0
+[    0.003154] [OSLAB] MemTotal : 744848, MemFree : 735312
+[    0.003162] initcall rcu_sysrq_init+0x0/0x30 returned 0 after 0 usecs
+[    0.003168] calling  check_cpu_stall_init+0x0/0x30 @ 1
+[    0.003173] [OSLAB] user : 0, nice : 0, system : 0, idle : 0, iowait : 0, irq : 0, softirq : 0
+[    0.003177] [OSLAB] MemTotal : 744848, MemFree : 735312
+[    0.003185] initcall check_cpu_stall_init+0x0/0x30 returned 0 after 0 usecs
+[    0.003191] calling  rcu_spawn_gp_kthread+0x0/0x164 @ 1
+[    0.003197] [OSLAB] user : 0, nice : 0, system : 0, idle : 0, iowait : 0, irq : 0, softirq : 0
+[    0.003200] [OSLAB] MemTotal : 744848, MemFree : 735312
+[    0.003291] initcall rcu_spawn_gp_kthread+0x0/0x164 returned 0 after 0 usecs
+[    0.003298] calling  rcu_spawn_core_kthreads+0x0/0xd0 @ 1
+[    0.003305] [OSLAB] user : 0, nice : 0, system : 0, idle : 0, iowait : 0, irq : 0, softirq : 0
+[    0.003309] [OSLAB] MemTotal : 744848, MemFree : 735304
+[    0.003317] initcall rcu_spawn_core_kthreads+0x0/0xd0 returned 0 after 0 usecs
+[    0.003323] calling  cpu_stop_init+0x0/0xc4 @ 1
+[    0.003329] [OSLAB] user : 0, nice : 0, system : 0, idle : 0, iowait : 0, irq : 0, softirq : 0
+[    0.003332] [OSLAB] MemTotal : 744848, MemFree : 735304
+[    0.003426] initcall cpu_stop_init+0x0/0xc4 returned 0 after 0 usecs
+[    0.003433] calling  init_events+0x0/0x7c @ 1
+[    0.003439] [OSLAB] user : 0, nice : 0, system : 0, idle : 0, iowait : 0, irq : 0, softirq : 0
+[    0.003444] [OSLAB] MemTotal : 744848, MemFree : 735288
+[    0.003465] initcall init_events+0x0/0x7c returned 0 after 0 usecs
+[    0.003470] calling  init_trace_printk+0x0/0x1c @ 1
+[    0.003476] [OSLAB] user : 0, nice : 0, system : 0, idle : 0, iowait : 0, irq : 0, softirq : 0
+[    0.003479] [OSLAB] MemTotal : 744848, MemFree : 735288
+[    0.003487] initcall init_trace_printk+0x0/0x1c returned 0 after 0 usecs
+[    0.003493] calling  event_trace_enable_again+0x0/0x30 @ 1
+[    0.003498] [OSLAB] user : 0, nice : 0, system : 0, idle : 0, iowait : 0, irq : 0, softirq : 0
+[    0.003501] [OSLAB] MemTotal : 744848, MemFree : 735288
+[    0.003510] initcall event_trace_enable_again+0x0/0x30 returned 0 after 0 usecs
+[    0.003517] calling  jump_label_init_module+0x0/0x24 @ 1
+[    0.003523] [OSLAB] user : 0, nice : 0, system : 0, idle : 0, iowait : 0, irq : 0, softirq : 0
+[    0.003526] [OSLAB] MemTotal : 744848, MemFree : 735288
+[    0.003534] initcall jump_label_init_module+0x0/0x24 returned 0 after 0 usecs
+[    0.003540] calling  dynamic_debug_init+0x0/0x290 @ 1
+[    0.003546] [OSLAB] user : 0, nice : 0, system : 0, idle : 0, iowait : 0, irq : 0, softirq : 0
+[    0.003549] [OSLAB] MemTotal : 744848, MemFree : 735288
+[    0.005473] initcall dynamic_debug_init+0x0/0x290 returned 0 after 0 usecs
+[    0.005485] calling  dummy_timer_register+0x0/0x48 @ 1
+[    0.005493] [OSLAB] user : 0, nice : 0, system : 0, idle : 0, iowait : 0, irq : 0, softirq : 0
+[    0.005499] [OSLAB] MemTotal : 744848, MemFree : 735288
+[    0.005517] initcall dummy_timer_register+0x0/0x48 returned 0 after 0 usecs
+[    0.005526] calling  initialize_ptr_random+0x0/0x64 @ 1
+[    0.005532] [OSLAB] user : 0, nice : 0, system : 0, idle : 0, iowait : 0, irq : 0, softirq : 0
+[    0.005535] [OSLAB] MemTotal : 744848, MemFree : 735288
+[    0.005546] initcall initialize_ptr_random+0x0/0x64 returned 0 after 0 usecs
+[    0.005908] smp: Bringing up secondary CPUs ...
+[    0.008501] smp: Brought up 1 node, 2 CPUs
+[    0.008517] SMP: Total of 2 processors activated (4800.00 BogoMIPS).
+[    0.008522] CPU: All CPU(s) started in SVC mode.
+[    0.009161] devtmpfs: initialized
+[    0.022061] calling  ipc_ns_init+0x0/0x4c @ 1
+[    0.022077] [OSLAB] user : 0, nice : 0, system : 2, idle : 1, iowait : 0, irq : 0, softirq : 0
+[    0.022085] [OSLAB] MemTotal : 744848, MemFree : 725884
+[    0.022105] initcall ipc_ns_init+0x0/0x4c returned 0 after 0 usecs
+[    0.022112] calling  init_mmap_min_addr+0x0/0x34 @ 1
+[    0.022118] [OSLAB] user : 0, nice : 0, system : 2, idle : 1, iowait : 0, irq : 0, softirq : 0
+[    0.022121] [OSLAB] MemTotal : 744848, MemFree : 725884
+[    0.022128] initcall init_mmap_min_addr+0x0/0x34 returned 0 after 0 usecs
+[    0.022135] calling  pci_realloc_setup_params+0x0/0x64 @ 1
+[    0.022141] [OSLAB] user : 0, nice : 0, system : 2, idle : 1, iowait : 0, irq : 0, softirq : 0
+[    0.022144] [OSLAB] MemTotal : 744848, MemFree : 725884
+[    0.022152] initcall pci_realloc_setup_params+0x0/0x64 returned 0 after 0 usecs
+[    0.022158] calling  net_ns_init+0x0/0x148 @ 1
+[    0.022164] [OSLAB] user : 0, nice : 0, system : 2, idle : 1, iowait : 0, irq : 0, softirq : 0
+[    0.022167] [OSLAB] MemTotal : 744848, MemFree : 725884
+[    0.022505] initcall net_ns_init+0x0/0x148 returned 0 after 0 usecs
+[    0.022677] calling  vfp_init+0x0/0x1b8 @ 1
+[    0.022686] [OSLAB] user : 0, nice : 0, system : 2, idle : 1, iowait : 0, irq : 0, softirq : 0
+[    0.022692] [OSLAB] MemTotal : 744848, MemFree : 725884
+[    0.022705] VFP support v0.3: implementor 41 architecture 2 part 30 variant 7 rev 5
+[    0.022727] initcall vfp_init+0x0/0x1b8 returned 0 after 0 usecs
+[    0.022734] calling  ptrace_break_init+0x0/0x3c @ 1
+[    0.022740] [OSLAB] user : 0, nice : 0, system : 2, idle : 1, iowait : 0, irq : 0, softirq : 0
+[    0.022744] [OSLAB] MemTotal : 744848, MemFree : 725884
+[    0.022752] initcall ptrace_break_init+0x0/0x3c returned 0 after 0 usecs
+[    0.022759] calling  v6_userpage_init+0x0/0x1c @ 1
+[    0.022765] [OSLAB] user : 0, nice : 0, system : 2, idle : 1, iowait : 0, irq : 0, softirq : 0
+[    0.022768] [OSLAB] MemTotal : 744848, MemFree : 725884
+[    0.022774] initcall v6_userpage_init+0x0/0x1c returned 0 after 0 usecs
+[    0.022780] calling  cpu_hotplug_pm_sync_init+0x0/0x28 @ 1
+[    0.022785] [OSLAB] user : 0, nice : 0, system : 2, idle : 1, iowait : 0, irq : 0, softirq : 0
+[    0.022788] [OSLAB] MemTotal : 744848, MemFree : 725884
+[    0.022797] initcall cpu_hotplug_pm_sync_init+0x0/0x28 returned 0 after 0 usecs
+[    0.022802] calling  alloc_frozen_cpus+0x0/0x1c @ 1
+[    0.022808] [OSLAB] user : 0, nice : 0, system : 2, idle : 1, iowait : 0, irq : 0, softirq : 0
+[    0.022811] [OSLAB] MemTotal : 744848, MemFree : 725884
+[    0.022817] initcall alloc_frozen_cpus+0x0/0x1c returned 0 after 0 usecs
+[    0.022824] calling  wq_sysfs_init+0x0/0x40 @ 1
+[    0.022829] [OSLAB] user : 0, nice : 0, system : 2, idle : 1, iowait : 0, irq : 0, softirq : 0
+[    0.022832] [OSLAB] MemTotal : 744848, MemFree : 725884
+[    0.022935] initcall wq_sysfs_init+0x0/0x40 returned 0 after 0 usecs
+[    0.022942] calling  ksysfs_init+0x0/0xb0 @ 1
+[    0.022948] [OSLAB] user : 0, nice : 0, system : 2, idle : 1, iowait : 0, irq : 0, softirq : 0
+[    0.022952] [OSLAB] MemTotal : 744848, MemFree : 725884
+[    0.022994] initcall ksysfs_init+0x0/0xb0 returned 0 after 0 usecs
+[    0.023001] calling  pm_init+0x0/0x74 @ 1
+[    0.023007] [OSLAB] user : 0, nice : 0, system : 2, idle : 1, iowait : 0, irq : 0, softirq : 0
+[    0.023010] [OSLAB] MemTotal : 744848, MemFree : 725884
+[    0.023091] initcall pm_init+0x0/0x74 returned 0 after 0 usecs
+[    0.023098] calling  rcu_set_runtime_mode+0x0/0x2c @ 1
+[    0.023105] [OSLAB] user : 0, nice : 0, system : 2, idle : 1, iowait : 0, irq : 0, softirq : 0
+[    0.023109] [OSLAB] MemTotal : 744848, MemFree : 725884
+[    0.023117] initcall rcu_set_runtime_mode+0x0/0x2c returned 0 after 0 usecs
+[    0.023124] calling  dma_init_reserved_memory+0x0/0x6c @ 1
+[    0.023130] [OSLAB] user : 0, nice : 0, system : 2, idle : 1, iowait : 0, irq : 0, softirq : 0
+[    0.023134] [OSLAB] MemTotal : 744848, MemFree : 725884
+[    0.023141] initcall dma_init_reserved_memory+0x0/0x6c returned -12 after 0 usecs
+[    0.023148] calling  init_jiffies_clocksource+0x0/0x2c @ 1
+[    0.023153] [OSLAB] user : 0, nice : 0, system : 2, idle : 1, iowait : 0, irq : 0, softirq : 0
+[    0.023157] [OSLAB] MemTotal : 744848, MemFree : 725884
+[    0.023166] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 19112604462750000 ns
+[    0.023180] initcall init_jiffies_clocksource+0x0/0x2c returned 0 after 0 usecs
+[    0.023185] calling  futex_init+0x0/0x12c @ 1
+[    0.023191] [OSLAB] user : 0, nice : 0, system : 2, idle : 1, iowait : 0, irq : 0, softirq : 0
+[    0.023194] [OSLAB] MemTotal : 744848, MemFree : 725884
+[    0.023208] futex hash table entries: 512 (order: 3, 32768 bytes, linear)
+[    0.023261] initcall futex_init+0x0/0x12c returned 0 after 0 usecs
+[    0.023267] calling  cgroup_wq_init+0x0/0x48 @ 1
+[    0.023273] [OSLAB] user : 0, nice : 0, system : 2, idle : 1, iowait : 0, irq : 0, softirq : 0
+[    0.023277] [OSLAB] MemTotal : 744848, MemFree : 725884
+[    0.023297] initcall cgroup_wq_init+0x0/0x48 returned 0 after 0 usecs
+[    0.023304] calling  cgroup1_wq_init+0x0/0x48 @ 1
+[    0.023310] [OSLAB] user : 0, nice : 0, system : 2, idle : 1, iowait : 0, irq : 0, softirq : 0
+[    0.023314] [OSLAB] MemTotal : 744848, MemFree : 725884
+[    0.023330] initcall cgroup1_wq_init+0x0/0x48 returned 0 after 0 usecs
+[    0.023336] calling  ftrace_mod_cmd_init+0x0/0x1c @ 1
+[    0.023341] [OSLAB] user : 0, nice : 0, system : 2, idle : 1, iowait : 0, irq : 0, softirq : 0
+[    0.023345] [OSLAB] MemTotal : 744848, MemFree : 725884
+[    0.023353] initcall ftrace_mod_cmd_init+0x0/0x1c returned 0 after 0 usecs
+[    0.023359] calling  init_graph_trace+0x0/0x8c @ 1
+[    0.023365] [OSLAB] user : 0, nice : 0, system : 2, idle : 1, iowait : 0, irq : 0, softirq : 0
+[    0.023368] [OSLAB] MemTotal : 744848, MemFree : 725884
+[    0.023380] Starting tracer 'function_graph'
+[    0.068681] initcall init_graph_trace+0x0/0x8c returned 0 after 9765 usecs
+[    0.068715] calling  cpu_pm_init+0x0/0x28 @ 1
+[    0.068741] [OSLAB] user : 0, nice : 0, system : 4, idle : 1, iowait : 0, irq : 0, softirq : 0
+[    0.068763] [OSLAB] MemTotal : 744848, MemFree : 725884
+[    0.068788] initcall cpu_pm_init+0x0/0x28 returned 0 after 0 usecs
+[    0.068815] calling  init_zero_pfn+0x0/0x54 @ 1
+[    0.068836] [OSLAB] user : 0, nice : 0, system : 4, idle : 1, iowait : 0, irq : 0, softirq : 0
+[    0.068854] [OSLAB] MemTotal : 744848, MemFree : 725884
+[    0.068877] initcall init_zero_pfn+0x0/0x54 returned 0 after 0 usecs
+[    0.068900] calling  cma_init_reserved_areas+0x0/0x1dc @ 1
+[    0.068921] [OSLAB] user : 0, nice : 0, system : 4, idle : 1, iowait : 0, irq : 0, softirq : 0
+[    0.068939] [OSLAB] MemTotal : 744848, MemFree : 725884
+[    0.107914] initcall cma_init_reserved_areas+0x0/0x1dc returned 0 after 29296 usecs
+[    0.107945] calling  fsnotify_init+0x0/0x70 @ 1
+[    0.107972] [OSLAB] user : 0, nice : 0, system : 7, idle : 4, iowait : 0, irq : 0, softirq : 0
+[    0.107993] [OSLAB] MemTotal : 908688, MemFree : 889676
+[    0.108111] initcall fsnotify_init+0x0/0x70 returned 0 after 0 usecs
+[    0.108133] calling  filelock_init+0x0/0xd0 @ 1
+[    0.108156] [OSLAB] user : 0, nice : 0, system : 7, idle : 4, iowait : 0, irq : 0, softirq : 0
+[    0.108174] [OSLAB] MemTotal : 908688, MemFree : 889676
+[    0.108263] initcall filelock_init+0x0/0xd0 returned 0 after 0 usecs
+[    0.108284] calling  init_script_binfmt+0x0/0x2c @ 1
+[    0.108305] [OSLAB] user : 0, nice : 0, system : 7, idle : 4, iowait : 0, irq : 0, softirq : 0
+[    0.108324] [OSLAB] MemTotal : 908688, MemFree : 889676
+[    0.108349] initcall init_script_binfmt+0x0/0x2c returned 0 after 0 usecs
+[    0.108369] calling  init_elf_binfmt+0x0/0x2c @ 1
+[    0.108502] [OSLAB] user : 0, nice : 0, system : 8, idle : 4, iowait : 0, irq : 0, softirq : 0
+[    0.108521] [OSLAB] MemTotal : 908688, MemFree : 889676
+[    0.108547] initcall init_elf_binfmt+0x0/0x2c returned 0 after 0 usecs
+[    0.108570] calling  configfs_init+0x0/0xbc @ 1
+[    0.108591] [OSLAB] user : 0, nice : 0, system : 8, idle : 4, iowait : 0, irq : 0, softirq : 0
+[    0.108609] [OSLAB] MemTotal : 908688, MemFree : 889676
+[    0.108763] initcall configfs_init+0x0/0xbc returned 0 after 0 usecs
+[    0.108785] calling  debugfs_init+0x0/0x74 @ 1
+[    0.108807] [OSLAB] user : 0, nice : 0, system : 8, idle : 4, iowait : 0, irq : 0, softirq : 0
+[    0.108827] [OSLAB] MemTotal : 908688, MemFree : 889676
+[    0.108865] initcall debugfs_init+0x0/0x74 returned 0 after 0 usecs
+[    0.108886] calling  tracefs_init+0x0/0x60 @ 1
+[    0.108907] [OSLAB] user : 0, nice : 0, system : 8, idle : 4, iowait : 0, irq : 0, softirq : 0
+[    0.108925] [OSLAB] MemTotal : 908688, MemFree : 889676
+[    0.108960] initcall tracefs_init+0x0/0x60 returned 0 after 0 usecs
+[    0.108982] calling  prandom_init+0x0/0x10c @ 1
+[    0.109004] [OSLAB] user : 0, nice : 0, system : 8, idle : 4, iowait : 0, irq : 0, softirq : 0
+[    0.109022] [OSLAB] MemTotal : 908688, MemFree : 889676
+[    0.109050] initcall prandom_init+0x0/0x10c returned 0 after 0 usecs
+[    0.109070] calling  pinctrl_init+0x0/0xe4 @ 1
+[    0.109091] [OSLAB] user : 0, nice : 0, system : 8, idle : 4, iowait : 0, irq : 0, softirq : 0
+[    0.109109] [OSLAB] MemTotal : 908688, MemFree : 889676
+[    0.109125] pinctrl core: initialized pinctrl subsystem
+[    0.109457] initcall pinctrl_init+0x0/0xe4 returned 0 after 0 usecs
+[    0.109480] calling  gpiolib_dev_init+0x0/0xdc @ 1
+[    0.109503] [OSLAB] user : 0, nice : 0, system : 8, idle : 4, iowait : 0, irq : 0, softirq : 0
+[    0.109521] [OSLAB] MemTotal : 908688, MemFree : 889676
+[    0.109691] initcall gpiolib_dev_init+0x0/0xdc returned 0 after 0 usecs
+[    0.109714] calling  aspeed_g6_clk_init+0x0/0x28 @ 1
+[    0.109736] [OSLAB] user : 0, nice : 0, system : 8, idle : 4, iowait : 0, irq : 0, softirq : 0
+[    0.109754] [OSLAB] MemTotal : 908688, MemFree : 889676
+[    0.109833] initcall aspeed_g6_clk_init+0x0/0x28 returned 0 after 0 usecs
+[    0.109857] calling  component_debug_init+0x0/0x3c @ 1
+[    0.109879] [OSLAB] user : 0, nice : 0, system : 8, idle : 4, iowait : 0, irq : 0, softirq : 0
+[    0.109897] [OSLAB] MemTotal : 908688, MemFree : 889676
+[    0.109956] initcall component_debug_init+0x0/0x3c returned 0 after 0 usecs
+[    0.109978] calling  sock_init+0x0/0xc4 @ 1
+[    0.109999] [OSLAB] user : 0, nice : 0, system : 8, idle : 4, iowait : 0, irq : 0, softirq : 0
+[    0.110017] [OSLAB] MemTotal : 908688, MemFree : 889676
+[    0.110703] initcall sock_init+0x0/0xc4 returned 0 after 0 usecs
+[    0.110726] calling  net_inuse_init+0x0/0x34 @ 1
+[    0.110749] [OSLAB] user : 0, nice : 0, system : 8, idle : 4, iowait : 0, irq : 0, softirq : 0
+[    0.110767] [OSLAB] MemTotal : 908688, MemFree : 889676
+[    0.110816] initcall net_inuse_init+0x0/0x34 returned 0 after 0 usecs
+[    0.110836] calling  net_defaults_init+0x0/0x34 @ 1
+[    0.110858] [OSLAB] user : 0, nice : 0, system : 8, idle : 4, iowait : 0, irq : 0, softirq : 0
+[    0.110877] [OSLAB] MemTotal : 908688, MemFree : 889676
+[    0.110902] initcall net_defaults_init+0x0/0x34 returned 0 after 0 usecs
+[    0.110923] calling  init_default_flow_dissectors+0x0/0x64 @ 1
+[    0.110944] [OSLAB] user : 0, nice : 0, system : 8, idle : 4, iowait : 0, irq : 0, softirq : 0
+[    0.110962] [OSLAB] MemTotal : 908688, MemFree : 889676
+[    0.110990] initcall init_default_flow_dissectors+0x0/0x64 returned 0 after 0 usecs
+[    0.111010] calling  netpoll_init+0x0/0x34 @ 1
+[    0.111032] [OSLAB] user : 0, nice : 0, system : 8, idle : 4, iowait : 0, irq : 0, softirq : 0
+[    0.111050] [OSLAB] MemTotal : 908688, MemFree : 889676
+[    0.111072] initcall netpoll_init+0x0/0x34 returned 0 after 0 usecs
+[    0.111094] calling  netlink_proto_init+0x0/0x148 @ 1
+[    0.111115] [OSLAB] user : 0, nice : 0, system : 8, idle : 4, iowait : 0, irq : 0, softirq : 0
+[    0.111133] [OSLAB] MemTotal : 908688, MemFree : 889676
+[    0.111359] NET: Registered protocol family 16
+[    0.111525] initcall netlink_proto_init+0x0/0x148 returned 0 after 0 usecs
+[    0.112543] calling  atomic_pool_init+0x0/0x1ac @ 1
+[    0.112567] [OSLAB] user : 0, nice : 0, system : 8, idle : 4, iowait : 0, irq : 0, softirq : 0
+[    0.112586] [OSLAB] MemTotal : 908688, MemFree : 889676
+[    0.117472] DMA: preallocated 256 KiB pool for atomic coherent allocations
+[    0.117513] initcall atomic_pool_init+0x0/0x1ac returned 0 after 0 usecs
+[    0.117539] calling  irq_sysfs_init+0x0/0xc4 @ 1
+[    0.117563] [OSLAB] user : 0, nice : 0, system : 8, idle : 4, iowait : 0, irq : 0, softirq : 0
+[    0.117583] [OSLAB] MemTotal : 908688, MemFree : 889620
+[    0.119720] initcall irq_sysfs_init+0x0/0xc4 returned 0 after 9765 usecs
+[    0.119746] calling  release_early_probes+0x0/0x54 @ 1
+[    0.119770] [OSLAB] user : 0, nice : 0, system : 9, idle : 5, iowait : 0, irq : 0, softirq : 0
+[    0.119789] [OSLAB] MemTotal : 908688, MemFree : 889368
+[    0.119816] initcall release_early_probes+0x0/0x54 returned 0 after 0 usecs
+[    0.119840] calling  bdi_class_init+0x0/0x6c @ 1
+[    0.119861] [OSLAB] user : 0, nice : 0, system : 9, idle : 5, iowait : 0, irq : 0, softirq : 0
+[    0.119879] [OSLAB] MemTotal : 908688, MemFree : 889368
+[    0.120010] initcall bdi_class_init+0x0/0x6c returned 0 after 0 usecs
+[    0.120033] calling  mm_sysfs_init+0x0/0x48 @ 1
+[    0.120055] [OSLAB] user : 0, nice : 0, system : 9, idle : 5, iowait : 0, irq : 0, softirq : 0
+[    0.120074] [OSLAB] MemTotal : 908688, MemFree : 889368
+[    0.120115] initcall mm_sysfs_init+0x0/0x48 returned 0 after 0 usecs
+[    0.120137] calling  init_per_zone_wmark_min+0x0/0x78 @ 1
+[    0.120159] [OSLAB] user : 0, nice : 0, system : 9, idle : 5, iowait : 0, irq : 0, softirq : 0
+[    0.120177] [OSLAB] MemTotal : 908688, MemFree : 889368
+[    0.120221] initcall init_per_zone_wmark_min+0x0/0x78 returned 0 after 0 usecs
+[    0.120243] calling  gpiolib_sysfs_init+0x0/0xb4 @ 1
+[    0.120265] [OSLAB] user : 0, nice : 0, system : 9, idle : 5, iowait : 0, irq : 0, softirq : 0
+[    0.120283] [OSLAB] MemTotal : 908688, MemFree : 889368
+[    0.120366] initcall gpiolib_sysfs_init+0x0/0xb4 returned 0 after 0 usecs
+[    0.120390] calling  pcibus_class_init+0x0/0x2c @ 1
+[    0.120411] [OSLAB] user : 0, nice : 0, system : 9, idle : 5, iowait : 0, irq : 0, softirq : 0
+[    0.120429] [OSLAB] MemTotal : 908688, MemFree : 889368
+[    0.120482] initcall pcibus_class_init+0x0/0x2c returned 0 after 0 usecs
+[    0.120503] calling  pci_driver_init+0x0/0x38 @ 1
+[    0.120524] [OSLAB] user : 0, nice : 0, system : 9, idle : 5, iowait : 0, irq : 0, softirq : 0
+[    0.120542] [OSLAB] MemTotal : 908688, MemFree : 889368
+[    0.120767] initcall pci_driver_init+0x0/0x38 returned 0 after 0 usecs
+[    0.120790] calling  tty_class_init+0x0/0x50 @ 1
+[    0.120811] [OSLAB] user : 0, nice : 0, system : 9, idle : 5, iowait : 0, irq : 0, softirq : 0
+[    0.120829] [OSLAB] MemTotal : 908688, MemFree : 889368
+[    0.120883] initcall tty_class_init+0x0/0x50 returned 0 after 0 usecs
+[    0.120907] calling  software_node_init+0x0/0x4c @ 1
+[    0.120930] [OSLAB] user : 0, nice : 0, system : 9, idle : 5, iowait : 0, irq : 0, softirq : 0
+[    0.120948] [OSLAB] MemTotal : 908688, MemFree : 889368
+[    0.120987] initcall software_node_init+0x0/0x4c returned 0 after 0 usecs
+[    0.121009] calling  wakeup_sources_debugfs_init+0x0/0x48 @ 1
+[    0.121030] [OSLAB] user : 0, nice : 0, system : 9, idle : 5, iowait : 0, irq : 0, softirq : 0
+[    0.121048] [OSLAB] MemTotal : 908688, MemFree : 889368
+[    0.121113] initcall wakeup_sources_debugfs_init+0x0/0x48 returned 0 after 0 usecs
+[    0.121135] calling  wakeup_sources_sysfs_init+0x0/0x40 @ 1
+[    0.121156] [OSLAB] user : 0, nice : 0, system : 9, idle : 5, iowait : 0, irq : 0, softirq : 0
+[    0.121174] [OSLAB] MemTotal : 908688, MemFree : 889368
+[    0.121231] initcall wakeup_sources_sysfs_init+0x0/0x40 returned 0 after 0 usecs
+[    0.121253] calling  regmap_initcall+0x0/0x20 @ 1
+[    0.121274] [OSLAB] user : 0, nice : 0, system : 9, idle : 5, iowait : 0, irq : 0, softirq : 0
+[    0.121292] [OSLAB] MemTotal : 908688, MemFree : 889368
+[    0.121532] initcall regmap_initcall+0x0/0x20 returned 0 after 0 usecs
+[    0.121552] calling  sram_init+0x0/0x28 @ 1
+[    0.121574] [OSLAB] user : 0, nice : 0, system : 9, idle : 5, iowait : 0, irq : 0, softirq : 0
+[    0.121592] [OSLAB] MemTotal : 908688, MemFree : 889368
+[    0.121688] initcall sram_init+0x0/0x28 returned 0 after 0 usecs
+[    0.121709] calling  syscon_init+0x0/0x28 @ 1
+[    0.121731] [OSLAB] user : 0, nice : 0, system : 9, idle : 5, iowait : 0, irq : 0, softirq : 0
+[    0.121749] [OSLAB] MemTotal : 908688, MemFree : 889368
+[    0.121837] initcall syscon_init+0x0/0x28 returned 0 after 0 usecs
+[    0.121858] calling  spi_init+0x0/0x9c @ 1
+[    0.121879] [OSLAB] user : 0, nice : 0, system : 9, idle : 5, iowait : 0, irq : 0, softirq : 0
+[    0.121897] [OSLAB] MemTotal : 908688, MemFree : 889368
+[    0.122039] initcall spi_init+0x0/0x9c returned 0 after 0 usecs
+[    0.122062] calling  i2c_init+0x0/0xa4 @ 1
+[    0.122084] [OSLAB] user : 0, nice : 0, system : 9, idle : 5, iowait : 0, irq : 0, softirq : 0
+[    0.122102] [OSLAB] MemTotal : 908688, MemFree : 889368
+[    0.122285] initcall i2c_init+0x0/0xa4 returned 0 after 0 usecs
+[    0.122306] calling  aspeed_i2c_global_init+0x0/0x28 @ 1
+[    0.122327] [OSLAB] user : 0, nice : 0, system : 9, idle : 5, iowait : 0, irq : 0, softirq : 0
+[    0.122345] [OSLAB] MemTotal : 908688, MemFree : 889368
+[    0.122433] initcall aspeed_i2c_global_init+0x0/0x28 returned 0 after 0 usecs
+[    0.122454] calling  aspeed_i3c_global_init+0x0/0x28 @ 1
+[    0.122476] [OSLAB] user : 0, nice : 0, system : 9, idle : 5, iowait : 0, irq : 0, softirq : 0
+[    0.122494] [OSLAB] MemTotal : 908688, MemFree : 889368
+[    0.122581] initcall aspeed_i3c_global_init+0x0/0x28 returned 0 after 0 usecs
+[    0.122603] calling  fsi_init+0x0/0x88 @ 1
+[    0.122624] [OSLAB] user : 0, nice : 0, system : 9, idle : 5, iowait : 0, irq : 0, softirq : 0
+[    0.122642] [OSLAB] MemTotal : 908688, MemFree : 889368
+[    0.122798] initcall fsi_init+0x0/0x88 returned 0 after 0 usecs
+[    0.122821] calling  kobject_uevent_init+0x0/0x1c @ 1
+[    0.122843] [OSLAB] user : 0, nice : 0, system : 9, idle : 5, iowait : 0, irq : 0, softirq : 0
+[    0.122861] [OSLAB] MemTotal : 908688, MemFree : 889368
+[    0.122934] initcall kobject_uevent_init+0x0/0x1c returned 0 after 0 usecs
+[    0.123943] calling  gate_vma_init+0x0/0x80 @ 1
+[    0.123965] [OSLAB] user : 0, nice : 0, system : 9, idle : 5, iowait : 0, irq : 0, softirq : 0
+[    0.123984] [OSLAB] MemTotal : 908688, MemFree : 889368
+[    0.124008] initcall gate_vma_init+0x0/0x80 returned 0 after 0 usecs
+[    0.124030] calling  customize_machine+0x0/0x38 @ 1
+[    0.124051] [OSLAB] user : 0, nice : 0, system : 9, idle : 5, iowait : 0, irq : 0, softirq : 0
+[    0.124069] [OSLAB] MemTotal : 908688, MemFree : 889368
+[    0.124093] initcall customize_machine+0x0/0x38 returned 0 after 0 usecs
+[    0.124114] calling  arch_hw_breakpoint_init+0x0/0x278 @ 1
+[    0.124135] [OSLAB] user : 0, nice : 0, system : 9, idle : 5, iowait : 0, irq : 0, softirq : 0
+[    0.124153] [OSLAB] MemTotal : 908688, MemFree : 889368
+[    0.124390] hw-breakpoint: found 5 (+1 reserved) breakpoint and 4 watchpoint registers.
+[    0.124416] hw-breakpoint: maximum watchpoint size is 8 bytes.
+[    0.124450] initcall arch_hw_breakpoint_init+0x0/0x278 returned 0 after 0 usecs
+[    0.124471] calling  vdso_init+0x0/0x210 @ 1
+[    0.124494] [OSLAB] user : 0, nice : 0, system : 9, idle : 5, iowait : 0, irq : 0, softirq : 0
+[    0.124513] [OSLAB] MemTotal : 908688, MemFree : 889368
+[    0.124569] initcall vdso_init+0x0/0x210 returned 0 after 0 usecs
+[    0.124590] calling  exceptions_init+0x0/0xa0 @ 1
+[    0.124611] [OSLAB] user : 0, nice : 0, system : 9, idle : 5, iowait : 0, irq : 0, softirq : 0
+[    0.124629] [OSLAB] MemTotal : 908688, MemFree : 889368
+[    0.124655] initcall exceptions_init+0x0/0xa0 returned 0 after 0 usecs
+[    0.124677] calling  cryptomgr_init+0x0/0x24 @ 1
+[    0.124698] [OSLAB] user : 0, nice : 0, system : 9, idle : 5, iowait : 0, irq : 0, softirq : 0
+[    0.124716] [OSLAB] MemTotal : 908688, MemFree : 889368
+[    0.124741] initcall cryptomgr_init+0x0/0x24 returned 0 after 0 usecs
+[    0.124765] calling  aspeed_g6_pinctrl_init+0x0/0x28 @ 1
+[    0.124787] [OSLAB] user : 0, nice : 0, system : 9, idle : 5, iowait : 0, irq : 0, softirq : 0
+[    0.124805] [OSLAB] MemTotal : 908688, MemFree : 889368
+[    0.124910] initcall aspeed_g6_pinctrl_init+0x0/0x28 returned 0 after 0 usecs
+[    0.124933] calling  aspeed_h2x_init+0x0/0x28 @ 1
+[    0.124954] [OSLAB] user : 0, nice : 0, system : 9, idle : 5, iowait : 0, irq : 0, softirq : 0
+[    0.124972] [OSLAB] MemTotal : 908688, MemFree : 889368
+[    0.125063] initcall aspeed_h2x_init+0x0/0x28 returned 0 after 0 usecs
+[    0.125087] calling  aspeed_wdt_init+0x0/0x28 @ 1
+[    0.125108] [OSLAB] user : 0, nice : 0, system : 9, idle : 5, iowait : 0, irq : 0, softirq : 0
+[    0.125127] [OSLAB] MemTotal : 908688, MemFree : 889368
+[    0.125229] initcall aspeed_wdt_init+0x0/0x28 returned 0 after 0 usecs
+[    0.125252] calling  of_platform_default_populate_init+0x0/0xc8 @ 1
+[    0.125273] [OSLAB] user : 0, nice : 0, system : 9, idle : 5, iowait : 0, irq : 0, softirq : 0
+[    0.125292] [OSLAB] MemTotal : 908688, MemFree : 889368
+[    0.131566] probe of 10000000.sram returned 1 after 0 usecs
+[    0.132345] probe of 1a000000.sram returned 1 after 0 usecs
+[    0.153230] probe of 1e6e2000.syscon returned 1 after 10000 usecs
+[    0.154823] probe of 1e6e2000.syscon:pinctrl returned 1 after 0 usecs
+[    0.167785] probe of 1e770000.h2x returned 1 after 0 usecs
+[    0.172376] probe of 1e785000.watchdog returned 1 after 0 usecs
+[    0.183988] i2cg - base_clk0 : 1000000 
+[    0.184131] i2cg - base_clk1 : 4000000 
+[    0.184243] i2cg - base_clk2 : 10000000 
+[    0.184355] i2cg - base_clk3 : 33333333 
+[    0.184517] i2c global registered 
+[    0.184598] probe of 1e78a000.i2c-global-regs returned 1 after 0 usecs
+[    0.194453] probe of 1e7a0000.i3cg returned 1 after 0 usecs
+[    0.198747] initcall of_platform_default_populate_init+0x0/0xc8 returned 0 after 68359 usecs
+[    0.199835] calling  topology_init+0x0/0x7c @ 1
+[    0.199862] [OSLAB] user : 0, nice : 0, system : 17, idle : 13, iowait : 0, irq : 0, softirq : 0
+[    0.199884] [OSLAB] MemTotal : 908688, MemFree : 889116
+[    0.200497] initcall topology_init+0x0/0x7c returned 0 after 0 usecs
+[    0.200522] calling  uid_cache_init+0x0/0xc4 @ 1
+[    0.200546] [OSLAB] user : 0, nice : 0, system : 17, idle : 13, iowait : 0, irq : 0, softirq : 0
+[    0.200565] [OSLAB] MemTotal : 908688, MemFree : 889116
+[    0.200625] initcall uid_cache_init+0x0/0xc4 returned 0 after 0 usecs
+[    0.200648] calling  param_sysfs_init+0x0/0x260 @ 1
+[    0.200670] [OSLAB] user : 0, nice : 0, system : 17, idle : 13, iowait : 0, irq : 0, softirq : 0
+[    0.200688] [OSLAB] MemTotal : 908688, MemFree : 889116
+[    0.225192] initcall param_sysfs_init+0x0/0x260 returned 0 after 19531 usecs
+[    0.225218] calling  user_namespace_sysctl_init+0x0/0x54 @ 1
+[    0.225242] [OSLAB] user : 0, nice : 0, system : 19, idle : 15, iowait : 0, irq : 0, softirq : 0
+[    0.225262] [OSLAB] MemTotal : 908688, MemFree : 889116
+[    0.225378] initcall user_namespace_sysctl_init+0x0/0x54 returned 0 after 0 usecs
+[    0.225401] calling  crash_save_vmcoreinfo_init+0x0/0x5e0 @ 1
+[    0.225424] [OSLAB] user : 0, nice : 0, system : 19, idle : 15, iowait : 0, irq : 0, softirq : 0
+[    0.225442] [OSLAB] MemTotal : 908688, MemFree : 889116
+[    0.225597] initcall crash_save_vmcoreinfo_init+0x0/0x5e0 returned 0 after 0 usecs
+[    0.225619] calling  crash_notes_memory_init+0x0/0x50 @ 1
+[    0.225641] [OSLAB] user : 0, nice : 0, system : 19, idle : 15, iowait : 0, irq : 0, softirq : 0
+[    0.225659] [OSLAB] MemTotal : 908688, MemFree : 889116
+[    0.225707] initcall crash_notes_memory_init+0x0/0x50 returned 0 after 0 usecs
+[    0.225728] calling  cgroup_sysfs_init+0x0/0x30 @ 1
+[    0.225751] [OSLAB] user : 0, nice : 0, system : 19, idle : 15, iowait : 0, irq : 0, softirq : 0
+[    0.225769] [OSLAB] MemTotal : 908688, MemFree : 889116
+[    0.225831] initcall cgroup_sysfs_init+0x0/0x30 returned 0 after 0 usecs
+[    0.225852] calling  cgroup_namespaces_init+0x0/0x1c @ 1
+[    0.225874] [OSLAB] user : 0, nice : 0, system : 19, idle : 15, iowait : 0, irq : 0, softirq : 0
+[    0.225892] [OSLAB] MemTotal : 908688, MemFree : 889116
+[    0.225915] initcall cgroup_namespaces_init+0x0/0x1c returned 0 after 0 usecs
+[    0.225935] calling  user_namespaces_init+0x0/0x54 @ 1
+[    0.225957] [OSLAB] user : 0, nice : 0, system : 19, idle : 15, iowait : 0, irq : 0, softirq : 0
+[    0.225975] [OSLAB] MemTotal : 908688, MemFree : 889116
+[    0.226086] initcall user_namespaces_init+0x0/0x54 returned 0 after 0 usecs
+[    0.226107] calling  hung_task_init+0x0/0x74 @ 1
+[    0.226129] [OSLAB] user : 0, nice : 0, system : 19, idle : 15, iowait : 0, irq : 0, softirq : 0
+[    0.226148] [OSLAB] MemTotal : 908688, MemFree : 889116
+[    0.226459] initcall hung_task_init+0x0/0x74 returned 0 after 0 usecs
+[    0.226485] calling  send_signal_irq_work_init+0x0/0x6c @ 1
+[    0.226508] [OSLAB] user : 0, nice : 0, system : 19, idle : 15, iowait : 0, irq : 0, softirq : 0
+[    0.226527] [OSLAB] MemTotal : 908688, MemFree : 889116
+[    0.226551] initcall send_signal_irq_work_init+0x0/0x6c returned 0 after 0 usecs
+[    0.226572] calling  dev_map_init+0x0/0x28 @ 1
+[    0.226594] [OSLAB] user : 0, nice : 0, system : 19, idle : 15, iowait : 0, irq : 0, softirq : 0
+[    0.226612] [OSLAB] MemTotal : 908688, MemFree : 889116
+[    0.226644] initcall dev_map_init+0x0/0x28 returned 0 after 0 usecs
+[    0.226665] calling  stack_map_init+0x0/0x74 @ 1
+[    0.226686] [OSLAB] user : 0, nice : 0, system : 19, idle : 15, iowait : 0, irq : 0, softirq : 0
+[    0.226704] [OSLAB] MemTotal : 908688, MemFree : 889116
+[    0.226728] initcall stack_map_init+0x0/0x74 returned 0 after 0 usecs
+[    0.226750] calling  oom_init+0x0/0x44 @ 1
+[    0.226771] [OSLAB] user : 0, nice : 0, system : 19, idle : 15, iowait : 0, irq : 0, softirq : 0
+[    0.226789] [OSLAB] MemTotal : 908688, MemFree : 889116
+[    0.227012] initcall oom_init+0x0/0x44 returned 0 after 0 usecs
+[    0.227035] calling  default_bdi_init+0x0/0xa8 @ 1
+[    0.227057] [OSLAB] user : 0, nice : 0, system : 19, idle : 15, iowait : 0, irq : 0, softirq : 0
+[    0.227076] [OSLAB] MemTotal : 908688, MemFree : 889116
+[    0.227735] initcall default_bdi_init+0x0/0xa8 returned 0 after 0 usecs
+[    0.227761] calling  percpu_enable_async+0x0/0x2c @ 1
+[    0.227784] [OSLAB] user : 0, nice : 0, system : 19, idle : 15, iowait : 0, irq : 0, softirq : 0
+[    0.227803] [OSLAB] MemTotal : 908688, MemFree : 889116
+[    0.227827] initcall percpu_enable_async+0x0/0x2c returned 0 after 0 usecs
+[    0.227852] calling  init_reserve_notifier+0x0/0x14 @ 1
+[    0.227874] [OSLAB] user : 0, nice : 0, system : 19, idle : 15, iowait : 0, irq : 0, softirq : 0
+[    0.227892] [OSLAB] MemTotal : 908688, MemFree : 889116
+[    0.227916] initcall init_reserve_notifier+0x0/0x14 returned 0 after 0 usecs
+[    0.227939] calling  init_admin_reserve+0x0/0x44 @ 1
+[    0.227961] [OSLAB] user : 0, nice : 0, system : 19, idle : 15, iowait : 0, irq : 0, softirq : 0
+[    0.227979] [OSLAB] MemTotal : 908688, MemFree : 889116
+[    0.228002] initcall init_admin_reserve+0x0/0x44 returned 0 after 0 usecs
+[    0.228023] calling  init_user_reserve+0x0/0x44 @ 1
+[    0.228045] [OSLAB] user : 0, nice : 0, system : 19, idle : 15, iowait : 0, irq : 0, softirq : 0
+[    0.228063] [OSLAB] MemTotal : 908688, MemFree : 889116
+[    0.228086] initcall init_user_reserve+0x0/0x44 returned 0 after 0 usecs
+[    0.228107] calling  seqiv_module_init+0x0/0x24 @ 1
+[    0.228129] [OSLAB] user : 0, nice : 0, system : 19, idle : 15, iowait : 0, irq : 0, softirq : 0
+[    0.228147] [OSLAB] MemTotal : 908688, MemFree : 889116
+[    0.228173] initcall seqiv_module_init+0x0/0x24 returned 0 after 0 usecs
+[    0.228197] calling  rsa_init+0x0/0x54 @ 1
+[    0.228219] [OSLAB] user : 0, nice : 0, system : 19, idle : 15, iowait : 0, irq : 0, softirq : 0
+[    0.228237] [OSLAB] MemTotal : 908688, MemFree : 889116
+[    0.228675] initcall rsa_init+0x0/0x54 returned 0 after 0 usecs
+[    0.228701] calling  hmac_module_init+0x0/0x24 @ 1
+[    0.228725] [OSLAB] user : 0, nice : 0, system : 19, idle : 16, iowait : 0, irq : 0, softirq : 0
+[    0.228744] [OSLAB] MemTotal : 908688, MemFree : 889116
+[    0.228769] initcall hmac_module_init+0x0/0x24 returned 0 after 0 usecs
+[    0.228790] calling  crypto_null_mod_init+0x0/0x74 @ 1
+[    0.228812] [OSLAB] user : 0, nice : 0, system : 19, idle : 16, iowait : 0, irq : 0, softirq : 0
+[    0.228830] [OSLAB] MemTotal : 908688, MemFree : 889116
+[    0.230259] initcall crypto_null_mod_init+0x0/0x74 returned 0 after 9765 usecs
+[    0.230284] calling  md5_mod_init+0x0/0x24 @ 1
+[    0.230307] [OSLAB] user : 0, nice : 0, system : 20, idle : 16, iowait : 0, irq : 0, softirq : 0
+[    0.230327] [OSLAB] MemTotal : 908688, MemFree : 889044
+[    0.230690] initcall md5_mod_init+0x0/0x24 returned 0 after 0 usecs
+[    0.230712] calling  sha1_generic_mod_init+0x0/0x24 @ 1
+[    0.230736] [OSLAB] user : 0, nice : 0, system : 20, idle : 16, iowait : 0, irq : 0, softirq : 0
+[    0.230754] [OSLAB] MemTotal : 908688, MemFree : 889044
+[    0.231099] initcall sha1_generic_mod_init+0x0/0x24 returned 0 after 0 usecs
+[    0.231121] calling  sha256_generic_mod_init+0x0/0x28 @ 1
+[    0.231143] [OSLAB] user : 0, nice : 0, system : 20, idle : 16, iowait : 0, irq : 0, softirq : 0
+[    0.231162] [OSLAB] MemTotal : 908688, MemFree : 889044
+[    0.231844] initcall sha256_generic_mod_init+0x0/0x28 returned 0 after 0 usecs
+[    0.231866] calling  sha512_generic_mod_init+0x0/0x28 @ 1
+[    0.231889] [OSLAB] user : 0, nice : 0, system : 20, idle : 16, iowait : 0, irq : 0, softirq : 0
+[    0.231908] [OSLAB] MemTotal : 908688, MemFree : 889044
+[    0.232566] initcall sha512_generic_mod_init+0x0/0x28 returned 0 after 0 usecs
+[    0.232589] calling  crypto_ecb_module_init+0x0/0x24 @ 1
+[    0.232611] [OSLAB] user : 0, nice : 0, system : 20, idle : 16, iowait : 0, irq : 0, softirq : 0
+[    0.232630] [OSLAB] MemTotal : 908688, MemFree : 888972
+[    0.232655] initcall crypto_ecb_module_init+0x0/0x24 returned 0 after 0 usecs
+[    0.232676] calling  crypto_cbc_module_init+0x0/0x24 @ 1
+[    0.232698] [OSLAB] user : 0, nice : 0, system : 20, idle : 16, iowait : 0, irq : 0, softirq : 0
+[    0.232715] [OSLAB] MemTotal : 908688, MemFree : 888972
+[    0.232739] initcall crypto_cbc_module_init+0x0/0x24 returned 0 after 0 usecs
+[    0.232760] calling  crypto_cfb_module_init+0x0/0x24 @ 1
+[    0.232781] [OSLAB] user : 0, nice : 0, system : 20, idle : 16, iowait : 0, irq : 0, softirq : 0
+[    0.232799] [OSLAB] MemTotal : 908688, MemFree : 888972
+[    0.232823] initcall crypto_cfb_module_init+0x0/0x24 returned 0 after 0 usecs
+[    0.232844] calling  crypto_ctr_module_init+0x0/0x28 @ 1
+[    0.232865] [OSLAB] user : 0, nice : 0, system : 20, idle : 16, iowait : 0, irq : 0, softirq : 0
+[    0.232883] [OSLAB] MemTotal : 908688, MemFree : 888972
+[    0.232910] initcall crypto_ctr_module_init+0x0/0x28 returned 0 after 0 usecs
+[    0.232930] calling  des_generic_mod_init+0x0/0x28 @ 1
+[    0.232952] [OSLAB] user : 0, nice : 0, system : 20, idle : 16, iowait : 0, irq : 0, softirq : 0
+[    0.232970] [OSLAB] MemTotal : 908688, MemFree : 888972
+[    0.233643] initcall des_generic_mod_init+0x0/0x28 returned 0 after 0 usecs
+[    0.233665] calling  aes_init+0x0/0x24 @ 1
+[    0.233688] [OSLAB] user : 0, nice : 0, system : 20, idle : 16, iowait : 0, irq : 0, softirq : 0
+[    0.233706] [OSLAB] MemTotal : 908688, MemFree : 888972
+[    0.234052] initcall aes_init+0x0/0x24 returned 0 after 0 usecs
+[    0.234073] calling  deflate_mod_init+0x0/0x54 @ 1
+[    0.234095] [OSLAB] user : 0, nice : 0, system : 20, idle : 16, iowait : 0, irq : 0, softirq : 0
+[    0.234114] [OSLAB] MemTotal : 908688, MemFree : 888972
+[    0.235101] initcall deflate_mod_init+0x0/0x54 returned 0 after 0 usecs
+[    0.235125] calling  crc32c_mod_init+0x0/0x24 @ 1
+[    0.235148] [OSLAB] user : 0, nice : 0, system : 20, idle : 16, iowait : 0, irq : 0, softirq : 0
+[    0.235168] [OSLAB] MemTotal : 908688, MemFree : 888972
+[    0.235528] initcall crc32c_mod_init+0x0/0x24 returned 0 after 0 usecs
+[    0.235550] calling  lzo_mod_init+0x0/0x50 @ 1
+[    0.235572] [OSLAB] user : 0, nice : 0, system : 20, idle : 16, iowait : 0, irq : 0, softirq : 0
+[    0.235591] [OSLAB] MemTotal : 908688, MemFree : 888972
+[    0.236253] initcall lzo_mod_init+0x0/0x50 returned 0 after 0 usecs
+[    0.236276] calling  lzorle_mod_init+0x0/0x50 @ 1
+[    0.236299] [OSLAB] user : 0, nice : 0, system : 20, idle : 16, iowait : 0, irq : 0, softirq : 0
+[    0.236317] [OSLAB] MemTotal : 908688, MemFree : 888900
+[    0.236982] initcall lzorle_mod_init+0x0/0x50 returned 0 after 0 usecs
+[    0.237006] calling  drbg_init+0x0/0xc4 @ 1
+[    0.237028] [OSLAB] user : 0, nice : 0, system : 20, idle : 16, iowait : 0, irq : 0, softirq : 0
+[    0.237047] [OSLAB] MemTotal : 908688, MemFree : 888900
+[    0.239798] initcall drbg_init+0x0/0xc4 returned 0 after 9765 usecs
+[    0.239824] calling  zstd_mod_init+0x0/0x50 @ 1
+[    0.239849] [OSLAB] user : 0, nice : 0, system : 21, idle : 17, iowait : 0, irq : 0, softirq : 0
+[    0.239870] [OSLAB] MemTotal : 908688, MemFree : 888828
+[    0.240564] initcall zstd_mod_init+0x0/0x50 returned 0 after 0 usecs
+[    0.240587] calling  crypto_ofb_module_init+0x0/0x24 @ 1
+[    0.240610] [OSLAB] user : 0, nice : 0, system : 21, idle : 17, iowait : 0, irq : 0, softirq : 0
+[    0.240629] [OSLAB] MemTotal : 908688, MemFree : 888828
+[    0.240654] initcall crypto_ofb_module_init+0x0/0x24 returned 0 after 0 usecs
+[    0.240674] calling  init_bio+0x0/0xd4 @ 1
+[    0.240696] [OSLAB] user : 0, nice : 0, system : 21, idle : 17, iowait : 0, irq : 0, softirq : 0
+[    0.240714] [OSLAB] MemTotal : 908688, MemFree : 888828
+[    0.241031] initcall init_bio+0x0/0xd4 returned 0 after 0 usecs
+[    0.241053] calling  blk_settings_init+0x0/0x4c @ 1
+[    0.241077] [OSLAB] user : 0, nice : 0, system : 21, idle : 17, iowait : 0, irq : 0, softirq : 0
+[    0.241096] [OSLAB] MemTotal : 908688, MemFree : 888828
+[    0.241119] initcall blk_settings_init+0x0/0x4c returned 0 after 0 usecs
+[    0.241139] calling  blk_ioc_init+0x0/0x54 @ 1
+[    0.241161] [OSLAB] user : 0, nice : 0, system : 21, idle : 17, iowait : 0, irq : 0, softirq : 0
+[    0.241179] [OSLAB] MemTotal : 908688, MemFree : 888828
+[    0.241224] initcall blk_ioc_init+0x0/0x54 returned 0 after 0 usecs
+[    0.241245] calling  blk_softirq_init+0x0/0xac @ 1
+[    0.241266] [OSLAB] user : 0, nice : 0, system : 21, idle : 17, iowait : 0, irq : 0, softirq : 0
+[    0.241284] [OSLAB] MemTotal : 908688, MemFree : 888828
+[    0.241313] initcall blk_softirq_init+0x0/0xac returned 0 after 0 usecs
+[    0.241333] calling  blk_mq_init+0x0/0x50 @ 1
+[    0.241355] [OSLAB] user : 0, nice : 0, system : 21, idle : 17, iowait : 0, irq : 0, softirq : 0
+[    0.241373] [OSLAB] MemTotal : 908688, MemFree : 888828
+[    0.241397] initcall blk_mq_init+0x0/0x50 returned 0 after 0 usecs
+[    0.241419] calling  genhd_device_init+0x0/0x90 @ 1
+[    0.241440] [OSLAB] user : 0, nice : 0, system : 21, idle : 17, iowait : 0, irq : 0, softirq : 0
+[    0.241458] [OSLAB] MemTotal : 908688, MemFree : 888828
+[    0.242176] initcall genhd_device_init+0x0/0x90 returned 0 after 0 usecs
+[    0.242202] calling  gpiolib_debugfs_init+0x0/0x48 @ 1
+[    0.242226] [OSLAB] user : 0, nice : 0, system : 21, idle : 17, iowait : 0, irq : 0, softirq : 0
+[    0.242246] [OSLAB] MemTotal : 908688, MemFree : 888024
+[    0.242304] initcall gpiolib_debugfs_init+0x0/0x48 returned 0 after 0 usecs
+[    0.242326] calling  pca953x_init+0x0/0x28 @ 1
+[    0.242348] [OSLAB] user : 0, nice : 0, system : 21, idle : 17, iowait : 0, irq : 0, softirq : 0
+[    0.242366] [OSLAB] MemTotal : 908688, MemFree : 888024
+[    0.242488] initcall pca953x_init+0x0/0x28 returned 0 after 0 usecs
+[    0.242513] calling  pci_slot_init+0x0/0x64 @ 1
+[    0.242535] [OSLAB] user : 0, nice : 0, system : 21, idle : 17, iowait : 0, irq : 0, softirq : 0
+[    0.242553] [OSLAB] MemTotal : 908688, MemFree : 888024
+[    0.242596] initcall pci_slot_init+0x0/0x64 returned 0 after 0 usecs
+[    0.242618] calling  fbmem_init+0x0/0xfc @ 1
+[    0.242639] [OSLAB] user : 0, nice : 0, system : 21, idle : 17, iowait : 0, irq : 0, softirq : 0
+[    0.242657] [OSLAB] MemTotal : 908688, MemFree : 888024
+[    0.242752] initcall fbmem_init+0x0/0xfc returned 0 after 0 usecs
+[    0.242776] calling  misc_init+0x0/0xf4 @ 1
+[    0.242798] [OSLAB] user : 0, nice : 0, system : 21, idle : 17, iowait : 0, irq : 0, softirq : 0
+[    0.242816] [OSLAB] MemTotal : 908688, MemFree : 888024
+[    0.242892] initcall misc_init+0x0/0xf4 returned 0 after 0 usecs
+[    0.242914] calling  vga_arb_device_init+0x0/0x1bc @ 1
+[    0.242936] [OSLAB] user : 0, nice : 0, system : 21, idle : 17, iowait : 0, irq : 0, softirq : 0
+[    0.242954] [OSLAB] MemTotal : 908688, MemFree : 888024
+[    0.243462] vgaarb: loaded
+[    0.243498] initcall vga_arb_device_init+0x0/0x1bc returned 0 after 0 usecs
+[    0.243521] calling  dma_buf_init+0x0/0xdc @ 1
+[    0.243544] [OSLAB] user : 0, nice : 0, system : 21, idle : 17, iowait : 0, irq : 0, softirq : 0
+[    0.243564] [OSLAB] MemTotal : 908688, MemFree : 888024
+[    0.243807] initcall dma_buf_init+0x0/0xdc returned 0 after 0 usecs
+[    0.243829] calling  init_scsi+0x0/0x9c @ 1
+[    0.243853] [OSLAB] user : 0, nice : 0, system : 21, idle : 17, iowait : 0, irq : 0, softirq : 0
+[    0.243871] [OSLAB] MemTotal : 908688, MemFree : 888024
+[    0.244734] SCSI subsystem initialized
+[    0.244765] initcall init_scsi+0x0/0x9c returned 0 after 0 usecs
+[    0.244788] calling  phy_init+0x0/0x474 @ 1
+[    0.244811] [OSLAB] user : 0, nice : 0, system : 21, idle : 17, iowait : 0, irq : 0, softirq : 0
+[    0.244830] [OSLAB] MemTotal : 908688, MemFree : 888024
+[    0.245122] initcall phy_init+0x0/0x474 returned 0 after 0 usecs
+[    0.245144] calling  usb_common_init+0x0/0x3c @ 1
+[    0.245166] [OSLAB] user : 0, nice : 0, system : 21, idle : 17, iowait : 0, irq : 0, softirq : 0
+[    0.245185] [OSLAB] MemTotal : 908688, MemFree : 888024
+[    0.245249] initcall usb_common_init+0x0/0x3c returned 0 after 0 usecs
+[    0.245270] calling  usb_init+0x0/0x158 @ 1
+[    0.245292] [OSLAB] user : 0, nice : 0, system : 21, idle : 17, iowait : 0, irq : 0, softirq : 0
+[    0.245310] [OSLAB] MemTotal : 908688, MemFree : 888024
+[    0.245651] usbcore: registered new interface driver usbfs
+[    0.245814] usbcore: registered new interface driver hub
+[    0.245975] usbcore: registered new device driver usb
+[    0.246005] initcall usb_init+0x0/0x158 returned 0 after 0 usecs
+[    0.246027] calling  usb_udc_init+0x0/0x68 @ 1
+[    0.246050] [OSLAB] user : 0, nice : 0, system : 21, idle : 17, iowait : 0, irq : 0, softirq : 0
+[    0.246069] [OSLAB] MemTotal : 908688, MemFree : 888024
+[    0.246129] initcall usb_udc_init+0x0/0x68 returned 0 after 0 usecs
+[    0.246152] calling  input_init+0x0/0x118 @ 1
+[    0.246173] [OSLAB] user : 0, nice : 0, system : 21, idle : 17, iowait : 0, irq : 0, softirq : 0
+[    0.246192] [OSLAB] MemTotal : 908688, MemFree : 888024
+[    0.246278] initcall input_init+0x0/0x118 returned 0 after 0 usecs
+[    0.246299] calling  rtc_init+0x0/0x68 @ 1
+[    0.246320] [OSLAB] user : 0, nice : 0, system : 21, idle : 17, iowait : 0, irq : 0, softirq : 0
+[    0.246339] [OSLAB] MemTotal : 908688, MemFree : 888024
+[    0.246396] initcall rtc_init+0x0/0x68 returned 0 after 0 usecs
+[    0.246418] calling  i3c_init+0x0/0x24 @ 1
+[    0.246440] [OSLAB] user : 0, nice : 0, system : 21, idle : 17, iowait : 0, irq : 0, softirq : 0
+[    0.246458] [OSLAB] MemTotal : 908688, MemFree : 888024
+[    0.246570] initcall i3c_init+0x0/0x24 returned 0 after 0 usecs
+[    0.246592] calling  videodev_init+0x0/0x94 @ 1
+[    0.246613] [OSLAB] user : 0, nice : 0, system : 21, idle : 17, iowait : 0, irq : 0, softirq : 0
+[    0.246631] [OSLAB] MemTotal : 908688, MemFree : 888024
+[    0.246647] videodev: Linux video capture interface: v2.00
+[    0.246717] initcall videodev_init+0x0/0x94 returned 0 after 0 usecs
+[    0.246739] calling  pps_init+0x0/0xc4 @ 1
+[    0.246760] [OSLAB] user : 0, nice : 0, system : 21, idle : 17, iowait : 0, irq : 0, softirq : 0
+[    0.246779] [OSLAB] MemTotal : 908688, MemFree : 888024
+[    0.246829] pps_core: LinuxPPS API ver. 1 registered
+[    0.246849] pps_core: Software ver. 5.3.6 - Copyright 2005-2007 Rodolfo Giometti <giometti@linux.it>
+[    0.246875] initcall pps_init+0x0/0xc4 returned 0 after 0 usecs
+[    0.246896] calling  ptp_init+0x0/0xb0 @ 1
+[    0.246918] [OSLAB] user : 0, nice : 0, system : 21, idle : 17, iowait : 0, irq : 0, softirq : 0
+[    0.246936] [OSLAB] MemTotal : 908688, MemFree : 888024
+[    0.246984] PTP clock support registered
+[    0.247010] initcall ptp_init+0x0/0xb0 returned 0 after 0 usecs
+[    0.247032] calling  hwmon_init+0x0/0x44 @ 1
+[    0.247053] [OSLAB] user : 0, nice : 0, system : 21, idle : 17, iowait : 0, irq : 0, softirq : 0
+[    0.247071] [OSLAB] MemTotal : 908688, MemFree : 888024
+[    0.247124] initcall hwmon_init+0x0/0x44 returned 0 after 0 usecs
+[    0.247146] calling  edac_init+0x0/0x88 @ 1
+[    0.247168] [OSLAB] user : 0, nice : 0, system : 21, idle : 17, iowait : 0, irq : 0, softirq : 0
+[    0.247186] [OSLAB] MemTotal : 908688, MemFree : 888024
+[    0.247201] EDAC MC: Ver: 3.0.0
+[    0.247952] initcall edac_init+0x0/0x88 returned 0 after 0 usecs
+[    0.247977] calling  mmc_init+0x0/0x88 @ 1
+[    0.248001] [OSLAB] user : 0, nice : 0, system : 21, idle : 17, iowait : 0, irq : 0, softirq : 0
+[    0.248021] [OSLAB] MemTotal : 908688, MemFree : 888024
+[    0.248268] initcall mmc_init+0x0/0x88 returned 0 after 0 usecs
+[    0.248289] calling  leds_init+0x0/0x5c @ 1
+[    0.248312] [OSLAB] user : 0, nice : 0, system : 21, idle : 17, iowait : 0, irq : 0, softirq : 0
+[    0.248330] [OSLAB] MemTotal : 908688, MemFree : 888024
+[    0.248398] initcall leds_init+0x0/0x5c returned 0 after 0 usecs
+[    0.248422] calling  iio_init+0x0/0x9c @ 1
+[    0.248444] [OSLAB] user : 0, nice : 0, system : 21, idle : 17, iowait : 0, irq : 0, softirq : 0
+[    0.248462] [OSLAB] MemTotal : 908688, MemFree : 888024
+[    0.248630] initcall iio_init+0x0/0x9c returned 0 after 0 usecs
+[    0.248655] calling  arm_pmu_hp_init+0x0/0x70 @ 1
+[    0.248677] [OSLAB] user : 0, nice : 0, system : 21, idle : 17, iowait : 0, irq : 0, softirq : 0
+[    0.248696] [OSLAB] MemTotal : 908688, MemFree : 888024
+[    0.248723] initcall arm_pmu_hp_init+0x0/0x70 returned 0 after 0 usecs
+[    0.248743] calling  ras_init+0x0/0x20 @ 1
+[    0.248765] [OSLAB] user : 0, nice : 0, system : 21, idle : 18, iowait : 0, irq : 0, softirq : 0
+[    0.248783] [OSLAB] MemTotal : 908688, MemFree : 888024
+[    0.248871] initcall ras_init+0x0/0x20 returned 0 after 0 usecs
+[    0.248892] calling  nvmem_init+0x0/0x24 @ 1
+[    0.248914] [OSLAB] user : 0, nice : 0, system : 21, idle : 18, iowait : 0, irq : 0, softirq : 0
+[    0.248932] [OSLAB] MemTotal : 908688, MemFree : 888024
+[    0.249049] initcall nvmem_init+0x0/0x24 returned 0 after 0 usecs
+[    0.249070] calling  peci_init+0x0/0x60 @ 1
+[    0.249092] [OSLAB] user : 0, nice : 0, system : 21, idle : 18, iowait : 0, irq : 0, softirq : 0
+[    0.249203] [OSLAB] MemTotal : 908688, MemFree : 888024
+[    0.249326] initcall peci_init+0x0/0x60 returned 0 after 0 usecs
+[    0.249347] calling  proto_init+0x0/0x24 @ 1
+[    0.249370] [OSLAB] user : 0, nice : 0, system : 22, idle : 18, iowait : 0, irq : 0, softirq : 0
+[    0.249388] [OSLAB] MemTotal : 908688, MemFree : 888024
+[    0.249434] initcall proto_init+0x0/0x24 returned 0 after 0 usecs
+[    0.249454] calling  net_dev_init+0x0/0x254 @ 1
+[    0.249476] [OSLAB] user : 0, nice : 0, system : 22, idle : 18, iowait : 0, irq : 0, softirq : 0
+[    0.249494] [OSLAB] MemTotal : 908688, MemFree : 888024
+[    0.250838] initcall net_dev_init+0x0/0x254 returned 0 after 0 usecs
+[    0.250861] calling  neigh_init+0x0/0xb8 @ 1
+[    0.250885] [OSLAB] user : 0, nice : 0, system : 22, idle : 18, iowait : 0, irq : 0, softirq : 0
+[    0.250905] [OSLAB] MemTotal : 908688, MemFree : 888024
+[    0.250949] initcall neigh_init+0x0/0xb8 returned 0 after 0 usecs
+[    0.250970] calling  fib_notifier_init+0x0/0x24 @ 1
+[    0.250992] [OSLAB] user : 0, nice : 0, system : 22, idle : 18, iowait : 0, irq : 0, softirq : 0
+[    0.251010] [OSLAB] MemTotal : 908688, MemFree : 888024
+[    0.251043] initcall fib_notifier_init+0x0/0x24 returned 0 after 0 usecs
+[    0.251064] calling  init_flow_indr_rhashtable+0x0/0x2c @ 1
+[    0.251085] [OSLAB] user : 0, nice : 0, system : 22, idle : 18, iowait : 0, irq : 0, softirq : 0
+[    0.251103] [OSLAB] MemTotal : 908688, MemFree : 888024
+[    0.251140] initcall init_flow_indr_rhashtable+0x0/0x2c returned 0 after 0 usecs
+[    0.251162] calling  fib_rules_init+0x0/0xd8 @ 1
+[    0.251183] [OSLAB] user : 0, nice : 0, system : 22, idle : 18, iowait : 0, irq : 0, softirq : 0
+[    0.251201] [OSLAB] MemTotal : 908688, MemFree : 888024
+[    0.251248] initcall fib_rules_init+0x0/0xd8 returned 0 after 0 usecs
+[    0.251270] calling  genl_init+0x0/0x48 @ 1
+[    0.251292] [OSLAB] user : 0, nice : 0, system : 22, idle : 18, iowait : 0, irq : 0, softirq : 0
+[    0.251310] [OSLAB] MemTotal : 908688, MemFree : 888024
+[    0.251394] initcall genl_init+0x0/0x48 returned 0 after 0 usecs
+[    0.251416] calling  nexthop_init+0x0/0x100 @ 1
+[    0.251438] [OSLAB] user : 0, nice : 0, system : 22, idle : 18, iowait : 0, irq : 0, softirq : 0
+[    0.251456] [OSLAB] MemTotal : 908688, MemFree : 888024
+[    0.251523] initcall nexthop_init+0x0/0x100 returned 0 after 0 usecs
+[    0.251545] calling  watchdog_init+0x0/0xa0 @ 1
+[    0.251567] [OSLAB] user : 0, nice : 0, system : 22, idle : 18, iowait : 0, irq : 0, softirq : 0
+[    0.251585] [OSLAB] MemTotal : 908688, MemFree : 888024
+[    0.252843] initcall watchdog_init+0x0/0xa0 returned 0 after 0 usecs
+[    0.253861] calling  proc_cpu_init+0x0/0x34 @ 1
+[    0.253886] [OSLAB] user : 0, nice : 0, system : 22, idle : 18, iowait : 0, irq : 0, softirq : 0
+[    0.253906] [OSLAB] MemTotal : 908688, MemFree : 888024
+[    0.253947] initcall proc_cpu_init+0x0/0x34 returned 0 after 0 usecs
+[    0.253969] calling  alignment_init+0x0/0xe8 @ 1
+[    0.253991] [OSLAB] user : 0, nice : 0, system : 22, idle : 18, iowait : 0, irq : 0, softirq : 0
+[    0.254009] [OSLAB] MemTotal : 908688, MemFree : 888024
+[    0.254049] initcall alignment_init+0x0/0xe8 returned 0 after 0 usecs
+[    0.254073] calling  clocksource_done_booting+0x0/0x58 @ 1
+[    0.254094] [OSLAB] user : 0, nice : 0, system : 22, idle : 18, iowait : 0, irq : 0, softirq : 0
+[    0.254113] [OSLAB] MemTotal : 908688, MemFree : 888024
+[    0.254247] clocksource: Switched to clocksource arch_sys_counter
+[    0.254282] initcall clocksource_done_booting+0x0/0x58 returned 0 after 76 usecs
+[    0.254305] calling  tracer_init_tracefs+0x0/0x210 @ 1
+[    0.254327] [OSLAB] user : 0, nice : 0, system : 22, idle : 18, iowait : 0, irq : 0, softirq : 0
+[    0.254346] [OSLAB] MemTotal : 908688, MemFree : 888024
+[    0.461336] initcall tracer_init_tracefs+0x0/0x210 returned 0 after 202098 usecs
+[    0.461368] calling  init_trace_printk_function_export+0x0/0x4c @ 1
+[    0.461399] [OSLAB] user : 0, nice : 0, system : 63, idle : 17, iowait : 0, irq : 0, softirq : 0
+[    0.461420] [OSLAB] MemTotal : 908688, MemFree : 885756
+[    0.461480] initcall init_trace_printk_function_export+0x0/0x4c returned 0 after 35 usecs
+[    0.461501] calling  init_graph_tracefs+0x0/0x4c @ 1
+[    0.461527] [OSLAB] user : 0, nice : 0, system : 63, idle : 17, iowait : 0, irq : 0, softirq : 0
+[    0.461545] [OSLAB] MemTotal : 908688, MemFree : 885756
+[    0.461599] initcall init_graph_tracefs+0x0/0x4c returned 0 after 30 usecs
+[    0.461621] calling  bpf_event_init+0x0/0x20 @ 1
+[    0.461646] [OSLAB] user : 0, nice : 0, system : 63, idle : 17, iowait : 0, irq : 0, softirq : 0
+[    0.461664] [OSLAB] MemTotal : 908688, MemFree : 885756
+[    0.461690] initcall bpf_event_init+0x0/0x20 returned 0 after 4 usecs
+[    0.461712] calling  init_dynamic_event+0x0/0x60 @ 1
+[    0.461738] [OSLAB] user : 0, nice : 0, system : 63, idle : 17, iowait : 0, irq : 0, softirq : 0
+[    0.461756] [OSLAB] MemTotal : 908688, MemFree : 885756
+[    0.461809] initcall init_dynamic_event+0x0/0x60 returned 0 after 30 usecs
+[    0.461831] calling  init_uprobe_trace+0x0/0x84 @ 1
+[    0.461857] [OSLAB] user : 0, nice : 0, system : 63, idle : 17, iowait : 0, irq : 0, softirq : 0
+[    0.461875] [OSLAB] MemTotal : 908688, MemFree : 885756
+[    0.461960] initcall init_uprobe_trace+0x0/0x84 returned 0 after 61 usecs
+[    0.461981] calling  bpf_init+0x0/0x60 @ 1
+[    0.462006] [OSLAB] user : 0, nice : 0, system : 63, idle : 17, iowait : 0, irq : 0, softirq : 0
+[    0.462025] [OSLAB] MemTotal : 908688, MemFree : 885756
+[    0.462081] initcall bpf_init+0x0/0x60 returned 0 after 33 usecs
+[    0.462103] calling  init_pipe_fs+0x0/0x64 @ 1
+[    0.462129] [OSLAB] user : 0, nice : 0, system : 63, idle : 17, iowait : 0, irq : 0, softirq : 0
+[    0.462147] [OSLAB] MemTotal : 908688, MemFree : 885756
+[    0.462338] initcall init_pipe_fs+0x0/0x64 returned 0 after 161 usecs
+[    0.462361] calling  inotify_user_setup+0x0/0x74 @ 1
+[    0.462388] [OSLAB] user : 0, nice : 0, system : 63, idle : 17, iowait : 0, irq : 0, softirq : 0
+[    0.462407] [OSLAB] MemTotal : 908688, MemFree : 885756
+[    0.462465] initcall inotify_user_setup+0x0/0x74 returned 0 after 35 usecs
+[    0.462486] calling  eventpoll_init+0x0/0xf4 @ 1
+[    0.462512] [OSLAB] user : 0, nice : 0, system : 63, idle : 17, iowait : 0, irq : 0, softirq : 0
+[    0.462530] [OSLAB] MemTotal : 908688, MemFree : 885756
+[    0.462685] initcall eventpoll_init+0x0/0xf4 returned 0 after 127 usecs
+[    0.462706] calling  anon_inode_init+0x0/0x78 @ 1
+[    0.462732] [OSLAB] user : 0, nice : 0, system : 63, idle : 17, iowait : 0, irq : 0, softirq : 0
+[    0.462750] [OSLAB] MemTotal : 908688, MemFree : 885756
+[    0.462926] initcall anon_inode_init+0x0/0x78 returned 0 after 147 usecs
+[    0.462949] calling  proc_locks_init+0x0/0x50 @ 1
+[    0.462975] [OSLAB] user : 0, nice : 0, system : 63, idle : 17, iowait : 0, irq : 0, softirq : 0
+[    0.462994] [OSLAB] MemTotal : 908688, MemFree : 885756
+[    0.463042] initcall proc_locks_init+0x0/0x50 returned 0 after 25 usecs
+[    0.463064] calling  proc_cmdline_init+0x0/0x48 @ 1
+[    0.463089] [OSLAB] user : 0, nice : 0, system : 63, idle : 17, iowait : 0, irq : 0, softirq : 0
+[    0.463108] [OSLAB] MemTotal : 908688, MemFree : 885756
+[    0.463140] initcall proc_cmdline_init+0x0/0x48 returned 0 after 11 usecs
+[    0.463162] calling  proc_consoles_init+0x0/0x4c @ 1
+[    0.463188] [OSLAB] user : 0, nice : 0, system : 63, idle : 17, iowait : 0, irq : 0, softirq : 0
+[    0.463206] [OSLAB] MemTotal : 908688, MemFree : 885756
+[    0.463237] initcall proc_consoles_init+0x0/0x4c returned 0 after 10 usecs
+[    0.463258] calling  proc_cpuinfo_init+0x0/0x38 @ 1
+[    0.463284] [OSLAB] user : 0, nice : 0, system : 63, idle : 17, iowait : 0, irq : 0, softirq : 0
+[    0.463302] [OSLAB] MemTotal : 908688, MemFree : 885756
+[    0.463334] initcall proc_cpuinfo_init+0x0/0x38 returned 0 after 10 usecs
+[    0.463355] calling  proc_devices_init+0x0/0x4c @ 1
+[    0.463380] [OSLAB] user : 0, nice : 0, system : 63, idle : 17, iowait : 0, irq : 0, softirq : 0
+[    0.463398] [OSLAB] MemTotal : 908688, MemFree : 885756
+[    0.463430] initcall proc_devices_init+0x0/0x4c returned 0 after 10 usecs
+[    0.463451] calling  proc_interrupts_init+0x0/0x4c @ 1
+[    0.463477] [OSLAB] user : 0, nice : 0, system : 63, idle : 17, iowait : 0, irq : 0, softirq : 0
+[    0.463495] [OSLAB] MemTotal : 908688, MemFree : 885756
+[    0.463526] initcall proc_interrupts_init+0x0/0x4c returned 0 after 9 usecs
+[    0.463546] calling  proc_loadavg_init+0x0/0x48 @ 1
+[    0.463572] [OSLAB] user : 0, nice : 0, system : 63, idle : 17, iowait : 0, irq : 0, softirq : 0
+[    0.463590] [OSLAB] MemTotal : 908688, MemFree : 885756
+[    0.463622] initcall proc_loadavg_init+0x0/0x48 returned 0 after 10 usecs
+[    0.463642] calling  proc_meminfo_init+0x0/0x48 @ 1
+[    0.463668] [OSLAB] user : 0, nice : 0, system : 63, idle : 17, iowait : 0, irq : 0, softirq : 0
+[    0.463686] [OSLAB] MemTotal : 908688, MemFree : 885756
+[    0.463718] initcall proc_meminfo_init+0x0/0x48 returned 0 after 10 usecs
+[    0.463739] calling  proc_stat_init+0x0/0x38 @ 1
+[    0.463765] [OSLAB] user : 0, nice : 0, system : 63, idle : 17, iowait : 0, irq : 0, softirq : 0
+[    0.463783] [OSLAB] MemTotal : 908688, MemFree : 885756
+[    0.463814] initcall proc_stat_init+0x0/0x38 returned 0 after 9 usecs
+[    0.463835] calling  proc_uptime_init+0x0/0x48 @ 1
+[    0.463860] [OSLAB] user : 0, nice : 0, system : 63, idle : 17, iowait : 0, irq : 0, softirq : 0
+[    0.463878] [OSLAB] MemTotal : 908688, MemFree : 885756
+[    0.463910] initcall proc_uptime_init+0x0/0x48 returned 0 after 10 usecs
+[    0.463931] calling  proc_version_init+0x0/0x48 @ 1
+[    0.463956] [OSLAB] user : 0, nice : 0, system : 63, idle : 17, iowait : 0, irq : 0, softirq : 0
+[    0.463974] [OSLAB] MemTotal : 908688, MemFree : 885756
+[    0.464007] initcall proc_version_init+0x0/0x48 returned 0 after 10 usecs
+[    0.464027] calling  proc_softirqs_init+0x0/0x48 @ 1
+[    0.464053] [OSLAB] user : 0, nice : 0, system : 63, idle : 17, iowait : 0, irq : 0, softirq : 0
+[    0.464071] [OSLAB] MemTotal : 908688, MemFree : 885756
+[    0.464102] initcall proc_softirqs_init+0x0/0x48 returned 0 after 9 usecs
+[    0.464123] calling  proc_kmsg_init+0x0/0x38 @ 1
+[    0.464149] [OSLAB] user : 0, nice : 0, system : 63, idle : 17, iowait : 0, irq : 0, softirq : 0
+[    0.464167] [OSLAB] MemTotal : 908688, MemFree : 885756
+[    0.464198] initcall proc_kmsg_init+0x0/0x38 returned 0 after 10 usecs
+[    0.464301] calling  proc_page_init+0x0/0x54 @ 1
+[    0.464328] [OSLAB] user : 0, nice : 0, system : 65, idle : 17, iowait : 0, irq : 0, softirq : 0
+[    0.464346] [OSLAB] MemTotal : 908688, MemFree : 885756
+[    0.464387] initcall proc_page_init+0x0/0x54 returned 0 after 19 usecs
+[    0.464411] calling  init_ramfs_fs+0x0/0x24 @ 1
+[    0.464438] [OSLAB] user : 0, nice : 0, system : 65, idle : 17, iowait : 0, irq : 0, softirq : 0
+[    0.464456] [OSLAB] MemTotal : 908688, MemFree : 885756
+[    0.464483] initcall init_ramfs_fs+0x0/0x24 returned 0 after 5 usecs
+[    0.464505] calling  blk_scsi_ioctl_init+0x0/0xf0 @ 1
+[    0.464531] [OSLAB] user : 0, nice : 0, system : 65, idle : 17, iowait : 0, irq : 0, softirq : 0
+[    0.464549] [OSLAB] MemTotal : 908688, MemFree : 885756
+[    0.464573] initcall blk_scsi_ioctl_init+0x0/0xf0 returned 0 after 3 usecs
+[    0.464594] calling  dynamic_debug_init_debugfs+0x0/0x68 @ 1
+[    0.464620] [OSLAB] user : 0, nice : 0, system : 65, idle : 17, iowait : 0, irq : 0, softirq : 0
+[    0.464638] [OSLAB] MemTotal : 908688, MemFree : 885756
+[    0.464736] initcall dynamic_debug_init_debugfs+0x0/0x68 returned 0 after 73 usecs
+[    0.464760] calling  chr_dev_init+0x0/0x16c @ 1
+[    0.464786] [OSLAB] user : 0, nice : 0, system : 65, idle : 17, iowait : 0, irq : 0, softirq : 0
+[    0.464804] [OSLAB] MemTotal : 908688, MemFree : 885756
+[    0.469117] initcall chr_dev_init+0x0/0x16c returned 0 after 4179 usecs
+[    0.469146] calling  firmware_class_init+0x0/0xe8 @ 1
+[    0.469177] [OSLAB] user : 0, nice : 0, system : 65, idle : 17, iowait : 0, irq : 0, softirq : 0
+[    0.469197] [OSLAB] MemTotal : 908688, MemFree : 885756
+[    0.469281] initcall firmware_class_init+0x0/0xe8 returned 0 after 59 usecs
+[    0.469304] calling  sysctl_core_init+0x0/0x40 @ 1
+[    0.469331] [OSLAB] user : 0, nice : 0, system : 65, idle : 17, iowait : 0, irq : 0, softirq : 0
+[    0.469349] [OSLAB] MemTotal : 908688, MemFree : 885756
+[    0.469504] initcall sysctl_core_init+0x0/0x40 returned 0 after 129 usecs
+[    0.469527] calling  eth_offload_init+0x0/0x28 @ 1
+[    0.469553] [OSLAB] user : 0, nice : 0, system : 65, idle : 17, iowait : 0, irq : 0, softirq : 0
+[    0.469571] [OSLAB] MemTotal : 908688, MemFree : 885756
+[    0.469596] initcall eth_offload_init+0x0/0x28 returned 0 after 4 usecs
+[    0.469618] calling  inet_init+0x0/0x274 @ 1
+[    0.469645] [OSLAB] user : 0, nice : 0, system : 65, idle : 17, iowait : 0, irq : 0, softirq : 0
+[    0.469663] [OSLAB] MemTotal : 908688, MemFree : 885756
+[    0.469992] NET: Registered protocol family 2
+[    0.471388] tcp_listen_portaddr_hash hash table entries: 512 (order: 0, 6144 bytes, linear)
+[    0.471457] TCP established hash table entries: 8192 (order: 3, 32768 bytes, linear)
+[    0.471539] TCP bind hash table entries: 8192 (order: 4, 65536 bytes, linear)
+[    0.471651] TCP: Hash tables configured (established 8192 bind 8192)
+[    0.471862] UDP hash table entries: 512 (order: 2, 16384 bytes, linear)
+[    0.471933] UDP-Lite hash table entries: 512 (order: 2, 16384 bytes, linear)
+[    0.472499] initcall inet_init+0x0/0x274 returned 0 after 2737 usecs
+[    0.472525] calling  ipv4_offload_init+0x0/0x94 @ 1
+[    0.472556] [OSLAB] user : 0, nice : 0, system : 65, idle : 18, iowait : 0, irq : 0, softirq : 0
+[    0.472577] [OSLAB] MemTotal : 908688, MemFree : 885288
+[    0.472605] initcall ipv4_offload_init+0x0/0x94 returned 0 after 6 usecs
+[    0.472626] calling  af_unix_init+0x0/0x64 @ 1
+[    0.472652] [OSLAB] user : 0, nice : 0, system : 65, idle : 18, iowait : 0, irq : 0, softirq : 0
+[    0.472671] [OSLAB] MemTotal : 908688, MemFree : 885288
+[    0.472725] NET: Registered protocol family 1
+[    0.472818] initcall af_unix_init+0x0/0x64 returned 0 after 121 usecs
+[    0.472840] calling  ipv6_offload_init+0x0/0x98 @ 1
+[    0.472867] [OSLAB] user : 0, nice : 0, system : 65, idle : 18, iowait : 0, irq : 0, softirq : 0
+[    0.472886] [OSLAB] MemTotal : 908688, MemFree : 885288
+[    0.472916] initcall ipv6_offload_init+0x0/0x98 returned 0 after 8 usecs
+[    0.472938] calling  init_sunrpc+0x0/0x7c @ 1
+[    0.472965] [OSLAB] user : 0, nice : 0, system : 65, idle : 18, iowait : 0, irq : 0, softirq : 0
+[    0.472983] [OSLAB] MemTotal : 908688, MemFree : 885288
+[    0.475049] RPC: Registered named UNIX socket transport module.
+[    0.475078] RPC: Registered udp transport module.
+[    0.475097] RPC: Registered tcp transport module.
+[    0.475117] RPC: Registered tcp NFSv4.1 backchannel transport module.
+[    0.475154] initcall init_sunrpc+0x0/0x7c returned 0 after 2090 usecs
+[    0.475179] calling  vlan_offload_init+0x0/0x34 @ 1
+[    0.475210] [OSLAB] user : 0, nice : 0, system : 66, idle : 18, iowait : 0, irq : 0, softirq : 0
+[    0.475230] [OSLAB] MemTotal : 908688, MemFree : 885504
+[    0.475258] initcall vlan_offload_init+0x0/0x34 returned 0 after 5 usecs
+[    0.475281] calling  pci_apply_final_quirks+0x0/0x180 @ 1
+[    0.475307] [OSLAB] user : 0, nice : 0, system : 66, idle : 18, iowait : 0, irq : 0, softirq : 0
+[    0.475326] [OSLAB] MemTotal : 908688, MemFree : 885504
+[    0.475349] PCI: CLS 0 bytes, default 64
+[    0.475376] initcall pci_apply_final_quirks+0x0/0x180 returned 0 after 27 usecs
+[    0.475401] calling  populate_rootfs+0x0/0x1b4 @ 1
+[    0.475428] [OSLAB] user : 0, nice : 0, system : 66, idle : 18, iowait : 0, irq : 0, softirq : 0
+[    0.475446] [OSLAB] MemTotal : 908688, MemFree : 885504
+[    0.476163] Trying to unpack rootfs image as initramfs...
+[    0.477026] rootfs image is not initramfs (invalid magic at start of compressed archive); looks like an initrd
+[    0.602196] Freeing initrd memory: 16164K
+[    0.602267] initcall populate_rootfs+0x0/0x1b4 returned 0 after 123813 usecs
+[    0.603293] calling  armv7_pmu_driver_init+0x0/0x28 @ 1
+[    0.603327] [OSLAB] user : 0, nice : 0, system : 78, idle : 30, iowait : 0, irq : 0, softirq : 0
+[    0.603348] [OSLAB] MemTotal : 924852, MemFree : 884464
+[    0.605551] initcall armv7_pmu_driver_init+0x0/0x28 returned 0 after 2123 usecs
+[    0.605578] calling  ptdump_init+0x0/0x98 @ 1
+[    0.605608] [OSLAB] user : 0, nice : 0, system : 79, idle : 31, iowait : 0, irq : 0, softirq : 0
+[    0.605627] [OSLAB] MemTotal : 924852, MemFree : 884464
+[    0.605653] initcall ptdump_init+0x0/0x98 returned 0 after 3 usecs
+[    0.605675] calling  arch_uprobes_init+0x0/0x34 @ 1
+[    0.605702] [OSLAB] user : 0, nice : 0, system : 79, idle : 31, iowait : 0, irq : 0, softirq : 0
+[    0.605720] [OSLAB] MemTotal : 924852, MemFree : 884464
+[    0.605746] initcall arch_uprobes_init+0x0/0x34 returned 0 after 5 usecs
+[    0.605769] calling  proc_execdomains_init+0x0/0x48 @ 1
+[    0.605795] [OSLAB] user : 0, nice : 0, system : 79, idle : 31, iowait : 0, irq : 0, softirq : 0
+[    0.605813] [OSLAB] MemTotal : 924852, MemFree : 884464
+[    0.605858] initcall proc_execdomains_init+0x0/0x48 returned 0 after 21 usecs
+[    0.605880] calling  register_warn_debugfs+0x0/0x48 @ 1
+[    0.605906] [OSLAB] user : 0, nice : 0, system : 79, idle : 31, iowait : 0, irq : 0, softirq : 0
+[    0.605924] [OSLAB] MemTotal : 924852, MemFree : 884464
+[    0.606011] initcall register_warn_debugfs+0x0/0x48 returned 0 after 61 usecs
+[    0.606033] calling  cpuhp_sysfs_init+0x0/0xac @ 1
+[    0.606059] [OSLAB] user : 0, nice : 0, system : 79, idle : 31, iowait : 0, irq : 0, softirq : 0
+[    0.606077] [OSLAB] MemTotal : 924852, MemFree : 884464
+[    0.606243] initcall cpuhp_sysfs_init+0x0/0xac returned 0 after 139 usecs
+[    0.606264] calling  ioresources_init+0x0/0x78 @ 1
+[    0.606291] [OSLAB] user : 0, nice : 0, system : 79, idle : 31, iowait : 0, irq : 0, softirq : 0
+[    0.606309] [OSLAB] MemTotal : 924852, MemFree : 884464
+[    0.606353] initcall ioresources_init+0x0/0x78 returned 0 after 21 usecs
+[    0.606375] calling  psi_proc_init+0x0/0x7c @ 1
+[    0.606402] [OSLAB] user : 0, nice : 0, system : 79, idle : 31, iowait : 0, irq : 0, softirq : 0
+[    0.606420] [OSLAB] MemTotal : 924852, MemFree : 884464
+[    0.606481] initcall psi_proc_init+0x0/0x7c returned 0 after 38 usecs
+[    0.606503] calling  irq_pm_init_ops+0x0/0x28 @ 1
+[    0.606530] [OSLAB] user : 0, nice : 0, system : 79, idle : 31, iowait : 0, irq : 0, softirq : 0
+[    0.606548] [OSLAB] MemTotal : 924852, MemFree : 884464
+[    0.606574] initcall irq_pm_init_ops+0x0/0x28 returned 0 after 4 usecs
+[    0.606597] calling  timekeeping_init_ops+0x0/0x28 @ 1
+[    0.606624] [OSLAB] user : 0, nice : 0, system : 79, idle : 31, iowait : 0, irq : 0, softirq : 0
+[    0.606642] [OSLAB] MemTotal : 924852, MemFree : 884464
+[    0.606668] initcall timekeeping_init_ops+0x0/0x28 returned 0 after 3 usecs
+[    0.606690] calling  init_clocksource_sysfs+0x0/0x3c @ 1
+[    0.606716] [OSLAB] user : 0, nice : 0, system : 79, idle : 31, iowait : 0, irq : 0, softirq : 0
+[    0.606734] [OSLAB] MemTotal : 924852, MemFree : 884464
+[    0.607193] initcall init_clocksource_sysfs+0x0/0x3c returned 0 after 421 usecs
+[    0.607216] calling  init_timer_list_procfs+0x0/0x54 @ 1
+[    0.607243] [OSLAB] user : 0, nice : 0, system : 79, idle : 31, iowait : 0, irq : 0, softirq : 0
+[    0.607262] [OSLAB] MemTotal : 924852, MemFree : 884464
+[    0.607298] initcall init_timer_list_procfs+0x0/0x54 returned 0 after 12 usecs
+[    0.607319] calling  alarmtimer_init+0x0/0xb8 @ 1
+[    0.607346] [OSLAB] user : 0, nice : 0, system : 79, idle : 31, iowait : 0, irq : 0, softirq : 0
+[    0.607364] [OSLAB] MemTotal : 924852, MemFree : 884464
+[    0.607712] initcall alarmtimer_init+0x0/0xb8 returned 0 after 314 usecs
+[    0.607735] calling  init_posix_timers+0x0/0x54 @ 1
+[    0.607762] [OSLAB] user : 0, nice : 0, system : 79, idle : 31, iowait : 0, irq : 0, softirq : 0
+[    0.607781] [OSLAB] MemTotal : 924852, MemFree : 884236
+[    0.607928] initcall init_posix_timers+0x0/0x54 returned 0 after 118 usecs
+[    0.607951] calling  clockevents_init_sysfs+0x0/0xe4 @ 1
+[    0.607978] [OSLAB] user : 0, nice : 0, system : 79, idle : 31, iowait : 0, irq : 0, softirq : 0
+[    0.607997] [OSLAB] MemTotal : 924852, MemFree : 884236
+[    0.608762] initcall clockevents_init_sysfs+0x0/0xe4 returned 0 after 722 usecs
+[    0.608786] calling  sched_clock_syscore_init+0x0/0x28 @ 1
+[    0.608813] [OSLAB] user : 0, nice : 0, system : 79, idle : 31, iowait : 0, irq : 0, softirq : 0
+[    0.608832] [OSLAB] MemTotal : 924852, MemFree : 884236
+[    0.608857] initcall sched_clock_syscore_init+0x0/0x28 returned 0 after 3 usecs
+[    0.608878] calling  proc_modules_init+0x0/0x38 @ 1
+[    0.608905] [OSLAB] user : 0, nice : 0, system : 79, idle : 31, iowait : 0, irq : 0, softirq : 0
+[    0.608923] [OSLAB] MemTotal : 924852, MemFree : 884236
+[    0.608961] initcall proc_modules_init+0x0/0x38 returned 0 after 16 usecs
+[    0.608981] calling  modules_wq_init+0x0/0x4c @ 1
+[    0.609008] [OSLAB] user : 0, nice : 0, system : 79, idle : 31, iowait : 0, irq : 0, softirq : 0
+[    0.609026] [OSLAB] MemTotal : 924852, MemFree : 884236
+[    0.609049] initcall modules_wq_init+0x0/0x4c returned 0 after 2 usecs
+[    0.609069] calling  kallsyms_init+0x0/0x38 @ 1
+[    0.609096] [OSLAB] user : 0, nice : 0, system : 79, idle : 31, iowait : 0, irq : 0, softirq : 0
+[    0.609113] [OSLAB] MemTotal : 924852, MemFree : 884236
+[    0.609146] initcall kallsyms_init+0x0/0x38 returned 0 after 11 usecs
+[    0.609168] calling  pid_namespaces_init+0x0/0x54 @ 1
+[    0.609195] [OSLAB] user : 0, nice : 0, system : 79, idle : 31, iowait : 0, irq : 0, softirq : 0
+[    0.609213] [OSLAB] MemTotal : 924852, MemFree : 884236
+[    0.609327] initcall pid_namespaces_init+0x0/0x54 returned 0 after 89 usecs
+[    0.609348] calling  ikconfig_init+0x0/0x64 @ 1
+[    0.609375] [OSLAB] user : 0, nice : 0, system : 79, idle : 31, iowait : 0, irq : 0, softirq : 0
+[    0.609394] [OSLAB] MemTotal : 924852, MemFree : 884236
+[    0.609427] initcall ikconfig_init+0x0/0x64 returned 0 after 12 usecs
+[    0.609448] calling  seccomp_sysctl_init+0x0/0x40 @ 1
+[    0.609475] [OSLAB] user : 0, nice : 0, system : 79, idle : 31, iowait : 0, irq : 0, softirq : 0
+[    0.609493] [OSLAB] MemTotal : 924852, MemFree : 884236
+[    0.609557] initcall seccomp_sysctl_init+0x0/0x40 returned 0 after 41 usecs
+[    0.609579] calling  utsname_sysctl_init+0x0/0x28 @ 1
+[    0.609607] [OSLAB] user : 0, nice : 0, system : 79, idle : 31, iowait : 0, irq : 0, softirq : 0
+[    0.609625] [OSLAB] MemTotal : 924852, MemFree : 884236
+[    0.609682] initcall utsname_sysctl_init+0x0/0x28 returned 0 after 35 usecs
+[    0.609703] calling  init_tracepoints+0x0/0x3c @ 1
+[    0.609730] [OSLAB] user : 0, nice : 0, system : 79, idle : 31, iowait : 0, irq : 0, softirq : 0
+[    0.609748] [OSLAB] MemTotal : 924852, MemFree : 884236
+[    0.609775] initcall init_tracepoints+0x0/0x3c returned 0 after 6 usecs
+[    0.609799] calling  perf_event_sysfs_init+0x0/0xc4 @ 1
+[    0.609826] [OSLAB] user : 0, nice : 0, system : 79, idle : 31, iowait : 0, irq : 0, softirq : 0
+[    0.609844] [OSLAB] MemTotal : 924852, MemFree : 884236
+[    0.610706] initcall perf_event_sysfs_init+0x0/0xc4 returned 0 after 818 usecs
+[    0.610730] calling  kswapd_init+0x0/0x78 @ 1
+[    0.610758] [OSLAB] user : 0, nice : 0, system : 79, idle : 31, iowait : 0, irq : 0, softirq : 0
+[    0.610776] [OSLAB] MemTotal : 924852, MemFree : 884236
+[    0.611155] initcall kswapd_init+0x0/0x78 returned 0 after 341 usecs
+[    0.611181] calling  mm_compute_batch_init+0x0/0x68 @ 1
+[    0.611210] [OSLAB] user : 0, nice : 0, system : 79, idle : 31, iowait : 0, irq : 0, softirq : 0
+[    0.611230] [OSLAB] MemTotal : 924852, MemFree : 884236
+[    0.611255] initcall mm_compute_batch_init+0x0/0x68 returned 0 after 2 usecs
+[    0.611277] calling  slab_proc_init+0x0/0x38 @ 1
+[    0.611304] [OSLAB] user : 0, nice : 0, system : 79, idle : 31, iowait : 0, irq : 0, softirq : 0
+[    0.611322] [OSLAB] MemTotal : 924852, MemFree : 884236
+[    0.611361] initcall slab_proc_init+0x0/0x38 returned 0 after 16 usecs
+[    0.611382] calling  workingset_init+0x0/0xac @ 1
+[    0.611409] [OSLAB] user : 0, nice : 0, system : 79, idle : 31, iowait : 0, irq : 0, softirq : 0
+[    0.611427] [OSLAB] MemTotal : 924852, MemFree : 884236
+[    0.611445] workingset: timestamp_bits=30 max_order=18 bucket_order=0
+[    0.611479] initcall workingset_init+0x0/0xac returned 0 after 29 usecs
+[    0.611501] calling  proc_vmalloc_init+0x0/0x4c @ 1
+[    0.611527] [OSLAB] user : 0, nice : 0, system : 79, idle : 31, iowait : 0, irq : 0, softirq : 0
+[    0.611545] [OSLAB] MemTotal : 924852, MemFree : 884236
+[    0.611579] initcall proc_vmalloc_init+0x0/0x4c returned 0 after 11 usecs
+[    0.611602] calling  memblock_init_debugfs+0x0/0x80 @ 1
+[    0.611629] [OSLAB] user : 0, nice : 0, system : 79, idle : 31, iowait : 0, irq : 0, softirq : 0
+[    0.611647] [OSLAB] MemTotal : 924852, MemFree : 884236
+[    0.611830] initcall memblock_init_debugfs+0x0/0x80 returned 0 after 155 usecs
+[    0.611852] calling  cpucache_init+0x0/0x70 @ 1
+[    0.611880] [OSLAB] user : 0, nice : 0, system : 79, idle : 31, iowait : 0, irq : 0, softirq : 0
+[    0.611898] [OSLAB] MemTotal : 924852, MemFree : 883976
+[    0.612167] initcall cpucache_init+0x0/0x70 returned 0 after 236 usecs
+[    0.612190] calling  fcntl_init+0x0/0x54 @ 1
+[    0.612218] [OSLAB] user : 0, nice : 0, system : 79, idle : 31, iowait : 0, irq : 0, softirq : 0
+[    0.612237] [OSLAB] MemTotal : 924852, MemFree : 883976
+[    0.612286] initcall fcntl_init+0x0/0x54 returned 0 after 27 usecs
+[    0.612307] calling  proc_filesystems_init+0x0/0x48 @ 1
+[    0.612334] [OSLAB] user : 0, nice : 0, system : 79, idle : 31, iowait : 0, irq : 0, softirq : 0
+[    0.612352] [OSLAB] MemTotal : 924852, MemFree : 883976
+[    0.612391] initcall proc_filesystems_init+0x0/0x48 returned 0 after 17 usecs
+[    0.612413] calling  start_dirtytime_writeback+0x0/0x44 @ 1
+[    0.612439] [OSLAB] user : 0, nice : 0, system : 79, idle : 31, iowait : 0, irq : 0, softirq : 0
+[    0.612457] [OSLAB] MemTotal : 924852, MemFree : 883976
+[    0.612488] initcall start_dirtytime_writeback+0x0/0x44 returned 0 after 9 usecs
+[    0.612509] calling  blkdev_init+0x0/0x30 @ 1
+[    0.612536] [OSLAB] user : 0, nice : 0, system : 79, idle : 31, iowait : 0, irq : 0, softirq : 0
+[    0.612554] [OSLAB] MemTotal : 924852, MemFree : 883976
+[    0.612653] initcall blkdev_init+0x0/0x30 returned 0 after 75 usecs
+[    0.612674] calling  dio_init+0x0/0x54 @ 1
+[    0.612700] [OSLAB] user : 0, nice : 0, system : 79, idle : 31, iowait : 0, irq : 0, softirq : 0
+[    0.612718] [OSLAB] MemTotal : 924852, MemFree : 883976
+[    0.612775] initcall dio_init+0x0/0x54 returned 0 after 35 usecs
+[    0.612796] calling  dnotify_init+0x0/0x9c @ 1
+[    0.612822] [OSLAB] user : 0, nice : 0, system : 79, idle : 31, iowait : 0, irq : 0, softirq : 0
+[    0.612840] [OSLAB] MemTotal : 924852, MemFree : 883976
+[    0.612919] initcall dnotify_init+0x0/0x9c returned 0 after 56 usecs
+[    0.612940] calling  fanotify_user_setup+0x0/0x78 @ 1
+[    0.612966] [OSLAB] user : 0, nice : 0, system : 79, idle : 31, iowait : 0, irq : 0, softirq : 0
+[    0.612984] [OSLAB] MemTotal : 924852, MemFree : 883976
+[    0.613050] initcall fanotify_user_setup+0x0/0x78 returned 0 after 43 usecs
+[    0.613070] calling  io_uring_init+0x0/0x54 @ 1
+[    0.613097] [OSLAB] user : 0, nice : 0, system : 79, idle : 31, iowait : 0, irq : 0, softirq : 0
+[    0.613115] [OSLAB] MemTotal : 924852, MemFree : 883976
+[    0.613165] initcall io_uring_init+0x0/0x54 returned 0 after 28 usecs
+[    0.613186] calling  mbcache_init+0x0/0x54 @ 1
+[    0.613212] [OSLAB] user : 0, nice : 0, system : 79, idle : 31, iowait : 0, irq : 0, softirq : 0
+[    0.613230] [OSLAB] MemTotal : 924852, MemFree : 883976
+[    0.613350] initcall mbcache_init+0x0/0x54 returned 0 after 94 usecs
+[    0.613371] calling  init_grace+0x0/0x24 @ 1
+[    0.613398] [OSLAB] user : 0, nice : 0, system : 79, idle : 31, iowait : 0, irq : 0, softirq : 0
+[    0.613417] [OSLAB] MemTotal : 924852, MemFree : 883976
+[    0.613453] initcall init_grace+0x0/0x24 returned 0 after 14 usecs
+[    0.613474] calling  init_devpts_fs+0x0/0x3c @ 1
+[    0.613501] [OSLAB] user : 0, nice : 0, system : 79, idle : 31, iowait : 0, irq : 0, softirq : 0
+[    0.613519] [OSLAB] MemTotal : 924852, MemFree : 883976
+[    0.613594] initcall init_devpts_fs+0x0/0x3c returned 0 after 51 usecs
+[    0.613617] calling  ext4_init_fs+0x0/0x188 @ 1
+[    0.613645] [OSLAB] user : 0, nice : 0, system : 79, idle : 31, iowait : 0, irq : 0, softirq : 0
+[    0.613663] [OSLAB] MemTotal : 924852, MemFree : 883976
+[    0.614686] initcall ext4_init_fs+0x0/0x188 returned 0 after 964 usecs
+[    0.614710] calling  init_ext2_fs+0x0/0x8c @ 1
+[    0.614739] [OSLAB] user : 0, nice : 0, system : 80, idle : 32, iowait : 0, irq : 0, softirq : 0
+[    0.614759] [OSLAB] MemTotal : 924852, MemFree : 883976
+[    0.614822] initcall init_ext2_fs+0x0/0x8c returned 0 after 39 usecs
+[    0.614845] calling  journal_init+0x0/0x14c @ 1
+[    0.614873] [OSLAB] user : 0, nice : 0, system : 80, idle : 32, iowait : 0, irq : 0, softirq : 0
+[    0.614891] [OSLAB] MemTotal : 924852, MemFree : 883976
+[    0.615259] initcall journal_init+0x0/0x14c returned 0 after 334 usecs
+[    0.615283] calling  init_squashfs_fs+0x0/0x90 @ 1
+[    0.615310] [OSLAB] user : 0, nice : 0, system : 80, idle : 32, iowait : 0, irq : 0, softirq : 0
+[    0.615329] [OSLAB] MemTotal : 924852, MemFree : 883976
+[    0.615381] squashfs: version 4.0 (2009/01/31) Phillip Lougher
+[    0.615410] initcall init_squashfs_fs+0x0/0x90 returned 0 after 58 usecs
+[    0.615432] calling  init_fat_fs+0x0/0x70 @ 1
+[    0.615458] [OSLAB] user : 0, nice : 0, system : 80, idle : 32, iowait : 0, irq : 0, softirq : 0
+[    0.615476] [OSLAB] MemTotal : 924852, MemFree : 883976
+[    0.615599] initcall init_fat_fs+0x0/0x70 returned 0 after 96 usecs
+[    0.615620] calling  init_vfat_fs+0x0/0x24 @ 1
+[    0.615647] [OSLAB] user : 0, nice : 0, system : 80, idle : 32, iowait : 0, irq : 0, softirq : 0
+[    0.615666] [OSLAB] MemTotal : 924852, MemFree : 883976
+[    0.615692] initcall init_vfat_fs+0x0/0x24 returned 0 after 4 usecs
+[    0.615713] calling  init_msdos_fs+0x0/0x24 @ 1
+[    0.615739] [OSLAB] user : 0, nice : 0, system : 80, idle : 32, iowait : 0, irq : 0, softirq : 0
+[    0.615757] [OSLAB] MemTotal : 924852, MemFree : 883976
+[    0.615783] initcall init_msdos_fs+0x0/0x24 returned 0 after 4 usecs
+[    0.615804] calling  init_nfs_fs+0x0/0x164 @ 1
+[    0.615831] [OSLAB] user : 0, nice : 0, system : 80, idle : 32, iowait : 0, irq : 0, softirq : 0
+[    0.615849] [OSLAB] MemTotal : 924852, MemFree : 883976
+[    0.616964] initcall init_nfs_fs+0x0/0x164 returned 0 after 1056 usecs
+[    0.616989] calling  init_nfs_v2+0x0/0x28 @ 1
+[    0.617019] [OSLAB] user : 0, nice : 0, system : 80, idle : 32, iowait : 0, irq : 0, softirq : 0
+[    0.617039] [OSLAB] MemTotal : 924852, MemFree : 883976
+[    0.617064] initcall init_nfs_v2+0x0/0x28 returned 0 after 3 usecs
+[    0.617084] calling  init_nfs_v3+0x0/0x28 @ 1
+[    0.617111] [OSLAB] user : 0, nice : 0, system : 80, idle : 32, iowait : 0, irq : 0, softirq : 0
+[    0.617129] [OSLAB] MemTotal : 924852, MemFree : 883976
+[    0.617152] initcall init_nfs_v3+0x0/0x28 returned 0 after 2 usecs
+[    0.617172] calling  init_nlm+0x0/0x74 @ 1
+[    0.617199] [OSLAB] user : 0, nice : 0, system : 80, idle : 32, iowait : 0, irq : 0, softirq : 0
+[    0.617217] [OSLAB] MemTotal : 924852, MemFree : 883976
+[    0.617303] initcall init_nlm+0x0/0x74 returned 0 after 62 usecs
+[    0.617324] calling  init_nls_cp437+0x0/0x28 @ 1
+[    0.617351] [OSLAB] user : 0, nice : 0, system : 80, idle : 32, iowait : 0, irq : 0, softirq : 0
+[    0.617370] [OSLAB] MemTotal : 924852, MemFree : 883976
+[    0.617394] initcall init_nls_cp437+0x0/0x28 returned 0 after 3 usecs
+[    0.617414] calling  init_nls_iso8859_1+0x0/0x28 @ 1
+[    0.617441] [OSLAB] user : 0, nice : 0, system : 80, idle : 32, iowait : 0, irq : 0, softirq : 0
+[    0.617459] [OSLAB] MemTotal : 924852, MemFree : 883976
+[    0.617482] initcall init_nls_iso8859_1+0x0/0x28 returned 0 after 2 usecs
+[    0.617502] calling  init_ntfs_fs+0x0/0x1e4 @ 1
+[    0.617529] [OSLAB] user : 0, nice : 0, system : 80, idle : 32, iowait : 0, irq : 0, softirq : 0
+[    0.617547] [OSLAB] MemTotal : 924852, MemFree : 883976
+[    0.617562] ntfs: driver 2.1.32 [Flags: R/W].
+[    0.617905] initcall init_ntfs_fs+0x0/0x1e4 returned 0 after 327 usecs
+[    0.617927] calling  init_jffs2_fs+0x0/0xe8 @ 1
+[    0.617955] [OSLAB] user : 0, nice : 0, system : 80, idle : 32, iowait : 0, irq : 0, softirq : 0
+[    0.617974] [OSLAB] MemTotal : 924852, MemFree : 883976
+[    0.617989] jffs2: version 2.2. (SUMMARY)  \xc2\xa9 2001-2006 Red Hat, Inc.
+[    0.618597] initcall init_jffs2_fs+0x0/0xe8 returned 0 after 584 usecs
+[    0.618618] calling  ovl_init+0x0/0x7c @ 1
+[    0.618646] [OSLAB] user : 0, nice : 0, system : 80, idle : 32, iowait : 0, irq : 0, softirq : 0
+[    0.618664] [OSLAB] MemTotal : 924852, MemFree : 883708
+[    0.618726] initcall ovl_init+0x0/0x7c returned 0 after 38 usecs
+[    0.618746] calling  ipc_init+0x0/0x38 @ 1
+[    0.618773] [OSLAB] user : 0, nice : 0, system : 80, idle : 32, iowait : 0, irq : 0, softirq : 0
+[    0.618791] [OSLAB] MemTotal : 924852, MemFree : 883708
+[    0.618879] initcall ipc_init+0x0/0x38 returned 0 after 65 usecs
+[    0.618900] calling  ipc_sysctl_init+0x0/0x28 @ 1
+[    0.618926] [OSLAB] user : 0, nice : 0, system : 80, idle : 32, iowait : 0, irq : 0, softirq : 0
+[    0.618944] [OSLAB] MemTotal : 924852, MemFree : 883708
+[    0.619022] initcall ipc_sysctl_init+0x0/0x28 returned 0 after 55 usecs
+[    0.619043] calling  crypto_algapi_init+0x0/0x20 @ 1
+[    0.619070] [OSLAB] user : 0, nice : 0, system : 80, idle : 32, iowait : 0, irq : 0, softirq : 0
+[    0.619088] [OSLAB] MemTotal : 924852, MemFree : 883708
+[    0.619122] initcall crypto_algapi_init+0x0/0x20 returned 0 after 12 usecs
+[    0.619143] calling  jent_mod_init+0x0/0x44 @ 1
+[    0.619170] [OSLAB] user : 0, nice : 0, system : 80, idle : 32, iowait : 0, irq : 0, softirq : 0
+[    0.619188] [OSLAB] MemTotal : 924852, MemFree : 883708
+[    0.653921] initcall jent_mod_init+0x0/0x44 returned 0 after 33888 usecs
+[    0.653946] calling  af_alg_init+0x0/0x50 @ 1
+[    0.653975] [OSLAB] user : 0, nice : 0, system : 83, idle : 35, iowait : 0, irq : 0, softirq : 0
+[    0.653995] [OSLAB] MemTotal : 924852, MemFree : 883708
+[    0.654016] NET: Registered protocol family 38
+[    0.654043] initcall af_alg_init+0x0/0x50 returned 0 after 27 usecs
+[    0.654064] calling  algif_hash_init+0x0/0x24 @ 1
+[    0.654090] [OSLAB] user : 0, nice : 0, system : 83, idle : 35, iowait : 0, irq : 0, softirq : 0
+[    0.654109] [OSLAB] MemTotal : 924852, MemFree : 883708
+[    0.654136] initcall algif_hash_init+0x0/0x24 returned 0 after 5 usecs
+[    0.654157] calling  proc_genhd_init+0x0/0x70 @ 1
+[    0.654183] [OSLAB] user : 0, nice : 0, system : 83, idle : 35, iowait : 0, irq : 0, softirq : 0
+[    0.654281] [OSLAB] MemTotal : 924852, MemFree : 883708
+[    0.654332] initcall proc_genhd_init+0x0/0x70 returned 0 after 26 usecs
+[    0.654353] calling  init_emergency_pool+0x0/0x8c @ 1
+[    0.654381] [OSLAB] user : 0, nice : 0, system : 84, idle : 35, iowait : 0, irq : 0, softirq : 0
+[    0.654399] [OSLAB] MemTotal : 924852, MemFree : 883708
+[    0.654423] initcall init_emergency_pool+0x0/0x8c returned 0 after 3 usecs
+[    0.654444] calling  percpu_counter_startup+0x0/0xb0 @ 1
+[    0.654470] [OSLAB] user : 0, nice : 0, system : 84, idle : 35, iowait : 0, irq : 0, softirq : 0
+[    0.654488] [OSLAB] MemTotal : 924852, MemFree : 883708
+[    0.654684] initcall percpu_counter_startup+0x0/0xb0 returned 0 after 166 usecs
+[    0.654705] calling  sg_pool_init+0x0/0xf4 @ 1
+[    0.654732] [OSLAB] user : 0, nice : 0, system : 84, idle : 36, iowait : 0, irq : 0, softirq : 0
+[    0.654751] [OSLAB] MemTotal : 924852, MemFree : 883708
+[    0.655067] initcall sg_pool_init+0x0/0xf4 returned 0 after 284 usecs
+[    0.655090] calling  aspeed_gpio_driver_init+0x0/0x30 @ 1
+[    0.655117] [OSLAB] user : 0, nice : 0, system : 84, idle : 36, iowait : 0, irq : 0, softirq : 0
+[    0.655136] [OSLAB] MemTotal : 924852, MemFree : 883708
+[    0.657424] probe of 1e780000.gpio returned 1 after 1687 usecs
+[    0.657917] initcall aspeed_gpio_driver_init+0x0/0x30 returned 0 after 2687 usecs
+[    0.657942] calling  aspeed_sgpio_driver_init+0x0/0x30 @ 1
+[    0.657972] [OSLAB] user : 0, nice : 0, system : 84, idle : 36, iowait : 0, irq : 0, softirq : 0
+[    0.657992] [OSLAB] MemTotal : 924852, MemFree : 883708
+[    0.660418] probe of 1e780500.sgpiom returned 1 after 1873 usecs
+[    0.660878] initcall aspeed_sgpio_driver_init+0x0/0x30 returned 0 after 2789 usecs
+[    0.660901] calling  pci_proc_init+0x0/0x90 @ 1
+[    0.660933] [OSLAB] user : 0, nice : 0, system : 84, idle : 36, iowait : 0, irq : 0, softirq : 0
+[    0.660953] [OSLAB] MemTotal : 924852, MemFree : 883708
+[    0.661005] initcall pci_proc_init+0x0/0x90 returned 0 after 29 usecs
+[    0.661027] calling  pcie_portdrv_init+0x0/0x54 @ 1
+[    0.661054] [OSLAB] user : 0, nice : 0, system : 84, idle : 36, iowait : 0, irq : 0, softirq : 0
+[    0.661072] [OSLAB] MemTotal : 924852, MemFree : 883708
+[    0.661358] initcall pcie_portdrv_init+0x0/0x54 returned 0 after 255 usecs
+[    0.661380] calling  pci_stub_init+0x0/0x19c @ 1
+[    0.661407] [OSLAB] user : 0, nice : 0, system : 84, idle : 36, iowait : 0, irq : 0, softirq : 0
+[    0.661426] [OSLAB] MemTotal : 924852, MemFree : 883708
+[    0.661542] initcall pci_stub_init+0x0/0x19c returned 0 after 90 usecs
+[    0.661564] calling  aspeed_pcie_driver_init+0x0/0x28 @ 1
+[    0.661592] [OSLAB] user : 0, nice : 0, system : 84, idle : 36, iowait : 0, irq : 0, softirq : 0
+[    0.661610] [OSLAB] MemTotal : 924852, MemFree : 883708
+[    0.662163] PCIE- Link down
+[    0.662226] aspeed-pcie 1e6ed200.pcie: host bridge /ahb/apb/pcie@1e6ed2000 ranges:
+[    0.662265] aspeed-pcie 1e6ed200.pcie: Parsing ranges property...
+[    0.662422] aspeed-pcie 1e6ed200.pcie:    IO 0x00010000..0x0001ffff -> 0x00010000
+[    0.662522] aspeed-pcie 1e6ed200.pcie:   MEM 0x70000000..0x7ffffffe -> 0x70000000
+[    0.662986] aspeed-pcie 1e6ed200.pcie: PCI host bridge to bus 0000:00
+[    0.663018] pci_bus 0000:00: root bus resource [bus 00-ff]
+[    0.663045] pci_bus 0000:00: root bus resource [io  0x0000-0xffff] (bus address [0x10000-0x1ffff])
+[    0.663070] pci_bus 0000:00: root bus resource [mem 0x70000000-0x7ffffffe]
+[    0.663095] pci_bus 0000:00: scanning bus
+[    0.663162] pci 0000:00:00.0: [1a03:2600] type 00 class 0x060000
+[    0.663207] pci 0000:00:00.0: calling  quirk_mmio_always_on+0x0/0x24 @ 1
+[    0.663238] pci 0000:00:00.0: quirk_mmio_always_on+0x0/0x24 took 2 usecs
+[    0.663381] pci 0000:00:00.0: calling  pci_fixup_ide_bases+0x0/0x50 @ 1
+[    0.663411] pci 0000:00:00.0: pci_fixup_ide_bases+0x0/0x50 took 1 usecs
+[    0.671960] pci 0000:00:08.0: [1a03:1150] type 01 class 0x060400
+[    0.672084] pci 0000:00:08.0: ASPEED Bridge Gen2 re-training 
+[    0.672159] pci 0000:00:08.0: enabling Extended Tags
+[    0.672223] pci 0000:00:08.0: calling  pci_fixup_ide_bases+0x0/0x50 @ 1
+[    0.672254] pci 0000:00:08.0: pci_fixup_ide_bases+0x0/0x50 took 1 usecs
+[    0.672441] pci 0000:00:08.0: supports D1 D2
+[    0.672464] pci 0000:00:08.0: PME# supported from D0 D1 D2 D3hot D3cold
+[    0.672497] pci 0000:00:08.0: PME# disabled
+[    0.696012] pci_bus 0000:00: fixups for bus
+[    0.696068] PCI: bus0: Fast back to back transfers disabled
+[    0.696104] pci 0000:00:08.0: scanning [bus 00-00] behind bridge, pass 0
+[    0.696124] pci 0000:00:08.0: bridge configuration invalid ([bus 00-00]), reconfiguring
+[    0.696171] pci 0000:00:08.0: scanning [bus 00-00] behind bridge, pass 1
+[    0.696603] pci_bus 0000:01: scanning bus
+[    0.726984] pci_bus 0000:01: fixups for bus
+[    0.727008] PCI: bus1: Fast back to back transfers enabled
+[    0.727035] pci_bus 0000:01: bus scan returning with max=01
+[    0.727060] pci_bus 0000:01: busn_res: [bus 01-ff] end is updated to 01
+[    0.727095] pci_bus 0000:00: bus scan returning with max=01
+[    0.727140] pci 0000:00:08.0: PCI bridge to [bus 01]
+[    0.727437] pcieport 0000:00:08.0: assign IRQ: got 0
+[    0.727524] pcieport 0000:00:08.0: enabling bus mastering
+[    0.728207] pcieport 0000:00:08.0: PME: Signaling with IRQ 77
+[    0.728275] probe of 0000:00:08.0:pcie001 returned 1 after 246 usecs
+[    0.729028] pcieport 0000:00:08.0: AER: enabled with IRQ 77
+[    0.729086] probe of 0000:00:08.0:pcie002 returned 1 after 534 usecs
+[    0.729592] probe of 0000:00:08.0 returned 1 after 2293 usecs
+[    0.729842] probe of 1e6ed200.pcie returned 1 after 67947 usecs
+[    0.730275] initcall aspeed_pcie_driver_init+0x0/0x28 returned 0 after 67024 usecs
+[    0.730300] calling  bt_bmc_driver_init+0x0/0x28 @ 1
+[    0.730331] [OSLAB] user : 0, nice : 0, system : 91, idle : 43, iowait : 0, irq : 0, softirq : 0
+[    0.730353] [OSLAB] MemTotal : 924852, MemFree : 883708
+[    0.731326] initcall bt_bmc_driver_init+0x0/0x28 returned 0 after 926 usecs
+[    0.731349] calling  ast_kcs_bmc_driver_init+0x0/0x28 @ 1
+[    0.731377] [OSLAB] user : 0, nice : 0, system : 91, idle : 43, iowait : 0, irq : 0, softirq : 0
+[    0.731395] [OSLAB] MemTotal : 924852, MemFree : 883708
+[    0.733210] aspeed-kcs-bmc: channel=1 addr=0xca0 idr=0x24 odr=0x30 str=0x3c
+[    0.733300] probe of 1e789000.kcs1 returned 1 after 1308 usecs
+[    0.734120] aspeed-kcs-bmc: channel=2 addr=0xca8 idr=0x28 odr=0x34 str=0x40
+[    0.734295] probe of 1e789000.kcs2 returned 1 after 940 usecs
+[    0.735104] aspeed-kcs-bmc: channel=3 addr=0xca2 idr=0x2c odr=0x38 str=0x44
+[    0.735184] probe of 1e789000.kcs3 returned 1 after 839 usecs
+[    0.735997] aspeed-kcs-bmc: channel=4 addr=0xca4 idr=0x114 odr=0x118 str=0x11c
+[    0.736075] probe of 1e789000.kcs4 returned 1 after 843 usecs
+[    0.736445] initcall ast_kcs_bmc_driver_init+0x0/0x28 returned 0 after 4902 usecs
+[    0.736470] calling  of_fixed_factor_clk_driver_init+0x0/0x28 @ 1
+[    0.736500] [OSLAB] user : 0, nice : 0, system : 92, idle : 44, iowait : 0, irq : 0, softirq : 0
+[    0.736520] [OSLAB] MemTotal : 924852, MemFree : 883456
+[    0.737147] initcall of_fixed_factor_clk_driver_init+0x0/0x28 returned 0 after 587 usecs
+[    0.737170] calling  of_fixed_clk_driver_init+0x0/0x28 @ 1
+[    0.737198] [OSLAB] user : 0, nice : 0, system : 92, idle : 44, iowait : 0, irq : 0, softirq : 0
+[    0.737218] [OSLAB] MemTotal : 924852, MemFree : 883456
+[    0.737791] initcall of_fixed_clk_driver_init+0x0/0x28 returned 0 after 535 usecs
+[    0.737813] calling  gpio_clk_driver_init+0x0/0x28 @ 1
+[    0.737840] [OSLAB] user : 0, nice : 0, system : 92, idle : 44, iowait : 0, irq : 0, softirq : 0
+[    0.737859] [OSLAB] MemTotal : 924852, MemFree : 883456
+[    0.738575] initcall gpio_clk_driver_init+0x0/0x28 returned 0 after 677 usecs
+[    0.738597] calling  aspeed_clk_driver_init+0x0/0x28 @ 1
+[    0.738624] [OSLAB] user : 0, nice : 0, system : 92, idle : 44, iowait : 0, irq : 0, softirq : 0
+[    0.738643] [OSLAB] MemTotal : 924852, MemFree : 883456
+[    0.739361] initcall aspeed_clk_driver_init+0x0/0x28 returned 0 after 678 usecs
+[    0.739383] calling  aspeed_bmc_misc_init+0x0/0x28 @ 1
+[    0.739411] [OSLAB] user : 0, nice : 0, system : 92, idle : 44, iowait : 0, irq : 0, softirq : 0
+[    0.739429] [OSLAB] MemTotal : 924852, MemFree : 883456
+[    0.740018] probe of 1e789000.lpc:regs returned 1 after 189 usecs
+[    0.740228] initcall aspeed_bmc_misc_init+0x0/0x28 returned 0 after 757 usecs
+[    0.740251] calling  aspeed_lpc_ctrl_driver_init+0x0/0x28 @ 1
+[    0.740279] [OSLAB] user : 0, nice : 0, system : 92, idle : 44, iowait : 0, irq : 0, softirq : 0
+[    0.740298] [OSLAB] MemTotal : 924852, MemFree : 883456
+[    0.741216] initcall aspeed_lpc_ctrl_driver_init+0x0/0x28 returned 0 after 873 usecs
+[    0.741239] calling  aspeed_lpc_snoop_driver_init+0x0/0x28 @ 1
+[    0.741266] [OSLAB] user : 0, nice : 0, system : 92, idle : 44, iowait : 0, irq : 0, softirq : 0
+[    0.741285] [OSLAB] MemTotal : 924852, MemFree : 883456
+[    0.742193] initcall aspeed_lpc_snoop_driver_init+0x0/0x28 returned 0 after 862 usecs
+[    0.742215] calling  aspeed_p2a_ctrl_driver_init+0x0/0x28 @ 1
+[    0.742242] [OSLAB] user : 0, nice : 0, system : 92, idle : 44, iowait : 0, irq : 0, softirq : 0
+[    0.742261] [OSLAB] MemTotal : 924852, MemFree : 883456
+[    0.742999] initcall aspeed_p2a_ctrl_driver_init+0x0/0x28 returned 0 after 697 usecs
+[    0.743021] calling  aspeed_xdma_driver_init+0x0/0x28 @ 1
+[    0.743047] [OSLAB] user : 0, nice : 0, system : 92, idle : 44, iowait : 0, irq : 0, softirq : 0
+[    0.743066] [OSLAB] MemTotal : 924852, MemFree : 883456
+[    0.743820] initcall aspeed_xdma_driver_init+0x0/0x28 returned 0 after 713 usecs
+[    0.743842] calling  vga_sharedmem_driver_init+0x0/0x28 @ 1
+[    0.743869] [OSLAB] user : 0, nice : 0, system : 92, idle : 44, iowait : 0, irq : 0, softirq : 0
+[    0.743887] [OSLAB] MemTotal : 924852, MemFree : 883456
+[    0.745120] probe of bff00000.vga-shared-memory returned 1 after 562 usecs
+[    0.745217] initcall vga_sharedmem_driver_init+0x0/0x28 returned 0 after 1273 usecs
+[    0.745240] calling  aspeed_mctp_driver_init+0x0/0x28 @ 1
+[    0.745270] [OSLAB] user : 0, nice : 0, system : 93, idle : 44, iowait : 0, irq : 0, softirq : 0
+[    0.745290] [OSLAB] MemTotal : 924852, MemFree : 883456
+[    0.747668] aspeed_mctp: reset.
+[    0.748506] aspeed_mctp: driver successfully loaded.
+[    0.748597] probe of 1e6e8000.mctp returned 1 after 2874 usecs
+[    0.749997] aspeed_mctp: reset.
+[    0.750050] aspeed_mctp 1e6f9000.mctp: IRQ mctp not found
+[    0.750606] aspeed_mctp: driver successfully loaded.
+[    0.750691] probe of 1e6f9000.mctp returned 1 after 2039 usecs
+[    0.751290] initcall aspeed_mctp_driver_init+0x0/0x28 returned 0 after 5827 usecs
+[    0.751316] calling  aspeed_udma_driver_init+0x0/0x28 @ 1
+[    0.751348] [OSLAB] user : 0, nice : 0, system : 93, idle : 45, iowait : 0, irq : 0, softirq : 0
+[    0.751369] [OSLAB] MemTotal : 924852, MemFree : 885116
+[    0.753103] probe of 1e79e000.uart-dma returned 1 after 413 usecs
+[    0.753335] initcall aspeed_udma_driver_init+0x0/0x28 returned 0 after 1895 usecs
+[    0.753359] calling  ast_video_driver_init+0x0/0x28 @ 1
+[    0.753389] [OSLAB] user : 0, nice : 0, system : 93, idle : 45, iowait : 0, irq : 0, softirq : 0
+[    0.753408] [OSLAB] MemTotal : 924852, MemFree : 885116
+[    0.755473] ast_video_probe() video_mem_size 40 MB
+[    0.755517] ast_video 1e700000.video: assigned reserved memory node video
+[    0.783256] ast_video_probe() 
+               stream_phy: b8000000, buff0_phy: b8400000, buff1_phy:b8e00000, bcd_phy:b9800000 
+               jpeg_phy:ba300000, jpeg_tbl_phy:ba700000 
+[    0.783279] ast_video_probe() 
+               stream_virt: b8000000, buff0_virt: b8400000, buff1_virt:b8e00000, bcd_virt:b9800000 
+               jpeg_virt:ba300000, jpeg_tbl_virt:ba700000 
+[    0.811907] ast_video_ctrl_init() 
+[    0.812075] ast_video: driver successfully loaded.
+[    0.812183] probe of 1e700000.video returned 1 after 58273 usecs
+[    0.812748] initcall ast_video_driver_init+0x0/0x28 returned 0 after 57915 usecs
+[    0.812773] calling  aspeed_espi_ctrl_driver_init+0x0/0x28 @ 1
+[    0.812807] [OSLAB] user : 0, nice : 0, system : 99, idle : 51, iowait : 0, irq : 0, softirq : 0
+[    0.812829] [OSLAB] MemTotal : 924852, MemFree : 844144
+[    0.813653] aspeed-espi-ctrl: probe of 1e6ee000.espi-ctrl failed with error -1
+[    0.813681] probe of 1e6ee000.espi-ctrl returned 0 after 398 usecs
+[    0.814110] initcall aspeed_espi_ctrl_driver_init+0x0/0x28 returned 0 after 1224 usecs
+[    0.814133] calling  aspeed_jtag_driver_init+0x0/0x28 @ 1
+[    0.814163] [OSLAB] user : 0, nice : 0, system : 99, idle : 51, iowait : 0, irq : 0, softirq : 0
+[    0.814183] [OSLAB] MemTotal : 924852, MemFree : 844144
+[    0.815204] aspeed_jtag_probe() aspeed_jtag_probe
+[    0.815444] aspeed_jtag_probe() aspeed_jtag->clkin 200000000 
+[    0.815472] aspeed_jtag_probe() buffer addr : tdi adf32800 tdo adf32c00 
+[    0.815506] aspeed_jtag_write() reg = 0x00000008, val = 0xc0000000
+[    0.815522] aspeed_jtag_write() reg = 0x00000010, val = 0x00090000
+[    0.815650] aspeed_jtag_write() reg = 0x0000000c, val = 0x000f0000
+[    0.816168] aspeed_jtag_set_freq() sw mode delay = 125 
+[    0.816185] aspeed_jtag_set_freq() 200000000 target freq = 8000000 div = 24
+[    0.816194] aspeed_jtag_set_freq() set div = 18 
+[    0.816209] aspeed_jtag_write() reg = 0x00000014, val = 0x00000018
+[    0.816223] aspeed_jtag: driver successfully loaded.
+[    0.816307] probe of 1e6e4100.jtag returned 1 after 1599 usecs
+[    0.816912] initcall aspeed_jtag_driver_init+0x0/0x28 returned 0 after 2538 usecs
+[    0.816937] calling  reset_simple_driver_init+0x0/0x28 @ 1
+[    0.816967] [OSLAB] user : 0, nice : 0, system : 100, idle : 51, iowait : 0, irq : 0, softirq : 0
+[    0.816987] [OSLAB] MemTotal : 924852, MemFree : 844144
+[    0.818683] probe of 1e789098.reset-controller returned 1 after 239 usecs
+[    0.819298] initcall reset_simple_driver_init+0x0/0x28 returned 0 after 2230 usecs
+[    0.819320] calling  n_null_init+0x0/0x30 @ 1
+[    0.819349] [OSLAB] user : 0, nice : 0, system : 100, idle : 52, iowait : 0, irq : 0, softirq : 0
+[    0.819368] [OSLAB] MemTotal : 924852, MemFree : 844144
+[    0.819394] initcall n_null_init+0x0/0x30 returned 0 after 4 usecs
+[    0.819415] calling  pty_init+0x0/0x258 @ 1
+[    0.819442] [OSLAB] user : 0, nice : 0, system : 100, idle : 52, iowait : 0, irq : 0, softirq : 0
+[    0.819460] [OSLAB] MemTotal : 924852, MemFree : 844144
+[    0.819934] initcall pty_init+0x0/0x258 returned 0 after 437 usecs
+[    0.819960] calling  serial8250_init+0x0/0x150 @ 1
+[    0.819988] [OSLAB] user : 0, nice : 0, system : 100, idle : 52, iowait : 0, irq : 0, softirq : 0
+[    0.820006] [OSLAB] MemTotal : 924852, MemFree : 844144
+[    0.820024] Serial: 8250/16550 driver, 17 ports, IRQ sharing enabled
+[    0.830836] probe of serial8250 returned 1 after 109 usecs
+[    0.830932] initcall serial8250_init+0x0/0x150 returned 0 after 10639 usecs
+[    0.830957] calling  serial_pci_driver_init+0x0/0x30 @ 1
+[    0.830989] [OSLAB] user : 0, nice : 0, system : 101, idle : 53, iowait : 0, irq : 0, softirq : 0
+[    0.831009] [OSLAB] MemTotal : 924852, MemFree : 843700
+[    0.831174] initcall serial_pci_driver_init+0x0/0x30 returned 0 after 135 usecs
+[    0.831198] calling  exar_pci_driver_init+0x0/0x30 @ 1
+[    0.831225] [OSLAB] user : 0, nice : 0, system : 101, idle : 53, iowait : 0, irq : 0, softirq : 0
+[    0.831244] [OSLAB] MemTotal : 924852, MemFree : 843700
+[    0.831372] initcall exar_pci_driver_init+0x0/0x30 returned 0 after 102 usecs
+[    0.831394] calling  aspeed_vuart_driver_init+0x0/0x28 @ 1
+[    0.831421] [OSLAB] user : 0, nice : 0, system : 101, idle : 53, iowait : 0, irq : 0, softirq : 0
+[    0.831439] [OSLAB] MemTotal : 924852, MemFree : 843700
+[    0.832248] initcall aspeed_vuart_driver_init+0x0/0x28 returned 0 after 764 usecs
+[    0.832271] calling  ast8250_platform_driver_init+0x0/0x28 @ 1
+[    0.832298] [OSLAB] user : 0, nice : 0, system : 101, idle : 53, iowait : 0, irq : 0, softirq : 0
+[    0.832317] [OSLAB] MemTotal : 924852, MemFree : 843700
+[    0.834413] printk: console [ttyS4] disabled
+[    0.856095] 1e784000.serial: ttyS4 at MMIO 0x1e784000 (irq = 61, base_baud = 115384) is a 16550A
+[    1.832997] printk: console [ttyS4] enabled
+[    1.838766] probe of 1e784000.serial returned 1 after 1006000 usecs
+[    1.839218] initcall ast8250_platform_driver_init+0x0/0x28 returned 0 after 983266 usecs
+[    1.839244] calling  of_platform_serial_driver_init+0x0/0x28 @ 1
+[    1.839275] [OSLAB] user : 0, nice : 0, system : 199, idle : 153, iowait : 0, irq : 0, softirq : 0
+[    1.839296] [OSLAB] MemTotal : 924852, MemFree : 843700
+[    1.842405] initcall of_platform_serial_driver_init+0x0/0x28 returned 0 after 3009 usecs
+[    1.842429] calling  hwrng_modinit+0x0/0x9c @ 1
+[    1.842456] [OSLAB] user : 0, nice : 0, system : 199, idle : 154, iowait : 0, irq : 0, softirq : 0
+[    1.842476] [OSLAB] MemTotal : 924852, MemFree : 843700
+[    1.842979] initcall hwrng_modinit+0x0/0x9c returned 0 after 463 usecs
+[    1.843006] calling  timeriomem_rng_driver_init+0x0/0x28 @ 1
+[    1.843034] [OSLAB] user : 0, nice : 0, system : 199, idle : 154, iowait : 0, irq : 0, softirq : 0
+[    1.843054] [OSLAB] MemTotal : 924852, MemFree : 843700
+[    1.843671] initcall timeriomem_rng_driver_init+0x0/0x28 returned 0 after 578 usecs
+[    1.843694] calling  aspeed_trng_driver_init+0x0/0x28 @ 1
+[    1.843723] [OSLAB] user : 0, nice : 0, system : 199, idle : 154, iowait : 0, irq : 0, softirq : 0
+[    1.843741] [OSLAB] MemTotal : 924852, MemFree : 843700
+[    1.844582] probe of 1e6e2530.hwrng returned 1 after 597 usecs
+[    1.844619] random: fast init done
+[    1.845023] initcall aspeed_trng_driver_init+0x0/0x28 returned 0 after 1223 usecs
+[    1.848444] calling  drm_kms_helper_init+0x0/0x20 @ 1
+[    1.848473] [OSLAB] user : 0, nice : 0, system : 199, idle : 154, iowait : 0, irq : 0, softirq : 0
+[    1.848492] [OSLAB] MemTotal : 924852, MemFree : 843700
+[    1.848518] initcall drm_kms_helper_init+0x0/0x20 returned 0 after 2 usecs
+[    1.848539] calling  drm_core_init+0x0/0xd0 @ 1
+[    1.848565] [OSLAB] user : 0, nice : 0, system : 199, idle : 154, iowait : 0, irq : 0, softirq : 0
+[    1.848569] random: crng init done
+[    1.852396] [OSLAB] MemTotal : 924852, MemFree : 843700
+[    1.852562] initcall drm_core_init+0x0/0xd0 returned 0 after 133 usecs
+[    1.852586] calling  ttm_init+0x0/0x78 @ 1
+[    1.852613] [OSLAB] user : 0, nice : 0, system : 199, idle : 154, iowait : 0, irq : 0, softirq : 0
+[    1.852632] [OSLAB] MemTotal : 924852, MemFree : 843700
+[    1.852850] initcall ttm_init+0x0/0x78 returned 0 after 188 usecs
+[    1.852872] calling  ast_init+0x0/0x44 @ 1
+[    1.852898] [OSLAB] user : 0, nice : 0, system : 199, idle : 154, iowait : 0, irq : 0, softirq : 0
+[    1.852917] [OSLAB] MemTotal : 924852, MemFree : 843700
+[    1.853107] initcall ast_init+0x0/0x44 returned 0 after 162 usecs
+[    1.853131] calling  aspeed_gfx_platform_driver_init+0x0/0x28 @ 1
+[    1.853157] [OSLAB] user : 0, nice : 0, system : 199, idle : 154, iowait : 0, irq : 0, softirq : 0
+[    1.853175] [OSLAB] MemTotal : 924852, MemFree : 843700
+[    1.854016] initcall aspeed_gfx_platform_driver_init+0x0/0x28 returned 0 after 794 usecs
+[    1.854041] calling  topology_sysfs_init+0x0/0x50 @ 1
+[    1.854069] [OSLAB] user : 0, nice : 0, system : 199, idle : 154, iowait : 0, irq : 0, softirq : 0
+[    1.854087] [OSLAB] MemTotal : 924852, MemFree : 843700
+[    1.854476] initcall topology_sysfs_init+0x0/0x50 returned 0 after 355 usecs
+[    1.854501] calling  cacheinfo_sysfs_init+0x0/0x50 @ 1
+[    1.854529] [OSLAB] user : 0, nice : 0, system : 201, idle : 154, iowait : 0, irq : 0, softirq : 0
+[    1.854548] [OSLAB] MemTotal : 924852, MemFree : 843700
+[    1.854700] initcall cacheinfo_sysfs_init+0x0/0x50 returned -2 after 121 usecs
+[    1.854723] calling  brd_init+0x0/0x1e8 @ 1
+[    1.854750] [OSLAB] user : 0, nice : 0, system : 201, idle : 154, iowait : 0, irq : 0, softirq : 0
+[    1.854768] [OSLAB] MemTotal : 924852, MemFree : 843700
+[    1.882553] brd: module loaded
+[    1.886104] initcall brd_init+0x0/0x1e8 returned 0 after 30565 usecs
+[    1.886130] calling  loop_init+0x0/0x164 @ 1
+[    1.886161] [OSLAB] user : 0, nice : 0, system : 204, idle : 157, iowait : 0, irq : 0, softirq : 0
+[    1.886183] [OSLAB] MemTotal : 924852, MemFree : 843052
+[    1.900478] loop: module loaded
+[    1.904022] initcall loop_init+0x0/0x164 returned 0 after 17387 usecs
+[    1.904047] calling  nbd_init+0x0/0x12c @ 1
+[    1.904078] [OSLAB] user : 0, nice : 0, system : 205, idle : 159, iowait : 0, irq : 0, softirq : 0
+[    1.904099] [OSLAB] MemTotal : 924852, MemFree : 842476
+[    1.933637] initcall nbd_init+0x0/0x12c returned 0 after 28806 usecs
+[    1.933668] calling  at24_init+0x0/0x58 @ 1
+[    1.933700] [OSLAB] user : 0, nice : 0, system : 208, idle : 162, iowait : 0, irq : 0, softirq : 0
+[    1.933722] [OSLAB] MemTotal : 924852, MemFree : 840820
+[    1.933832] initcall at24_init+0x0/0x58 returned 0 after 83 usecs
+[    1.933854] calling  mctp_lpc_init+0x0/0x28 @ 1
+[    1.933881] [OSLAB] user : 0, nice : 0, system : 208, idle : 162, iowait : 0, irq : 0, softirq : 0
+[    1.933899] [OSLAB] MemTotal : 924852, MemFree : 840820
+[    1.934704] initcall mctp_lpc_init+0x0/0x28 returned 0 after 761 usecs
+[    1.934728] calling  init_sd+0x0/0x1c8 @ 1
+[    1.934758] [OSLAB] user : 0, nice : 0, system : 209, idle : 162, iowait : 0, irq : 0, softirq : 0
+[    1.934778] [OSLAB] MemTotal : 924852, MemFree : 840820
+[    1.935086] initcall init_sd+0x0/0x1c8 returned 0 after 277 usecs
+[    1.935107] calling  init_sg+0x0/0x1c8 @ 1
+[    1.935135] [OSLAB] user : 0, nice : 0, system : 209, idle : 162, iowait : 0, irq : 0, softirq : 0
+[    1.935154] [OSLAB] MemTotal : 924852, MemFree : 840820
+[    1.935293] initcall init_sg+0x0/0x1c8 returned 0 after 113 usecs
+[    1.935315] calling  nvme_core_init+0x0/0x13c @ 1
+[    1.935343] [OSLAB] user : 0, nice : 0, system : 209, idle : 162, iowait : 0, irq : 0, softirq : 0
+[    1.935361] [OSLAB] MemTotal : 924852, MemFree : 840820
+[    1.937166] initcall nvme_core_init+0x0/0x13c returned 0 after 1732 usecs
+[    1.937192] calling  nvme_init+0x0/0x30 @ 1
+[    1.937222] [OSLAB] user : 0, nice : 0, system : 209, idle : 162, iowait : 0, irq : 0, softirq : 0
+[    1.937242] [OSLAB] MemTotal : 924852, MemFree : 840820
+[    1.937426] initcall nvme_init+0x0/0x30 returned 0 after 156 usecs
+[    1.937447] calling  init_mtd+0x0/0x128 @ 1
+[    1.937474] [OSLAB] user : 0, nice : 0, system : 209, idle : 162, iowait : 0, irq : 0, softirq : 0
+[    1.937492] [OSLAB] MemTotal : 924852, MemFree : 840820
+[    1.937984] initcall init_mtd+0x0/0x128 returned 0 after 455 usecs
+[    1.938009] calling  ofpart_parser_init+0x0/0x3c @ 1
+[    1.938038] [OSLAB] user : 0, nice : 0, system : 209, idle : 162, iowait : 0, irq : 0, softirq : 0
+[    1.938056] [OSLAB] MemTotal : 924852, MemFree : 840820
+[    1.938082] initcall ofpart_parser_init+0x0/0x3c returned 0 after 4 usecs
+[    1.938102] calling  init_mtdblock+0x0/0x24 @ 1
+[    1.938128] [OSLAB] user : 0, nice : 0, system : 209, idle : 162, iowait : 0, irq : 0, softirq : 0
+[    1.938146] [OSLAB] MemTotal : 924852, MemFree : 840820
+[    1.938182] initcall init_mtdblock+0x0/0x24 returned 0 after 14 usecs
+[    1.938203] calling  spi_nor_driver_init+0x0/0x28 @ 1
+[    1.938229] [OSLAB] user : 0, nice : 0, system : 209, idle : 162, iowait : 0, irq : 0, softirq : 0
+[    1.938247] [OSLAB] MemTotal : 924852, MemFree : 840820
+[    1.938348] initcall spi_nor_driver_init+0x0/0x28 returned 0 after 77 usecs
+[    1.938370] calling  aspeed_spi_driver_init+0x0/0x28 @ 1
+[    1.938397] [OSLAB] user : 0, nice : 0, system : 209, idle : 162, iowait : 0, irq : 0, softirq : 0
+[    1.938415] [OSLAB] MemTotal : 924852, MemFree : 840820
+[    1.959233] spi-nor spi0.0: w25q512jv (65536 Kbytes)
+[    1.966320] ASPEED_FMC_SPI 1e620000.spi: freq: 50MHz
+[    1.971880] ASPEED_FMC_SPI 1e620000.spi: read bus width: 4 [0x406c0641]
+[    1.979377] ASPEED_FMC_SPI 1e620000.spi: write bus width: 1 [0x03120002]
+[    1.990999] 8 fixed-partitions partitions found on MTD device bmc
+[    1.997890] Creating 8 MTD partitions on "bmc":
+[    2.002971] 0x000000000000-0x0000000e0000 : "u-boot"
+[    2.011541] 0x0000000e0000-0x0000000f0000 : "u-boot-env"
+[    2.020444] 0x000000100000-0x000002060000 : "fit"
+[    2.028608] 0x000002500000-0x000002600000 : "conf"
+[    2.036947] 0x000002600000-0x000002a00000 : "redfish"
+[    2.045668] 0x000002a00000-0x000003500000 : "web"
+[    2.053782] 0x000003500000-0x000003600000 : "etc"
+[    2.062038] 0x000003600000-0x000004100000 : "firmware"
+[    2.067889] mtd: partition "firmware" extends beyond the end of device "bmc" -- size truncated to 0xa00000
+[    2.081708] probe of spi0.0 returned 1 after 140580 usecs
+[    2.100066] spi-nor spi0.1: w25q512jv (65536 Kbytes)
+[    2.108523] ASPEED_FMC_SPI 1e620000.spi: flash data is monotonous, skip calibration.
+[    2.117350] ASPEED_FMC_SPI 1e620000.spi: freq: 50MHz
+[    2.122912] ASPEED_FMC_SPI 1e620000.spi: read bus width: 4 [0x406c0641]
+[    2.130380] ASPEED_FMC_SPI 1e620000.spi: write bus width: 1 [0x03120002]
+[    2.141804] probe of spi0.1 returned 1 after 59486 usecs
+[    2.141907] probe of 1e620000.spi returned 1 after 203346 usecs
+[    2.154864] spi-nor spi1.0: w25q256 (32768 Kbytes)
+[    2.161418] ASPEED_FMC_SPI 1e630000.spi: flash data is monotonous, skip calibration.
+[    2.170191] ASPEED_FMC_SPI 1e630000.spi: freq: 50MHz
+[    2.175799] ASPEED_FMC_SPI 1e630000.spi: read bus width: 4 [0x406b0641]
+[    2.183209] ASPEED_FMC_SPI 1e630000.spi: write bus width: 1 [0x03020002]
+[    2.194486] probe of spi1.0 returned 1 after 48894 usecs
+[    2.194589] probe of 1e630000.spi returned 1 after 52631 usecs
+[    2.201173] spi-nor spi2.0: gd25q256 (32768 Kbytes)
+[    2.208087] ASPEED_FMC_SPI 1e631000.spi: flash data is monotonous, skip calibration.
+[    2.216815] ASPEED_FMC_SPI 1e631000.spi: freq: 50MHz
+[    2.222375] ASPEED_FMC_SPI 1e631000.spi: read bus width: 4 [0x406c0641]
+[    2.229824] ASPEED_FMC_SPI 1e631000.spi: write bus width: 1 [0x03120002]
+[    2.241117] probe of spi2.0 returned 1 after 42321 usecs
+[    2.241225] probe of 1e631000.spi returned 1 after 46583 usecs
+[    2.241998] initcall aspeed_spi_driver_init+0x0/0x28 returned 0 after 296435 usecs
+[    2.242023] calling  fsi_spi_driver_init+0x0/0x24 @ 1
+[    2.242055] [OSLAB] user : 0, nice : 0, system : 238, idle : 192, iowait : 0, irq : 0, softirq : 0
+[    2.242077] [OSLAB] MemTotal : 924852, MemFree : 840020
+[    2.242177] initcall fsi_spi_driver_init+0x0/0x24 returned 0 after 75 usecs
+[    2.242199] calling  bonding_init+0x0/0xb84 @ 1
+[    2.242226] [OSLAB] user : 0, nice : 0, system : 238, idle : 192, iowait : 0, irq : 0, softirq : 0
+[    2.242244] [OSLAB] MemTotal : 924852, MemFree : 840020
+[    2.242260] Ethernet Channel Bonding Driver: v3.7.1 (April 27, 2011)
+[    2.255513] initcall bonding_init+0x0/0xb84 returned 0 after 12923 usecs
+[    2.255541] calling  net_olddevs_init+0x0/0x84 @ 1
+[    2.255572] [OSLAB] user : 0, nice : 0, system : 240, idle : 193, iowait : 0, irq : 0, softirq : 0
+[    2.255592] [OSLAB] MemTotal : 924852, MemFree : 839752
+[    2.255645] initcall net_olddevs_init+0x0/0x84 returned 0 after 30 usecs
+[    2.255665] calling  blackhole_netdev_init+0x0/0x98 @ 1
+[    2.255692] [OSLAB] user : 0, nice : 0, system : 240, idle : 193, iowait : 0, irq : 0, softirq : 0
+[    2.255710] [OSLAB] MemTotal : 924852, MemFree : 839752
+[    2.255781] initcall blackhole_netdev_init+0x0/0x98 returned 0 after 47 usecs
+[    2.255803] calling  aspeed_mdio_driver_init+0x0/0x28 @ 1
+[    2.255830] [OSLAB] user : 0, nice : 0, system : 240, idle : 193, iowait : 0, irq : 0, softirq : 0
+[    2.255848] [OSLAB] MemTotal : 924852, MemFree : 839752
+[    2.256818] libphy: mdio-aspeed: probed
+[    2.262496] probe of 1e650000.mdio returned 1 after 6480 usecs
+[    2.263317] libphy: mdio-aspeed: probed
+[    2.268998] probe of 1e650008.mdio returned 1 after 6450 usecs
+[    2.269821] libphy: mdio-aspeed: probed
+[    2.275507] probe of 1e650010.mdio returned 1 after 6457 usecs
+[    2.276345] libphy: mdio-aspeed: probed
+[    2.281905] probe of 1e650018.mdio returned 1 after 6349 usecs
+[    2.282483] initcall aspeed_mdio_driver_init+0x0/0x28 returned 0 after 25978 usecs
+[    2.282508] calling  phy_module_init+0x0/0x2c @ 1
+[    2.282540] [OSLAB] user : 0, nice : 0, system : 241, idle : 196, iowait : 0, irq : 0, softirq : 0
+[    2.282561] [OSLAB] MemTotal : 924852, MemFree : 839752
+[    2.283231] probe of 1e650000.mdio-1:00 returned 1 after 458 usecs
+[    2.283717] probe of 1e650010.mdio-1:00 returned 1 after 441 usecs
+[    2.284977] initcall phy_module_init+0x0/0x2c returned 0 after 2334 usecs
+[    2.285002] calling  fixed_mdio_bus_init+0x0/0x12c @ 1
+[    2.285032] [OSLAB] user : 0, nice : 0, system : 242, idle : 196, iowait : 0, irq : 0, softirq : 0
+[    2.285051] [OSLAB] MemTotal : 924852, MemFree : 839752
+[    2.285797] libphy: Fixed MDIO Bus: probed
+[    2.290398] initcall fixed_mdio_bus_init+0x0/0x12c returned 0 after 5198 usecs
+[    2.290419] calling  phy_module_init+0x0/0x2c @ 1
+[    2.290447] [OSLAB] user : 0, nice : 0, system : 242, idle : 197, iowait : 0, irq : 0, softirq : 0
+[    2.290466] [OSLAB] MemTotal : 924852, MemFree : 839752
+[    2.291591] probe of 1e650008.mdio-1:00 returned 1 after 447 usecs
+[    2.292055] probe of 1e650018.mdio-1:00 returned 1 after 421 usecs
+[    2.292378] initcall phy_module_init+0x0/0x2c returned 0 after 1841 usecs
+[    2.292401] calling  ftgmac100_driver_init+0x0/0x28 @ 1
+[    2.292431] [OSLAB] user : 0, nice : 0, system : 242, idle : 197, iowait : 0, irq : 0, softirq : 0
+[    2.292451] [OSLAB] MemTotal : 924852, MemFree : 839752
+[    2.293439] ftgmac100 1e660000.ftgmac: Read MAC address 76:12:06:4c:a3:ba from chip
+[    2.304304] Broadcom BCM54210E 1e650000.mdio-1:00: attached PHY driver [Broadcom BCM54210E] (mii_bus:phy_addr=1e650000.mdio-1:00, irq=POLL)
+[    2.320000] ftgmac100 1e660000.ftgmac eth0: irq 41, mapped at 7546be39
+[    2.327429] probe of 1e660000.ftgmac returned 1 after 34812 usecs
+[    2.328805] ftgmac100 1e680000.ftgmac: Generated random MAC address 02:28:e1:bc:c5:5a
+[    2.338439] RTL8211F Gigabit Ethernet 1e650008.mdio-1:00: attached PHY driver [RTL8211F Gigabit Ethernet] (mii_bus:phy_addr=1e650008.mdio-1:00, irq=POLL)
+[    2.365582] ftgmac100 1e680000.ftgmac eth1: irq 42, mapped at 6dc99bc8
+[    2.372957] probe of 1e680000.ftgmac returned 1 after 45476 usecs
+[    2.373874] ftgmac100 1e670000.ftgmac: Read MAC address 4a:bd:d7:5f:fd:44 from chip
+[    2.382537] ftgmac100 1e670000.ftgmac: Using NCSI interface
+[    2.390530] ftgmac100 1e670000.ftgmac eth2: irq 43, mapped at f4d2aa89
+[    2.397976] probe of 1e670000.ftgmac returned 1 after 24967 usecs
+[    2.399026] ftgmac100 1e690000.ftgmac: Read MAC address e2:24:a2:82:e0:35 from chip
+[    2.408960] ftgmac100 1e690000.ftgmac (unnamed net_device) (uninitialized): mdio read timed out
+[    2.419774] ftgmac100 1e690000.ftgmac (unnamed net_device) (uninitialized): mdio read timed out
+[    2.430557] ftgmac100 1e690000.ftgmac (unnamed net_device) (uninitialized): mdio read timed out
+[    2.441349] ftgmac100 1e690000.ftgmac (unnamed net_device) (uninitialized): mdio read timed out
+[    2.452133] ftgmac100 1e690000.ftgmac (unnamed net_device) (uninitialized): mdio read timed out
+[    2.462925] ftgmac100 1e690000.ftgmac (unnamed net_device) (uninitialized): mdio read timed out
+[    2.473708] ftgmac100 1e690000.ftgmac (unnamed net_device) (uninitialized): mdio read timed out
+[    2.484501] ftgmac100 1e690000.ftgmac (unnamed net_device) (uninitialized): mdio read timed out
+[    2.495293] ftgmac100 1e690000.ftgmac (unnamed net_device) (uninitialized): mdio read timed out
+[    2.506087] ftgmac100 1e690000.ftgmac (unnamed net_device) (uninitialized): mdio read timed out
+[    2.516879] ftgmac100 1e690000.ftgmac (unnamed net_device) (uninitialized): mdio read timed out
+[    2.527662] ftgmac100 1e690000.ftgmac (unnamed net_device) (uninitialized): mdio read timed out
+[    2.538453] ftgmac100 1e690000.ftgmac (unnamed net_device) (uninitialized): mdio read timed out
+[    2.549235] ftgmac100 1e690000.ftgmac (unnamed net_device) (uninitialized): mdio read timed out
+[    2.560027] ftgmac100 1e690000.ftgmac (unnamed net_device) (uninitialized): mdio read timed out
+[    2.570809] ftgmac100 1e690000.ftgmac (unnamed net_device) (uninitialized): mdio read timed out
+[    2.581600] ftgmac100 1e690000.ftgmac (unnamed net_device) (uninitialized): mdio read timed out
+[    2.592382] ftgmac100 1e690000.ftgmac (unnamed net_device) (uninitialized): mdio read timed out
+[    2.603174] ftgmac100 1e690000.ftgmac (unnamed net_device) (uninitialized): mdio read timed out
+[    2.613967] ftgmac100 1e690000.ftgmac (unnamed net_device) (uninitialized): mdio read timed out
+[    2.624759] ftgmac100 1e690000.ftgmac (unnamed net_device) (uninitialized): mdio read timed out
+[    2.635551] ftgmac100 1e690000.ftgmac (unnamed net_device) (uninitialized): mdio read timed out
+[    2.646333] ftgmac100 1e690000.ftgmac (unnamed net_device) (uninitialized): mdio read timed out
+[    2.657124] ftgmac100 1e690000.ftgmac (unnamed net_device) (uninitialized): mdio read timed out
+[    2.667906] ftgmac100 1e690000.ftgmac (unnamed net_device) (uninitialized): mdio read timed out
+[    2.678697] ftgmac100 1e690000.ftgmac (unnamed net_device) (uninitialized): mdio read timed out
+[    2.689480] ftgmac100 1e690000.ftgmac (unnamed net_device) (uninitialized): mdio read timed out
+[    2.700272] ftgmac100 1e690000.ftgmac (unnamed net_device) (uninitialized): mdio read timed out
+[    2.711064] ftgmac100 1e690000.ftgmac (unnamed net_device) (uninitialized): mdio read timed out
+[    2.721856] ftgmac100 1e690000.ftgmac (unnamed net_device) (uninitialized): mdio read timed out
+[    2.732638] ftgmac100 1e690000.ftgmac (unnamed net_device) (uninitialized): mdio read timed out
+[    2.743429] ftgmac100 1e690000.ftgmac (unnamed net_device) (uninitialized): mdio read timed out
+[    2.753188] libphy: ftgmac100_mdio: probed
+[    2.757835] ftgmac100 1e690000.ftgmac (unnamed net_device) (uninitialized): eth%d: no PHY found
+[    2.767596] ftgmac100 1e690000.ftgmac: MII Probe failed!
+[    2.773917] probe of 1e690000.ftgmac returned 0 after 375890 usecs
+[    2.774544] initcall ftgmac100_driver_init+0x0/0x28 returned 0 after 470760 usecs
+[    2.774569] calling  e1000_init_module+0x0/0xa0 @ 1
+[    2.774600] [OSLAB] user : 0, nice : 0, system : 290, idle : 245, iowait : 0, irq : 0, softirq : 0
+[    2.774621] [OSLAB] MemTotal : 924852, MemFree : 839752
+[    2.774637] e1000: Intel(R) PRO/1000 Network Driver - version 7.3.21-k8-NAPI
+[    2.782520] e1000: Copyright (c) 1999-2006 Intel Corporation.
+[    2.789188] initcall e1000_init_module+0x0/0xa0 returned 0 after 14202 usecs
+[    2.789210] calling  e1000_init_module+0x0/0x50 @ 1
+[    2.789238] [OSLAB] user : 0, nice : 0, system : 291, idle : 247, iowait : 0, irq : 0, softirq : 0
+[    2.789257] [OSLAB] MemTotal : 924852, MemFree : 839752
+[    2.789272] e1000e: Intel(R) PRO/1000 Network Driver - 3.2.6-k
+[    2.795835] e1000e: Copyright(c) 1999 - 2015 Intel Corporation.
+[    2.802617] initcall e1000_init_module+0x0/0x50 returned 0 after 13023 usecs
+[    2.802639] calling  igb_init_module+0x0/0x60 @ 1
+[    2.802666] [OSLAB] user : 0, nice : 0, system : 292, idle : 248, iowait : 0, irq : 0, softirq : 0
+[    2.802685] [OSLAB] MemTotal : 924852, MemFree : 839752
+[    2.802701] igb: Intel(R) Gigabit Ethernet Network Driver - version 5.6.0-k
+[    2.810552] igb: Copyright (c) 2007-2014 Intel Corporation.
+[    2.816994] initcall igb_init_module+0x0/0x60 returned 0 after 13951 usecs
+[    2.817017] calling  ehci_hcd_init+0x0/0xdc @ 1
+[    2.817045] [OSLAB] user : 0, nice : 0, system : 294, idle : 249, iowait : 0, irq : 0, softirq : 0
+[    2.817064] [OSLAB] MemTotal : 924852, MemFree : 839752
+[    2.817082] ehci_hcd: USB 2.0 'Enhanced' Host Controller (EHCI) Driver
+[    2.824498] initcall ehci_hcd_init+0x0/0xdc returned 0 after 7235 usecs
+[    2.824519] calling  ehci_pci_init+0x0/0x88 @ 1
+[    2.824546] [OSLAB] user : 0, nice : 0, system : 295, idle : 250, iowait : 0, irq : 0, softirq : 0
+[    2.824564] [OSLAB] MemTotal : 924852, MemFree : 839752
+[    2.824581] ehci-pci: EHCI PCI platform driver
+[    2.829680] initcall ehci_pci_init+0x0/0x88 returned 0 after 4973 usecs
+[    2.829702] calling  ehci_platform_init+0x0/0x64 @ 1
+[    2.829728] [OSLAB] user : 0, nice : 0, system : 295, idle : 251, iowait : 0, irq : 0, softirq : 0
+[    2.829747] [OSLAB] MemTotal : 924852, MemFree : 839752
+[    2.829763] ehci-platform: EHCI generic platform driver
+[    2.847107] ehci-platform 1e6a3000.usb: EHCI Host Controller
+[    2.853493] ehci-platform 1e6a3000.usb: new USB bus registered, assigned bus number 1
+[    2.862934] ehci-platform 1e6a3000.usb: irq 45, io mem 0x1e6a3000
+[    2.894310] ehci-platform 1e6a3000.usb: USB 2.0 started, EHCI 1.00
+[    2.902210] usb usb1: New USB device found, idVendor=1d6b, idProduct=0002, bcdDevice= 5.04
+[    2.911526] usb usb1: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+[    2.919652] usb usb1: Product: EHCI Host Controller
+[    2.925159] usb usb1: Manufacturer: Linux 5.4.62 ehci_hcd
+[    2.931200] usb usb1: SerialNumber: 1e6a3000.usb
+[    2.938112] hub 1-0:1.0: USB hub found
+[    2.942434] hub 1-0:1.0: 1 port detected
+[    2.947573] probe of 1-0:1.0 returned 1 after 9521 usecs
+[    2.947871] probe of usb1 returned 1 after 10287 usecs
+[    2.948170] probe of 1e6a3000.usb returned 1 after 112201 usecs
+[    2.949041] initcall ehci_platform_init+0x0/0x64 returned 0 after 116468 usecs
+[    2.949066] calling  uhci_hcd_init+0x0/0x164 @ 1
+[    2.949098] [OSLAB] user : 0, nice : 0, system : 304, idle : 265, iowait : 0, irq : 0, softirq : 0
+[    2.949119] [OSLAB] MemTotal : 924852, MemFree : 839548
+[    2.949135] uhci_hcd: USB Universal Host Controller Interface driver
+[    2.956858] platform-uhci 1e6b0000.usb: Detected 2 ports from device-tree
+[    2.964515] platform-uhci 1e6b0000.usb: Enabled Aspeed implementation workarounds
+[    2.983124] platform-uhci 1e6b0000.usb: Generic UHCI Host Controller
+[    2.990317] platform-uhci 1e6b0000.usb: new USB bus registered, assigned bus number 2
+[    2.999297] platform-uhci 1e6b0000.usb: irq 46, io mem 0x1e6b0000
+[    3.007445] usb usb2: New USB device found, idVendor=1d6b, idProduct=0001, bcdDevice= 5.04
+[    3.016772] usb usb2: New USB device strings: Mfr=3, Product=2, SerialNumber=1
+[    3.024915] usb usb2: Product: Generic UHCI Host Controller
+[    3.031153] usb usb2: Manufacturer: Linux 5.4.62 uhci_hcd
+[    3.037230] usb usb2: SerialNumber: 1e6b0000.usb
+[    3.044069] hub 2-0:1.0: USB hub found
+[    3.048475] hub 2-0:1.0: 2 ports detected
+[    3.053916] probe of 2-0:1.0 returned 1 after 9905 usecs
+[    3.054304] probe of usb2 returned 1 after 10748 usecs
+[    3.054630] probe of 1e6b0000.usb returned 1 after 97956 usecs
+[    3.055422] initcall uhci_hcd_init+0x0/0x164 returned 0 after 103780 usecs
+[    3.055448] calling  usb_storage_driver_init+0x0/0x48 @ 1
+[    3.055480] [OSLAB] user : 0, nice : 0, system : 315, idle : 275, iowait : 0, irq : 0, softirq : 0
+[    3.055500] [OSLAB] MemTotal : 924852, MemFree : 839484
+[    3.056234] usbcore: registered new interface driver usb-storage
+[    3.062966] initcall usb_storage_driver_init+0x0/0x48 returned 0 after 7268 usecs
+[    3.062987] calling  gadget_cfs_init+0x0/0x30 @ 1
+[    3.063015] [OSLAB] user : 0, nice : 0, system : 315, idle : 276, iowait : 0, irq : 0, softirq : 0
+[    3.063033] [OSLAB] MemTotal : 924852, MemFree : 839484
+[    3.063272] initcall gadget_cfs_init+0x0/0x30 returned 0 after 206 usecs
+[    3.063294] calling  ast_vhub_driver_init+0x0/0x28 @ 1
+[    3.063322] [OSLAB] user : 0, nice : 0, system : 315, idle : 276, iowait : 0, irq : 0, softirq : 0
+[    3.063340] [OSLAB] MemTotal : 924852, MemFree : 839484
+[    3.079817] aspeed_vhub 1e6a0000.usb-vhub: Initialized virtual hub in USB2 mode
+[    3.088190] probe of 1e6a0000.usb-vhub returned 1 after 24511 usecs
+[    3.088959] initcall ast_vhub_driver_init+0x0/0x28 returned 0 after 24987 usecs
+[    3.088984] calling  sslb_modinit+0x0/0x48 @ 1
+[    3.089016] [OSLAB] user : 0, nice : 0, system : 318, idle : 279, iowait : 0, irq : 0, softirq : 0
+[    3.089037] [OSLAB] MemTotal : 924852, MemFree : 839672
+[    3.089064] initcall sslb_modinit+0x0/0x48 returned 0 after 6 usecs
+[    3.089086] calling  userial_init+0x0/0x1b4 @ 1
+[    3.089113] [OSLAB] user : 0, nice : 0, system : 318, idle : 279, iowait : 0, irq : 0, softirq : 0
+[    3.089131] [OSLAB] MemTotal : 924852, MemFree : 839672
+[    3.089174] initcall userial_init+0x0/0x1b4 returned 0 after 22 usecs
+[    3.089195] calling  gsermod_init+0x0/0x24 @ 1
+[    3.089222] [OSLAB] user : 0, nice : 0, system : 318, idle : 279, iowait : 0, irq : 0, softirq : 0
+[    3.089240] [OSLAB] MemTotal : 924852, MemFree : 839672
+[    3.089264] initcall gsermod_init+0x0/0x24 returned 0 after 3 usecs
+[    3.089285] calling  obexmod_init+0x0/0x24 @ 1
+[    3.089311] [OSLAB] user : 0, nice : 0, system : 318, idle : 279, iowait : 0, irq : 0, softirq : 0
+[    3.089329] [OSLAB] MemTotal : 924852, MemFree : 839672
+[    3.089354] initcall obexmod_init+0x0/0x24 returned 0 after 3 usecs
+[    3.089376] calling  ncmmod_init+0x0/0x24 @ 1
+[    3.089402] [OSLAB] user : 0, nice : 0, system : 318, idle : 279, iowait : 0, irq : 0, softirq : 0
+[    3.089420] [OSLAB] MemTotal : 924852, MemFree : 839672
+[    3.089445] initcall ncmmod_init+0x0/0x24 returned 0 after 3 usecs
+[    3.089465] calling  ecmmod_init+0x0/0x24 @ 1
+[    3.089491] [OSLAB] user : 0, nice : 0, system : 318, idle : 279, iowait : 0, irq : 0, softirq : 0
+[    3.089509] [OSLAB] MemTotal : 924852, MemFree : 839672
+[    3.089534] initcall ecmmod_init+0x0/0x24 returned 0 after 3 usecs
+[    3.089555] calling  eemmod_init+0x0/0x24 @ 1
+[    3.089582] [OSLAB] user : 0, nice : 0, system : 318, idle : 279, iowait : 0, irq : 0, softirq : 0
+[    3.089599] [OSLAB] MemTotal : 924852, MemFree : 839672
+[    3.089624] initcall eemmod_init+0x0/0x24 returned 0 after 3 usecs
+[    3.089644] calling  gethmod_init+0x0/0x24 @ 1
+[    3.089671] [OSLAB] user : 0, nice : 0, system : 318, idle : 279, iowait : 0, irq : 0, softirq : 0
+[    3.089688] [OSLAB] MemTotal : 924852, MemFree : 839672
+[    3.089714] initcall gethmod_init+0x0/0x24 returned 0 after 4 usecs
+[    3.089734] calling  rndismod_init+0x0/0x24 @ 1
+[    3.089761] [OSLAB] user : 0, nice : 0, system : 318, idle : 279, iowait : 0, irq : 0, softirq : 0
+[    3.089779] [OSLAB] MemTotal : 924852, MemFree : 839672
+[    3.089804] initcall rndismod_init+0x0/0x24 returned 0 after 3 usecs
+[    3.089824] calling  mass_storagemod_init+0x0/0x24 @ 1
+[    3.089850] [OSLAB] user : 0, nice : 0, system : 318, idle : 279, iowait : 0, irq : 0, softirq : 0
+[    3.089868] [OSLAB] MemTotal : 924852, MemFree : 839672
+[    3.089893] initcall mass_storagemod_init+0x0/0x24 returned 0 after 3 usecs
+[    3.089914] calling  ffsmod_init+0x0/0x24 @ 1
+[    3.089940] [OSLAB] user : 0, nice : 0, system : 318, idle : 279, iowait : 0, irq : 0, softirq : 0
+[    3.089958] [OSLAB] MemTotal : 924852, MemFree : 839672
+[    3.089983] initcall ffsmod_init+0x0/0x24 returned 0 after 3 usecs
+[    3.090003] calling  hidmod_init+0x0/0x24 @ 1
+[    3.090029] [OSLAB] user : 0, nice : 0, system : 318, idle : 279, iowait : 0, irq : 0, softirq : 0
+[    3.090047] [OSLAB] MemTotal : 924852, MemFree : 839672
+[    3.090072] initcall hidmod_init+0x0/0x24 returned 0 after 4 usecs
+[    3.090093] calling  printermod_init+0x0/0x24 @ 1
+[    3.090119] [OSLAB] user : 0, nice : 0, system : 318, idle : 279, iowait : 0, irq : 0, softirq : 0
+[    3.090137] [OSLAB] MemTotal : 924852, MemFree : 839672
+[    3.090161] initcall printermod_init+0x0/0x24 returned 0 after 3 usecs
+[    3.090182] calling  input_leds_init+0x0/0x24 @ 1
+[    3.090209] [OSLAB] user : 0, nice : 0, system : 318, idle : 279, iowait : 0, irq : 0, softirq : 0
+[    3.090227] [OSLAB] MemTotal : 924852, MemFree : 839672
+[    3.090254] initcall input_leds_init+0x0/0x24 returned 0 after 6 usecs
+[    3.090275] calling  evdev_init+0x0/0x24 @ 1
+[    3.090301] [OSLAB] user : 0, nice : 0, system : 318, idle : 279, iowait : 0, irq : 0, softirq : 0
+[    3.090319] [OSLAB] MemTotal : 924852, MemFree : 839672
+[    3.090346] initcall evdev_init+0x0/0x24 returned 0 after 5 usecs
+[    3.090367] calling  gpio_keys_polled_driver_init+0x0/0x28 @ 1
+[    3.090393] [OSLAB] user : 0, nice : 0, system : 318, idle : 279, iowait : 0, irq : 0, softirq : 0
+[    3.090411] [OSLAB] MemTotal : 924852, MemFree : 839672
+[    3.091058] initcall gpio_keys_polled_driver_init+0x0/0x28 returned 0 after 606 usecs
+[    3.091081] calling  aspeed_rtc_driver_init+0x0/0x30 @ 1
+[    3.091109] [OSLAB] user : 0, nice : 0, system : 318, idle : 279, iowait : 0, irq : 0, softirq : 0
+[    3.091128] [OSLAB] MemTotal : 924852, MemFree : 839672
+[    3.092588] aspeed-rtc 1e781000.rtc: registered as rtc0
+[    3.098633] probe of 1e781000.rtc returned 1 after 6964 usecs
+[    3.099089] initcall aspeed_rtc_driver_init+0x0/0x30 returned 0 after 7746 usecs
+[    3.099113] calling  ds1307_driver_init+0x0/0x28 @ 1
+[    3.099144] [OSLAB] user : 0, nice : 0, system : 319, idle : 280, iowait : 0, irq : 0, softirq : 0
+[    3.099164] [OSLAB] MemTotal : 924852, MemFree : 839672
+[    3.099267] initcall ds1307_driver_init+0x0/0x28 returned 0 after 78 usecs
+[    3.099289] calling  pcf8523_driver_init+0x0/0x28 @ 1
+[    3.099315] [OSLAB] user : 0, nice : 0, system : 319, idle : 280, iowait : 0, irq : 0, softirq : 0
+[    3.099333] [OSLAB] MemTotal : 924852, MemFree : 839672
+[    3.099426] initcall pcf8523_driver_init+0x0/0x28 returned 0 after 69 usecs
+[    3.099448] calling  rv8803_driver_init+0x0/0x28 @ 1
+[    3.099475] [OSLAB] user : 0, nice : 0, system : 319, idle : 280, iowait : 0, irq : 0, softirq : 0
+[    3.099493] [OSLAB] MemTotal : 924852, MemFree : 839672
+[    3.099584] initcall rv8803_driver_init+0x0/0x28 returned 0 after 67 usecs
+[    3.099605] calling  i2c_dev_init+0x0/0xd0 @ 1
+[    3.099632] [OSLAB] user : 0, nice : 0, system : 319, idle : 280, iowait : 0, irq : 0, softirq : 0
+[    3.099650] [OSLAB] MemTotal : 924852, MemFree : 839672
+[    3.099665] i2c /dev entries driver
+[    3.103628] initcall i2c_dev_init+0x0/0xd0 returned 0 after 3863 usecs
+[    3.103651] calling  aspeed_new_i2c_bus_driver_init+0x0/0x28 @ 1
+[    3.103678] [OSLAB] user : 0, nice : 0, system : 319, idle : 280, iowait : 0, irq : 0, softirq : 0
+[    3.103696] [OSLAB] MemTotal : 924852, MemFree : 839672
+[    3.107461] i2c_new_aspeed 1e78a280.i2c-bus: NEW-I2C: i2c-bus [4]: adapter [100 khz] mode [2]
+[    3.117169] probe of 1e78a280.i2c-bus returned 1 after 12979 usecs
+[    3.120021] i2c_new_aspeed 1e78a300.i2c-bus: NEW-I2C: i2c-bus [5]: adapter [100 khz] mode [2]
+[    3.129716] probe of 1e78a300.i2c-bus returned 1 after 12495 usecs
+[    3.132513] i2c_new_aspeed 1e78a380.i2c-bus: NEW-I2C: i2c-bus [6]: adapter [100 khz] mode [2]
+[    3.142197] probe of 1e78a380.i2c-bus returned 1 after 12431 usecs
+[    3.146599] probe of 7-0051 returned 1 after 105 usecs
+[    3.146975] probe of 7-0052 returned 1 after 94 usecs
+[    3.147322] probe of 7-0053 returned 1 after 91 usecs
+[    3.148223] at24 7-0050: 1024 byte 24c08 EEPROM, writable, 16 bytes/write
+[    3.155986] probe of 7-0050 returned 1 after 10054 usecs
+[    3.156056] i2c_new_aspeed 1e78a400.i2c-bus: NEW-I2C: i2c-bus [7]: adapter [100 khz] mode [2]
+[    3.165706] probe of 1e78a400.i2c-bus returned 1 after 23463 usecs
+[    3.170103] i2c_new_aspeed 1e78a480.i2c-bus: NEW-I2C: i2c-bus [8]: adapter [100 khz] mode [2]
+[    3.179797] probe of 1e78a480.i2c-bus returned 1 after 14041 usecs
+[    3.182598] i2c_new_aspeed 1e78a500.i2c-bus: NEW-I2C: i2c-bus [9]: adapter [100 khz] mode [2]
+[    3.192305] probe of 1e78a500.i2c-bus returned 1 after 12456 usecs
+[    3.192485] initcall aspeed_new_i2c_bus_driver_init+0x0/0x28 returned 0 after 86677 usecs
+[    3.192511] calling  fsi_i2c_driver_init+0x0/0x24 @ 1
+[    3.192543] [OSLAB] user : 0, nice : 0, system : 328, idle : 289, iowait : 0, irq : 0, softirq : 0
+[    3.192564] [OSLAB] MemTotal : 924852, MemFree : 839528
+[    3.192699] initcall fsi_i2c_driver_init+0x0/0x24 returned 0 after 108 usecs
+[    3.192721] calling  pca9541_driver_init+0x0/0x28 @ 1
+[    3.192749] [OSLAB] user : 0, nice : 0, system : 328, idle : 289, iowait : 0, irq : 0, softirq : 0
+[    3.192767] [OSLAB] MemTotal : 924852, MemFree : 839276
+[    3.192943] initcall pca9541_driver_init+0x0/0x28 returned 0 after 149 usecs
+[    3.192964] calling  pca954x_driver_init+0x0/0x28 @ 1
+[    3.192991] [OSLAB] user : 0, nice : 0, system : 328, idle : 289, iowait : 0, irq : 0, softirq : 0
+[    3.193009] [OSLAB] MemTotal : 924852, MemFree : 839276
+[    3.193242] initcall pca954x_driver_init+0x0/0x28 returned 0 after 204 usecs
+[    3.193264] calling  i2c_slave_eeprom_driver_init+0x0/0x28 @ 1
+[    3.193291] [OSLAB] user : 0, nice : 0, system : 328, idle : 289, iowait : 0, irq : 0, softirq : 0
+[    3.193310] [OSLAB] MemTotal : 924852, MemFree : 839276
+[    3.193454] initcall i2c_slave_eeprom_driver_init+0x0/0x28 returned 0 after 118 usecs
+[    3.193475] calling  i2c_slave_mqueue_driver_init+0x0/0x28 @ 1
+[    3.193502] [OSLAB] user : 0, nice : 0, system : 328, idle : 289, iowait : 0, irq : 0, softirq : 0
+[    3.193520] [OSLAB] MemTotal : 924852, MemFree : 839276
+[    3.193676] initcall i2c_slave_mqueue_driver_init+0x0/0x28 returned 0 after 129 usecs
+[    3.193697] calling  i3cdev_init+0x0/0xbc @ 1
+[    3.193724] [OSLAB] user : 0, nice : 0, system : 328, idle : 289, iowait : 0, irq : 0, softirq : 0
+[    3.193742] [OSLAB] MemTotal : 924852, MemFree : 839276
+[    3.193816] initcall i3cdev_init+0x0/0xbc returned 0 after 50 usecs
+[    3.193837] calling  dw_i3c_driver_init+0x0/0x28 @ 1
+[    3.193864] [OSLAB] user : 0, nice : 0, system : 328, idle : 289, iowait : 0, irq : 0, softirq : 0
+[    3.193882] [OSLAB] MemTotal : 924852, MemFree : 839276
+[    3.206727] dw-i3c-master: probe of 1e7a2000.i3c0 failed with error 3
+[    3.213946] probe of 1e7a2000.i3c0 returned 0 after 19382 usecs
+[    3.225806] dw-i3c-master: probe of 1e7a4000.i3c2 failed with error 3
+[    3.233021] probe of 1e7a4000.i3c2 returned 0 after 19027 usecs
+[    3.233167] initcall dw_i3c_driver_init+0x0/0x28 returned 0 after 38333 usecs
+[    3.233192] calling  aspeed_video_driver_init+0x0/0x28 @ 1
+[    3.233224] [OSLAB] user : 0, nice : 0, system : 332, idle : 293, iowait : 0, irq : 0, softirq : 0
+[    3.233245] [OSLAB] MemTotal : 924852, MemFree : 839276
+[    3.234365] initcall aspeed_video_driver_init+0x0/0x28 returned 0 after 1066 usecs
+[    3.234389] calling  w1_init+0x0/0xb4 @ 1
+[    3.234417] [OSLAB] user : 0, nice : 0, system : 333, idle : 293, iowait : 0, irq : 0, softirq : 0
+[    3.234436] [OSLAB] MemTotal : 924852, MemFree : 839300
+[    3.234452] Driver for 1-wire Dallas network protocol.
+[    3.240439] initcall w1_init+0x0/0xb4 returned 0 after 5838 usecs
+[    3.240462] calling  w1_gpio_driver_init+0x0/0x28 @ 1
+[    3.240489] [OSLAB] user : 0, nice : 0, system : 333, idle : 294, iowait : 0, irq : 0, softirq : 0
+[    3.240508] [OSLAB] MemTotal : 924852, MemFree : 839300
+[    3.241109] initcall w1_gpio_driver_init+0x0/0x28 returned 0 after 563 usecs
+[    3.241132] calling  w1_therm_init+0x0/0x4c @ 1
+[    3.241160] [OSLAB] user : 0, nice : 0, system : 333, idle : 294, iowait : 0, irq : 0, softirq : 0
+[    3.241179] [OSLAB] MemTotal : 924852, MemFree : 839300
+[    3.241217] initcall w1_therm_init+0x0/0x4c returned 0 after 15 usecs
+[    3.241239] calling  w83773_driver_init+0x0/0x28 @ 1
+[    3.241265] [OSLAB] user : 0, nice : 0, system : 333, idle : 294, iowait : 0, irq : 0, softirq : 0
+[    3.241283] [OSLAB] MemTotal : 924852, MemFree : 839300
+[    3.241460] initcall w83773_driver_init+0x0/0x28 returned 0 after 150 usecs
+[    3.241482] calling  adt7475_driver_init+0x0/0x28 @ 1
+[    3.241510] [OSLAB] user : 0, nice : 0, system : 333, idle : 294, iowait : 0, irq : 0, softirq : 0
+[    3.241528] [OSLAB] MemTotal : 924852, MemFree : 839300
+[    3.246743] adt7475 7-002e: ADT7490 device, revision 3
+[    3.252500] adt7475 7-002e: Optional features: in0 in4 fan4 pwm2
+[    3.283865] probe of 7-002e returned 1 after 42248 usecs
+[    3.284051] initcall adt7475_driver_init+0x0/0x28 returned 0 after 41498 usecs
+[    3.284076] calling  aspeed_pwm_tacho_driver_init+0x0/0x28 @ 1
+[    3.284107] [OSLAB] user : 0, nice : 0, system : 334, idle : 300, iowait : 0, irq : 0, softirq : 0
+[    3.284127] [OSLAB] MemTotal : 924852, MemFree : 839300
+[    3.285084] initcall aspeed_pwm_tacho_driver_init+0x0/0x28 returned 0 after 908 usecs
+[    3.285109] calling  aspeed_pwm_tachometer_driver_init+0x0/0x28 @ 1
+[    3.285139] [OSLAB] user : 0, nice : 0, system : 335, idle : 301, iowait : 0, irq : 0, softirq : 0
+[    3.285158] [OSLAB] MemTotal : 924852, MemFree : 839300
+[    3.298923] div h 0, l : 1f pwm out clk 24414
+[    3.298942] hclk 200000000, target pwm freq 25000, real pwm freq 24414
+[    3.298996] tach0 sample period = 70312us
+[    3.299021] div h 0, l : 1f pwm out clk 24414
+[    3.299037] hclk 200000000, target pwm freq 25000, real pwm freq 24414
+[    3.299086] tach1 sample period = 70312us
+[    3.299111] div h 0, l : 1f pwm out clk 24414
+[    3.299126] hclk 200000000, target pwm freq 25000, real pwm freq 24414
+[    3.299176] tach2 sample period = 70312us
+[    3.299199] div h 0, l : 1f pwm out clk 24414
+[    3.299214] hclk 200000000, target pwm freq 25000, real pwm freq 24414
+[    3.299264] tach3 sample period = 70312us
+[    3.299288] div h 0, l : 1f pwm out clk 24414
+[    3.299303] hclk 200000000, target pwm freq 25000, real pwm freq 24414
+[    3.299352] tach4 sample period = 70312us
+[    3.299377] div h 0, l : 1f pwm out clk 24414
+[    3.299392] hclk 200000000, target pwm freq 25000, real pwm freq 24414
+[    3.299441] tach5 sample period = 70312us
+[    3.299465] div h 0, l : 1f pwm out clk 24414
+[    3.299480] hclk 200000000, target pwm freq 25000, real pwm freq 24414
+[    3.299530] tach6 sample period = 70312us
+[    3.299554] div h 0, l : 1f pwm out clk 24414
+[    3.299569] hclk 200000000, target pwm freq 25000, real pwm freq 24414
+[    3.299618] tach7 sample period = 70312us
+[    3.299642] div h 0, l : 1f pwm out clk 24414
+[    3.299657] hclk 200000000, target pwm freq 25000, real pwm freq 24414
+[    3.299707] tach8 sample period = 70312us
+[    3.299730] div h 0, l : 1f pwm out clk 24414
+[    3.299745] hclk 200000000, target pwm freq 25000, real pwm freq 24414
+[    3.299795] tach9 sample period = 70312us
+[    3.299819] div h 0, l : 1f pwm out clk 24414
+[    3.299834] hclk 200000000, target pwm freq 25000, real pwm freq 24414
+[    3.299896] tach10 sample period = 70312us
+[    3.299920] div h 0, l : 1f pwm out clk 24414
+[    3.299935] hclk 200000000, target pwm freq 25000, real pwm freq 24414
+[    3.299985] tach11 sample period = 70312us
+[    3.300008] div h 0, l : 1f pwm out clk 24414
+[    3.300024] hclk 200000000, target pwm freq 25000, real pwm freq 24414
+[    3.300073] tach12 sample period = 70312us
+[    3.300097] div h 0, l : 1f pwm out clk 24414
+[    3.300112] hclk 200000000, target pwm freq 25000, real pwm freq 24414
+[    3.300162] tach13 sample period = 70312us
+[    3.300185] div h 0, l : 1f pwm out clk 24414
+[    3.300200] hclk 200000000, target pwm freq 25000, real pwm freq 24414
+[    3.300250] tach14 sample period = 70312us
+[    3.300274] div h 0, l : 1f pwm out clk 24414
+[    3.300289] hclk 200000000, target pwm freq 25000, real pwm freq 24414
+[    3.300339] tach15 sample period = 70312us
+[    3.300354] aspeed_pwm_tachometer 1e610000.pwm-tacho-controller: pwm tach probe done
+[    3.309756] probe of 1e610000.pwm-tacho-controller returned 1 after 24378 usecs
+[    3.310236] initcall aspeed_pwm_tachometer_driver_init+0x0/0x28 returned 0 after 24460 usecs
+[    3.310260] calling  iio_hwmon_driver_init+0x0/0x28 @ 1
+[    3.310292] [OSLAB] user : 0, nice : 0, system : 337, idle : 303, iowait : 0, irq : 0, softirq : 0
+[    3.310312] [OSLAB] MemTotal : 924852, MemFree : 839300
+[    3.311782] probe of iio-hwmon returned 0 after 909 usecs
+[    3.311874] initcall iio_hwmon_driver_init+0x0/0x28 returned 0 after 1501 usecs
+[    3.311896] calling  lm75_driver_init+0x0/0x28 @ 1
+[    3.311924] [OSLAB] user : 0, nice : 0, system : 337, idle : 303, iowait : 0, irq : 0, softirq : 0
+[    3.311943] [OSLAB] MemTotal : 924852, MemFree : 839300
+[    3.313571] lm75 8-004d: hwmon2: sensor 'lm75'
+[    3.318705] probe of 8-004d returned 1 after 6488 usecs
+[    3.318841] initcall lm75_driver_init+0x0/0x28 returned 0 after 6709 usecs
+[    3.318865] calling  nct7904_driver_init+0x0/0x28 @ 1
+[    3.318896] [OSLAB] user : 0, nice : 0, system : 338, idle : 304, iowait : 0, irq : 0, softirq : 0
+[    3.318916] [OSLAB] MemTotal : 924852, MemFree : 839300
+[    3.319067] initcall nct7904_driver_init+0x0/0x28 returned 0 after 125 usecs
+[    3.319088] calling  tmp421_driver_init+0x0/0x28 @ 1
+[    3.319115] [OSLAB] user : 0, nice : 0, system : 338, idle : 304, iowait : 0, irq : 0, softirq : 0
+[    3.319134] [OSLAB] MemTotal : 924852, MemFree : 839300
+[    3.319323] initcall tmp421_driver_init+0x0/0x28 returned 0 after 162 usecs
+[    3.319344] calling  p8_i2c_occ_driver_init+0x0/0x28 @ 1
+[    3.319371] [OSLAB] user : 0, nice : 0, system : 338, idle : 304, iowait : 0, irq : 0, softirq : 0
+[    3.319390] [OSLAB] MemTotal : 924852, MemFree : 839300
+[    3.319563] initcall p8_i2c_occ_driver_init+0x0/0x28 returned 0 after 147 usecs
+[    3.319585] calling  p9_sbe_occ_driver_init+0x0/0x28 @ 1
+[    3.319612] [OSLAB] user : 0, nice : 0, system : 338, idle : 304, iowait : 0, irq : 0, softirq : 0
+[    3.319630] [OSLAB] MemTotal : 924852, MemFree : 839300
+[    3.319949] initcall p9_sbe_occ_driver_init+0x0/0x28 returned 0 after 287 usecs
+[    3.319971] calling  pmbus_core_init+0x0/0x44 @ 1
+[    3.319999] [OSLAB] user : 0, nice : 0, system : 338, idle : 304, iowait : 0, irq : 0, softirq : 0
+[    3.320018] [OSLAB] MemTotal : 924852, MemFree : 839300
+[    3.320087] initcall pmbus_core_init+0x0/0x44 returned 0 after 46 usecs
+[    3.320109] calling  pmbus_driver_init+0x0/0x28 @ 1
+[    3.320135] [OSLAB] user : 0, nice : 0, system : 338, idle : 304, iowait : 0, irq : 0, softirq : 0
+[    3.320154] [OSLAB] MemTotal : 924852, MemFree : 839300
+[    3.320310] initcall pmbus_driver_init+0x0/0x28 returned 0 after 131 usecs
+[    3.320332] calling  adm1275_driver_init+0x0/0x28 @ 1
+[    3.320359] [OSLAB] user : 0, nice : 0, system : 338, idle : 304, iowait : 0, irq : 0, softirq : 0
+[    3.320378] [OSLAB] MemTotal : 924852, MemFree : 839300
+[    3.320524] initcall adm1275_driver_init+0x0/0x28 returned 0 after 120 usecs
+[    3.320546] calling  ibm_cffps_driver_init+0x0/0x28 @ 1
+[    3.320573] [OSLAB] user : 0, nice : 0, system : 338, idle : 304, iowait : 0, irq : 0, softirq : 0
+[    3.320591] [OSLAB] MemTotal : 924852, MemFree : 839300
+[    3.320765] initcall ibm_cffps_driver_init+0x0/0x28 returned 0 after 147 usecs
+[    3.320786] calling  ir35221_driver_init+0x0/0x28 @ 1
+[    3.320813] [OSLAB] user : 0, nice : 0, system : 338, idle : 304, iowait : 0, irq : 0, softirq : 0
+[    3.320831] [OSLAB] MemTotal : 924852, MemFree : 839300
+[    3.320975] initcall ir35221_driver_init+0x0/0x28 returned 0 after 118 usecs
+[    3.320996] calling  ir38064_driver_init+0x0/0x28 @ 1
+[    3.321023] [OSLAB] user : 0, nice : 0, system : 338, idle : 304, iowait : 0, irq : 0, softirq : 0
+[    3.321041] [OSLAB] MemTotal : 924852, MemFree : 839300
+[    3.321184] initcall ir38064_driver_init+0x0/0x28 returned 0 after 117 usecs
+[    3.321206] calling  isl68137_driver_init+0x0/0x28 @ 1
+[    3.321233] [OSLAB] user : 0, nice : 0, system : 338, idle : 304, iowait : 0, irq : 0, softirq : 0
+[    3.321252] [OSLAB] MemTotal : 924852, MemFree : 839300
+[    3.321395] initcall isl68137_driver_init+0x0/0x28 returned 0 after 117 usecs
+[    3.321416] calling  lm25066_driver_init+0x0/0x28 @ 1
+[    3.321443] [OSLAB] user : 0, nice : 0, system : 338, idle : 304, iowait : 0, irq : 0, softirq : 0
+[    3.321461] [OSLAB] MemTotal : 924852, MemFree : 839300
+[    3.321605] initcall lm25066_driver_init+0x0/0x28 returned 0 after 119 usecs
+[    3.321627] calling  max31785_driver_init+0x0/0x28 @ 1
+[    3.321653] [OSLAB] user : 0, nice : 0, system : 338, idle : 304, iowait : 0, irq : 0, softirq : 0
+[    3.321671] [OSLAB] MemTotal : 924852, MemFree : 839300
+[    3.321837] initcall max31785_driver_init+0x0/0x28 returned 0 after 139 usecs
+[    3.321859] calling  ucd9000_driver_init+0x0/0x28 @ 1
+[    3.321886] [OSLAB] user : 0, nice : 0, system : 338, idle : 304, iowait : 0, irq : 0, softirq : 0
+[    3.321904] [OSLAB] MemTotal : 924852, MemFree : 839300
+[    3.322102] initcall ucd9000_driver_init+0x0/0x28 returned 0 after 171 usecs
+[    3.322125] calling  ucd9200_driver_init+0x0/0x28 @ 1
+[    3.322151] [OSLAB] user : 0, nice : 0, system : 338, idle : 304, iowait : 0, irq : 0, softirq : 0
+[    3.322169] [OSLAB] MemTotal : 924852, MemFree : 839300
+[    3.322386] initcall ucd9200_driver_init+0x0/0x28 returned 0 after 189 usecs
+[    3.322407] calling  dm_init+0x0/0x64 @ 1
+[    3.322434] [OSLAB] user : 0, nice : 0, system : 338, idle : 304, iowait : 0, irq : 0, softirq : 0
+[    3.322452] [OSLAB] MemTotal : 924852, MemFree : 839300
+[    3.323273] device-mapper: ioctl: 4.41.0-ioctl (2019-09-16) initialised: dm-devel@redhat.com
+[    3.332823] initcall dm_init+0x0/0x64 returned 0 after 10100 usecs
+[    3.332846] calling  dm_bufio_init+0x0/0x1b8 @ 1
+[    3.332875] [OSLAB] user : 0, nice : 0, system : 339, idle : 305, iowait : 0, irq : 0, softirq : 0
+[    3.332895] [OSLAB] MemTotal : 924852, MemFree : 839300
+[    3.333288] initcall dm_bufio_init+0x0/0x1b8 returned 0 after 354 usecs
+[    3.333313] calling  dm_verity_init+0x0/0x40 @ 1
+[    3.333341] [OSLAB] user : 0, nice : 0, system : 339, idle : 305, iowait : 0, irq : 0, softirq : 0
+[    3.333361] [OSLAB] MemTotal : 924852, MemFree : 839300
+[    3.333388] initcall dm_verity_init+0x0/0x40 returned 0 after 5 usecs
+[    3.333409] calling  aspeed_init+0x0/0x28 @ 1
+[    3.333436] [OSLAB] user : 0, nice : 0, system : 339, idle : 305, iowait : 0, irq : 0, softirq : 0
+[    3.333454] [OSLAB] MemTotal : 924852, MemFree : 839300
+[    3.334012] dt: /memory node resources: first page r.start=0x80000000, resource_size=0x3c000000, PAGE_SHIFT macro=0xc
+[    3.346605] EDAC MC0: Giving out device to module aspeed-edac controller MIC: DEV 1e6e0000.sdram (INTERRUPT)
+[    3.357929] probe of 1e6e0000.sdram returned 1 after 24352 usecs
+[    3.358925] initcall aspeed_init+0x0/0x28 returned 0 after 24845 usecs
+[    3.358951] calling  mmc_pwrseq_simple_driver_init+0x0/0x28 @ 1
+[    3.358982] [OSLAB] user : 0, nice : 0, system : 341, idle : 308, iowait : 0, irq : 0, softirq : 0
+[    3.359002] [OSLAB] MemTotal : 924852, MemFree : 839300
+[    3.359603] initcall mmc_pwrseq_simple_driver_init+0x0/0x28 returned 0 after 561 usecs
+[    3.359627] calling  mmc_pwrseq_emmc_driver_init+0x0/0x28 @ 1
+[    3.359654] [OSLAB] user : 0, nice : 0, system : 341, idle : 308, iowait : 0, irq : 0, softirq : 0
+[    3.359674] [OSLAB] MemTotal : 924852, MemFree : 839300
+[    3.360249] initcall mmc_pwrseq_emmc_driver_init+0x0/0x28 returned 0 after 537 usecs
+[    3.360270] calling  mmc_blk_init+0x0/0x108 @ 1
+[    3.360297] [OSLAB] user : 0, nice : 0, system : 341, idle : 308, iowait : 0, irq : 0, softirq : 0
+[    3.360316] [OSLAB] MemTotal : 924852, MemFree : 839300
+[    3.360510] initcall mmc_blk_init+0x0/0x108 returned 0 after 167 usecs
+[    3.360533] calling  sdhci_drv_init+0x0/0x34 @ 1
+[    3.360560] [OSLAB] user : 0, nice : 0, system : 341, idle : 308, iowait : 0, irq : 0, softirq : 0
+[    3.360579] [OSLAB] MemTotal : 924852, MemFree : 839300
+[    3.360594] sdhci: Secure Digital Host Controller Interface driver
+[    3.367572] sdhci: Copyright(c) Pierre Ossman
+[    3.372459] initcall sdhci_drv_init+0x0/0x34 returned 0 after 11579 usecs
+[    3.372482] calling  sdhci_pltfm_drv_init+0x0/0x28 @ 1
+[    3.372510] [OSLAB] user : 0, nice : 0, system : 342, idle : 309, iowait : 0, irq : 0, softirq : 0
+[    3.372529] [OSLAB] MemTotal : 924852, MemFree : 839300
+[    3.372544] sdhci-pltfm: SDHCI platform and OF driver helper
+[    3.378951] initcall sdhci_pltfm_drv_init+0x0/0x28 returned 0 after 6248 usecs
+[    3.378974] calling  aspeed_sdc_init+0x0/0x58 @ 1
+[    3.379001] [OSLAB] user : 0, nice : 0, system : 343, idle : 310, iowait : 0, irq : 0, softirq : 0
+[    3.379019] [OSLAB] MemTotal : 924852, MemFree : 839300
+[    3.383461] sdhci-aspeed 1e740100.sdhci: Configuring for slot 0
+[    3.390816] usb 1-1: new high-speed USB device number 2 using ehci-platform
+[    3.431265] mmc1: SDHCI controller on 1e740100.sdhci [1e740100.sdhci] using ADMA
+[    3.439695] probe of 1e740100.sdhci returned 1 after 57165 usecs
+[    3.442370] sdhci-aspeed 1e740200.sdhci: Configuring for slot 1
+[    3.482539] mmc2: SDHCI controller on 1e740200.sdhci [1e740200.sdhci] using ADMA
+[    3.490975] probe of 1e740200.sdhci returned 1 after 49702 usecs
+[    3.491067] probe of 1e740000.sdc returned 1 after 110428 usecs
+[    3.493776] sdhci-aspeed 1e750100.sdhci: Configuring for slot 0
+[    3.533476] mmc0: SDHCI controller on 1e750100.sdhci [1e750100.sdhci] using ADMA
+[    3.541914] probe of 1e750100.sdhci returned 1 after 48978 usecs
+[    3.542006] probe of 1e750000.sdc returned 1 after 50886 usecs
+[    3.542364] initcall aspeed_sdc_init+0x0/0x58 returned 0 after 159484 usecs
+[    3.542389] calling  gpio_led_driver_init+0x0/0x28 @ 1
+[    3.542421] [OSLAB] user : 0, nice : 0, system : 350, idle : 335, iowait : 0, irq : 0, softirq : 0
+[    3.542442] [OSLAB] MemTotal : 924852, MemFree : 839028
+[    3.543138] initcall gpio_led_driver_init+0x0/0x28 returned 0 after 653 usecs
+[    3.543163] calling  pca955x_driver_init+0x0/0x28 @ 1
+[    3.543191] [OSLAB] user : 0, nice : 0, system : 350, idle : 335, iowait : 0, irq : 0, softirq : 0
+[    3.543210] [OSLAB] MemTotal : 924852, MemFree : 839028
+[    3.543416] initcall pca955x_driver_init+0x0/0x28 returned 0 after 177 usecs
+[    3.543438] calling  timer_led_trigger_init+0x0/0x24 @ 1
+[    3.543467] [OSLAB] user : 0, nice : 0, system : 350, idle : 335, iowait : 0, irq : 0, softirq : 0
+[    3.543485] [OSLAB] MemTotal : 924852, MemFree : 839028
+[    3.543517] initcall timer_led_trigger_init+0x0/0x24 returned 0 after 9 usecs
+[    3.543539] calling  heartbeat_trig_init+0x0/0x50 @ 1
+[    3.543565] [OSLAB] user : 0, nice : 0, system : 350, idle : 335, iowait : 0, irq : 0, softirq : 0
+[    3.543583] [OSLAB] MemTotal : 924852, MemFree : 839028
+[    3.543619] initcall heartbeat_trig_init+0x0/0x50 returned 0 after 13 usecs
+[    3.543640] calling  defon_led_trigger_init+0x0/0x24 @ 1
+[    3.543666] [OSLAB] user : 0, nice : 0, system : 350, idle : 335, iowait : 0, irq : 0, softirq : 0
+[    3.543685] [OSLAB] MemTotal : 924852, MemFree : 839028
+[    3.543713] initcall defon_led_trigger_init+0x0/0x24 returned 0 after 7 usecs
+[    3.543735] calling  aspeed_hace_driver_init+0x0/0x28 @ 1
+[    3.543761] [OSLAB] user : 0, nice : 0, system : 350, idle : 335, iowait : 0, irq : 0, softirq : 0
+[    3.543779] [OSLAB] MemTotal : 924852, MemFree : 839028
+[    3.565851] ASPEED Crypto Accelerator successfully registered 
+[    3.572472] probe of 1e6d0000.hace returned 1 after 28308 usecs
+[    3.573212] initcall aspeed_hace_driver_init+0x0/0x28 returned 0 after 28709 usecs
+[    3.573238] calling  aspeed_acry_driver_init+0x0/0x28 @ 1
+[    3.573271] [OSLAB] user : 0, nice : 0, system : 353, idle : 338, iowait : 0, irq : 0, softirq : 0
+[    3.573292] [OSLAB] MemTotal : 924852, MemFree : 838692
+[    3.585270] ASPEED RSA Accelerator successfully registered 
+[    3.591598] probe of 1e6fa000.acry returned 1 after 18001 usecs
+[    3.592084] initcall aspeed_acry_driver_init+0x0/0x28 returned 0 after 18319 usecs
+[    3.592109] calling  hid_init+0x0/0x64 @ 1
+[    3.592140] [OSLAB] user : 0, nice : 0, system : 354, idle : 340, iowait : 0, irq : 0, softirq : 0
+[    3.592161] [OSLAB] MemTotal : 924852, MemFree : 839004
+[    3.592381] initcall hid_init+0x0/0x64 returned 0 after 190 usecs
+[    3.592404] calling  hid_generic_init+0x0/0x30 @ 1
+[    3.592432] [OSLAB] user : 0, nice : 0, system : 354, idle : 340, iowait : 0, irq : 0, softirq : 0
+[    3.592450] [OSLAB] MemTotal : 924852, MemFree : 838744
+[    3.592588] initcall hid_generic_init+0x0/0x30 returned 0 after 111 usecs
+[    3.592611] calling  hid_init+0x0/0x70 @ 1
+[    3.592637] [OSLAB] user : 0, nice : 0, system : 354, idle : 340, iowait : 0, irq : 0, softirq : 0
+[    3.592656] [OSLAB] MemTotal : 924852, MemFree : 838744
+[    3.592853] usbcore: registered new interface driver usbhid
+[    3.599184] usbhid: USB HID core driver
+[    3.603491] initcall hid_init+0x0/0x70 returned 0 after 10556 usecs
+[    3.603515] calling  aspeed_adc_driver_init+0x0/0x28 @ 1
+[    3.603545] [OSLAB] user : 0, nice : 0, system : 355, idle : 341, iowait : 0, irq : 0, softirq : 0
+[    3.603564] [OSLAB] MemTotal : 924852, MemFree : 838744
+[    3.609245] probe of 1e6e9000.adc returned 1 after 5174 usecs
+[    3.614542] probe of 1e6e9100.adc returned 1 after 5236 usecs
+[    3.615342] initcall aspeed_adc_driver_init+0x0/0x28 returned 0 after 11467 usecs
+[    3.615369] calling  max1363_driver_init+0x0/0x28 @ 1
+[    3.615400] [OSLAB] user : 0, nice : 0, system : 357, idle : 342, iowait : 0, irq : 0, softirq : 0
+[    3.615421] [OSLAB] MemTotal : 924852, MemFree : 838956
+[    3.615957] initcall max1363_driver_init+0x0/0x28 returned 0 after 497 usecs
+[    3.616030] calling  bmp280_i2c_driver_init+0x0/0x28 @ 1
+[    3.616058] [OSLAB] user : 0, nice : 0, system : 357, idle : 342, iowait : 0, irq : 0, softirq : 0
+[    3.616077] [OSLAB] MemTotal : 924852, MemFree : 838956
+[    3.616315] initcall bmp280_i2c_driver_init+0x0/0x28 returned 0 after 206 usecs
+[    3.616338] calling  bmp280_spi_driver_init+0x0/0x28 @ 1
+[    3.616365] [OSLAB] user : 0, nice : 0, system : 357, idle : 342, iowait : 0, irq : 0, softirq : 0
+[    3.616383] [OSLAB] MemTotal : 924852, MemFree : 838956
+[    3.616587] initcall bmp280_spi_driver_init+0x0/0x28 returned 0 after 175 usecs
+[    3.616610] calling  dps310_driver_init+0x0/0x28 @ 1
+[    3.616638] [OSLAB] user : 0, nice : 0, system : 357, idle : 342, iowait : 0, irq : 0, softirq : 0
+[    3.616657] [OSLAB] MemTotal : 924852, MemFree : 838956
+[    3.616806] usb 1-1: New USB device found, idVendor=0781, idProduct=5591, bcdDevice= 1.00
+[    3.616856] initcall dps310_driver_init+0x0/0x28 returned 0 after 170 usecs
+[    3.626044] usb 1-1: New USB device strings: Mfr=1, Product=2, SerialNumber=3
+[    3.626058] usb 1-1: Product: Ultra USB 3.0
+[    3.626072] usb 1-1: Manufacturer: SanDisk
+[    3.626087] usb 1-1: SerialNumber: 010132e9c66851929552914df5a1b5ce82d2f2d2e2563a09775f84878441dd07fa6f000000000000000000001b788b2000852200915581075ba86081
+[    3.635335] usb-storage 1-1:1.0: USB Mass Storage device detected
+[    3.639044] calling  hub_master_driver_init+0x0/0x24 @ 1
+[    3.645031] scsi host0: usb-storage 1-1:1.0
+[    3.659272] [OSLAB] user : 0, nice : 0, system : 362, idle : 343, iowait : 0, irq : 0, softirq : 1
+[    3.666916] probe of 1-1:1.0 returned 1 after 31955 usecs
+[    3.670769] [OSLAB] MemTotal : 924852, MemFree : 838884
+[    3.670906] initcall hub_master_driver_init+0x0/0x24 returned 0 after 106 usecs
+[    3.670930] calling  fsi_master_aspeed_driver_init+0x0/0x28 @ 1
+[    3.670958] [OSLAB] user : 0, nice : 0, system : 364, idle : 343, iowait : 0, irq : 0, softirq : 1
+[    3.670977] [OSLAB] MemTotal : 924852, MemFree : 838696
+[    3.671395] probe of 1-1 returned 1 after 44391 usecs
+[    3.671773] initcall fsi_master_aspeed_driver_init+0x0/0x28 returned 0 after 749 usecs
+[    3.671799] calling  fsi_master_gpio_driver_init+0x0/0x28 @ 1
+[    3.671827] [OSLAB] user : 0, nice : 0, system : 364, idle : 343, iowait : 0, irq : 0, softirq : 1
+[    3.671848] [OSLAB] MemTotal : 924852, MemFree : 838696
+[    3.672551] initcall fsi_master_gpio_driver_init+0x0/0x28 returned 0 after 660 usecs
+[    3.672577] calling  scom_init+0x0/0x24 @ 1
+[    3.672606] [OSLAB] user : 0, nice : 0, system : 364, idle : 343, iowait : 0, irq : 0, softirq : 1
+[    3.672626] [OSLAB] MemTotal : 924852, MemFree : 838696
+[    3.672719] initcall scom_init+0x0/0x24 returned 0 after 69 usecs
+[    3.672742] calling  sbefifo_init+0x0/0x24 @ 1
+[    3.672769] [OSLAB] user : 0, nice : 0, system : 364, idle : 343, iowait : 0, irq : 0, softirq : 1
+[    3.672787] [OSLAB] MemTotal : 924852, MemFree : 838696
+[    3.672880] initcall sbefifo_init+0x0/0x24 returned 0 after 68 usecs
+[    3.672902] calling  occ_init+0x0/0x28 @ 1
+[    3.672930] [OSLAB] user : 0, nice : 0, system : 364, idle : 343, iowait : 0, irq : 0, softirq : 1
+[    3.672948] [OSLAB] MemTotal : 924852, MemFree : 838696
+[    3.673720] initcall occ_init+0x0/0x28 returned 0 after 728 usecs
+[    3.673742] calling  peci_dev_init+0x0/0x10c @ 1
+[    3.673769] [OSLAB] user : 0, nice : 0, system : 364, idle : 343, iowait : 0, irq : 0, softirq : 1
+[    3.673788] [OSLAB] MemTotal : 924852, MemFree : 838696
+[    3.673863] initcall peci_dev_init+0x0/0x10c returned 0 after 52 usecs
+[    3.673884] calling  aspeed_peci_driver_init+0x0/0x28 @ 1
+[    3.673911] [OSLAB] user : 0, nice : 0, system : 364, idle : 343, iowait : 0, irq : 0, softirq : 1
+[    3.673929] [OSLAB] MemTotal : 924852, MemFree : 838696
+[    3.675132] peci_aspeed 1e78b000.peci-bus: Expect frequency: 1000000 Real frequency is about: 1000000
+[    3.686335] peci peci-0: cdev of adapter [1e78b000.peci-bus] registered as minor 0
+[    3.695052] peci_aspeed 1e78b000.peci-bus: peci bus 0 registered, irq 62
+[    3.702639] probe of 1e78b000.peci-bus returned 1 after 28052 usecs
+[    3.703161] initcall aspeed_peci_driver_init+0x0/0x28 returned 0 after 28518 usecs
+[    3.703185] calling  sock_diag_init+0x0/0x50 @ 1
+[    3.703215] [OSLAB] user : 0, nice : 0, system : 367, idle : 346, iowait : 0, irq : 0, softirq : 1
+[    3.703235] [OSLAB] MemTotal : 924852, MemFree : 838696
+[    3.703379] initcall sock_diag_init+0x0/0x50 returned 0 after 115 usecs
+[    3.703436] calling  nfnetlink_init+0x0/0x84 @ 1
+[    3.703463] [OSLAB] user : 0, nice : 0, system : 367, idle : 346, iowait : 0, irq : 0, softirq : 1
+[    3.703482] [OSLAB] MemTotal : 924852, MemFree : 838696
+[    3.703545] initcall nfnetlink_init+0x0/0x84 returned 0 after 39 usecs
+[    3.703566] calling  nfnetlink_log_init+0x0/0xb4 @ 1
+[    3.703593] [OSLAB] user : 0, nice : 0, system : 367, idle : 346, iowait : 0, irq : 0, softirq : 1
+[    3.703611] [OSLAB] MemTotal : 924852, MemFree : 838696
+[    3.703672] initcall nfnetlink_log_init+0x0/0xb4 returned 0 after 37 usecs
+[    3.703709] calling  nf_conntrack_standalone_init+0x0/0xb4 @ 1
+[    3.703736] [OSLAB] user : 0, nice : 0, system : 367, idle : 346, iowait : 0, irq : 0, softirq : 1
+[    3.703781] [OSLAB] MemTotal : 924852, MemFree : 838696
+[    3.704423] initcall nf_conntrack_standalone_init+0x0/0xb4 returned 0 after 594 usecs
+[    3.704448] calling  ctnetlink_init+0x0/0x9c @ 1
+[    3.704478] [OSLAB] user : 0, nice : 0, system : 369, idle : 346, iowait : 0, irq : 0, softirq : 1
+[    3.704513] [OSLAB] MemTotal : 924852, MemFree : 838696
+[    3.704544] initcall ctnetlink_init+0x0/0x9c returned 0 after 9 usecs
+[    3.704566] calling  nf_conntrack_ftp_init+0x0/0x178 @ 1
+[    3.704593] [OSLAB] user : 0, nice : 0, system : 369, idle : 346, iowait : 0, irq : 0, softirq : 1
+[    3.704611] [OSLAB] MemTotal : 924852, MemFree : 838696
+[    3.704673] initcall nf_conntrack_ftp_init+0x0/0x178 returned 0 after 38 usecs
+[    3.704694] calling  nf_conntrack_irc_init+0x0/0x174 @ 1
+[    3.704722] [OSLAB] user : 0, nice : 0, system : 369, idle : 346, iowait : 0, irq : 0, softirq : 1
+[    3.704740] [OSLAB] MemTotal : 924852, MemFree : 838568
+[    3.704784] initcall nf_conntrack_irc_init+0x0/0x174 returned 0 after 22 usecs
+[    3.704805] calling  nf_conntrack_sip_init+0x0/0x1c0 @ 1
+[    3.704832] [OSLAB] user : 0, nice : 0, system : 369, idle : 346, iowait : 0, irq : 0, softirq : 1
+[    3.704850] [OSLAB] MemTotal : 924852, MemFree : 838568
+[    3.704911] initcall nf_conntrack_sip_init+0x0/0x1c0 returned 0 after 39 usecs
+[    3.704932] calling  nf_log_common_init+0x0/0x1c @ 1
+[    3.704959] [OSLAB] user : 0, nice : 0, system : 369, idle : 346, iowait : 0, irq : 0, softirq : 1
+[    3.704977] [OSLAB] MemTotal : 924852, MemFree : 838568
+[    3.705000] initcall nf_log_common_init+0x0/0x1c returned 0 after 1 usecs
+[    3.705020] calling  nf_nat_init+0x0/0x118 @ 1
+[    3.705047] [OSLAB] user : 0, nice : 0, system : 369, idle : 346, iowait : 0, irq : 0, softirq : 1
+[    3.705065] [OSLAB] MemTotal : 924852, MemFree : 838568
+[    3.705143] initcall nf_nat_init+0x0/0x118 returned 0 after 54 usecs
+[    3.705164] calling  nf_nat_ftp_init+0x0/0x4c @ 1
+[    3.705190] [OSLAB] user : 0, nice : 0, system : 369, idle : 346, iowait : 0, irq : 0, softirq : 1
+[    3.705208] [OSLAB] MemTotal : 924852, MemFree : 838440
+[    3.705233] initcall nf_nat_ftp_init+0x0/0x4c returned 0 after 3 usecs
+[    3.705253] calling  nf_nat_irc_init+0x0/0x4c @ 1
+[    3.705279] [OSLAB] user : 0, nice : 0, system : 369, idle : 346, iowait : 0, irq : 0, softirq : 1
+[    3.705297] [OSLAB] MemTotal : 924852, MemFree : 838440
+[    3.705322] initcall nf_nat_irc_init+0x0/0x4c returned 0 after 3 usecs
+[    3.705343] calling  nf_nat_sip_init+0x0/0x58 @ 1
+[    3.705370] [OSLAB] user : 0, nice : 0, system : 369, idle : 346, iowait : 0, irq : 0, softirq : 1
+[    3.705388] [OSLAB] MemTotal : 924852, MemFree : 838440
+[    3.705414] initcall nf_nat_sip_init+0x0/0x58 returned 0 after 5 usecs
+[    3.705434] calling  xt_init+0x0/0xfc @ 1
+[    3.705460] [OSLAB] user : 0, nice : 0, system : 369, idle : 346, iowait : 0, irq : 0, softirq : 1
+[    3.705478] [OSLAB] MemTotal : 924852, MemFree : 838440
+[    3.705513] initcall xt_init+0x0/0xfc returned 0 after 14 usecs
+[    3.705534] calling  tcpudp_mt_init+0x0/0x28 @ 1
+[    3.705561] [OSLAB] user : 0, nice : 0, system : 369, idle : 346, iowait : 0, irq : 0, softirq : 1
+[    3.705579] [OSLAB] MemTotal : 924852, MemFree : 838440
+[    3.705612] initcall tcpudp_mt_init+0x0/0x28 returned 0 after 12 usecs
+[    3.705632] calling  mark_mt_init+0x0/0x50 @ 1
+[    3.705659] [OSLAB] user : 0, nice : 0, system : 369, idle : 346, iowait : 0, irq : 0, softirq : 1
+[    3.705677] [OSLAB] MemTotal : 924852, MemFree : 838440
+[    3.705702] initcall mark_mt_init+0x0/0x50 returned 0 after 5 usecs
+[    3.705723] calling  xt_nat_init+0x0/0x28 @ 1
+[    3.705750] [OSLAB] user : 0, nice : 0, system : 369, idle : 346, iowait : 0, irq : 0, softirq : 1
+[    3.705768] [OSLAB] MemTotal : 924852, MemFree : 838440
+[    3.705800] initcall xt_nat_init+0x0/0x28 returned 0 after 10 usecs
+[    3.705820] calling  log_tg_init+0x0/0x28 @ 1
+[    3.705847] [OSLAB] user : 0, nice : 0, system : 369, idle : 346, iowait : 0, irq : 0, softirq : 1
+[    3.705864] [OSLAB] MemTotal : 924852, MemFree : 838440
+[    3.705891] initcall log_tg_init+0x0/0x28 returned 0 after 5 usecs
+[    3.705911] calling  nflog_tg_init+0x0/0x24 @ 1
+[    3.705938] [OSLAB] user : 0, nice : 0, system : 369, idle : 346, iowait : 0, irq : 0, softirq : 1
+[    3.705956] [OSLAB] MemTotal : 924852, MemFree : 838440
+[    3.705980] initcall nflog_tg_init+0x0/0x24 returned 0 after 3 usecs
+[    3.706001] calling  masquerade_tg_init+0x0/0x50 @ 1
+[    3.706027] [OSLAB] user : 0, nice : 0, system : 369, idle : 346, iowait : 0, irq : 0, softirq : 1
+[    3.706045] [OSLAB] MemTotal : 924852, MemFree : 838440
+[    3.706092] initcall masquerade_tg_init+0x0/0x50 returned 0 after 24 usecs
+[    3.706113] calling  tcpmss_tg_init+0x0/0x28 @ 1
+[    3.706139] [OSLAB] user : 0, nice : 0, system : 369, idle : 346, iowait : 0, irq : 0, softirq : 1
+[    3.706157] [OSLAB] MemTotal : 924852, MemFree : 838440
+[    3.706183] initcall tcpmss_tg_init+0x0/0x28 returned 0 after 5 usecs
+[    3.706204] calling  addrtype_mt_init+0x0/0x28 @ 1
+[    3.706231] [OSLAB] user : 0, nice : 0, system : 369, idle : 346, iowait : 0, irq : 0, softirq : 1
+[    3.706248] [OSLAB] MemTotal : 924852, MemFree : 838440
+[    3.706275] initcall addrtype_mt_init+0x0/0x28 returned 0 after 5 usecs
+[    3.706295] calling  conntrack_mt_init+0x0/0x28 @ 1
+[    3.706321] [OSLAB] user : 0, nice : 0, system : 369, idle : 346, iowait : 0, irq : 0, softirq : 1
+[    3.706339] [OSLAB] MemTotal : 924852, MemFree : 838440
+[    3.706367] initcall conntrack_mt_init+0x0/0x28 returned 0 after 6 usecs
+[    3.706388] calling  state_mt_init+0x0/0x24 @ 1
+[    3.706414] [OSLAB] user : 0, nice : 0, system : 369, idle : 346, iowait : 0, irq : 0, softirq : 1
+[    3.706432] [OSLAB] MemTotal : 924852, MemFree : 838440
+[    3.706456] initcall state_mt_init+0x0/0x24 returned 0 after 3 usecs
+[    3.706479] calling  gre_offload_init+0x0/0x5c @ 1
+[    3.706506] [OSLAB] user : 0, nice : 0, system : 369, idle : 346, iowait : 0, irq : 0, softirq : 1
+[    3.706524] [OSLAB] MemTotal : 924852, MemFree : 838440
+[    3.706549] initcall gre_offload_init+0x0/0x5c returned 0 after 4 usecs
+[    3.706570] calling  sysctl_ipv4_init+0x0/0x64 @ 1
+[    3.706596] [OSLAB] user : 0, nice : 0, system : 369, idle : 346, iowait : 0, irq : 0, softirq : 1
+[    3.706614] [OSLAB] MemTotal : 924852, MemFree : 838440
+[    3.707066] initcall sysctl_ipv4_init+0x0/0x64 returned 0 after 418 usecs
+[    3.707088] calling  tunnel4_init+0x0/0x6c @ 1
+[    3.707116] [OSLAB] user : 0, nice : 0, system : 369, idle : 346, iowait : 0, irq : 0, softirq : 1
+[    3.707182] [OSLAB] MemTotal : 924852, MemFree : 838440
+[    3.707209] initcall tunnel4_init+0x0/0x6c returned 0 after 3 usecs
+[    3.707230] calling  nf_defrag_init+0x0/0x24 @ 1
+[    3.707257] [OSLAB] user : 0, nice : 0, system : 369, idle : 346, iowait : 0, irq : 0, softirq : 1
+[    3.707275] [OSLAB] MemTotal : 924852, MemFree : 838440
+[    3.707301] initcall nf_defrag_init+0x0/0x24 returned 0 after 4 usecs
+[    3.707322] calling  nf_log_arp_init+0x0/0x64 @ 1
+[    3.707349] [OSLAB] user : 0, nice : 0, system : 369, idle : 346, iowait : 0, irq : 0, softirq : 1
+[    3.707367] [OSLAB] MemTotal : 924852, MemFree : 838440
+[    3.707397] initcall nf_log_arp_init+0x0/0x64 returned 0 after 9 usecs
+[    3.707418] calling  nf_log_ipv4_init+0x0/0x64 @ 1
+[    3.707444] [OSLAB] user : 0, nice : 0, system : 369, idle : 346, iowait : 0, irq : 0, softirq : 1
+[    3.707462] [OSLAB] MemTotal : 924852, MemFree : 838440
+[    3.707491] initcall nf_log_ipv4_init+0x0/0x64 returned 0 after 7 usecs
+[    3.707513] calling  ip_tables_init+0x0/0x9c @ 1
+[    3.707539] [OSLAB] user : 0, nice : 0, system : 369, idle : 346, iowait : 0, irq : 0, softirq : 1
+[    3.707557] [OSLAB] MemTotal : 924852, MemFree : 838440
+[    3.707630] initcall ip_tables_init+0x0/0x9c returned 0 after 49 usecs
+[    3.707652] calling  iptable_filter_init+0x0/0x64 @ 1
+[    3.707680] [OSLAB] user : 0, nice : 0, system : 369, idle : 346, iowait : 0, irq : 0, softirq : 1
+[    3.707698] [OSLAB] MemTotal : 924852, MemFree : 838440
+[    3.708373] initcall iptable_filter_init+0x0/0x64 returned 0 after 625 usecs
+[    3.708413] calling  iptable_mangle_init+0x0/0x94 @ 1
+[    3.708443] [OSLAB] user : 0, nice : 0, system : 369, idle : 346, iowait : 0, irq : 0, softirq : 1
+[    3.708462] [OSLAB] MemTotal : 924852, MemFree : 838440
+[    3.709370] initcall iptable_mangle_init+0x0/0x94 returned 0 after 856 usecs
+[    3.709394] calling  iptable_nat_init+0x0/0x5c @ 1
+[    3.709423] [OSLAB] user : 0, nice : 0, system : 369, idle : 346, iowait : 0, irq : 0, softirq : 1
+[    3.709441] [OSLAB] MemTotal : 924852, MemFree : 838440
+[    3.709648] initcall iptable_nat_init+0x0/0x5c returned 0 after 177 usecs
+[    3.709670] calling  reject_tg_init+0x0/0x24 @ 1
+[    3.709698] [OSLAB] user : 0, nice : 0, system : 369, idle : 346, iowait : 0, irq : 0, softirq : 1
+[    3.709716] [OSLAB] MemTotal : 924852, MemFree : 838440
+[    3.709741] initcall reject_tg_init+0x0/0x24 returned 0 after 3 usecs
+[    3.709762] calling  cubictcp_register+0x0/0x74 @ 1
+[    3.709789] [OSLAB] user : 0, nice : 0, system : 369, idle : 346, iowait : 0, irq : 0, softirq : 1
+[    3.709806] [OSLAB] MemTotal : 924852, MemFree : 838440
+[    3.709835] initcall cubictcp_register+0x0/0x74 returned 0 after 6 usecs
+[    3.709856] calling  unix_diag_init+0x0/0x24 @ 1
+[    3.709882] [OSLAB] user : 0, nice : 0, system : 369, idle : 346, iowait : 0, irq : 0, softirq : 1
+[    3.709900] [OSLAB] MemTotal : 924852, MemFree : 838440
+[    3.709926] initcall unix_diag_init+0x0/0x24 returned 0 after 4 usecs
+[    3.709947] calling  inet6_init+0x0/0x32c @ 1
+[    3.709973] [OSLAB] user : 0, nice : 0, system : 369, idle : 346, iowait : 0, irq : 0, softirq : 1
+[    3.709991] [OSLAB] MemTotal : 924852, MemFree : 838440
+[    3.710436] NET: Registered protocol family 10
+[    3.719260] Segment Routing with IPv6
+[    3.723604] initcall inet6_init+0x0/0x32c returned 0 after 13261 usecs
+[    3.723630] calling  ip6_tables_init+0x0/0x9c @ 1
+[    3.723662] [OSLAB] user : 0, nice : 0, system : 370, idle : 348, iowait : 0, irq : 0, softirq : 1
+[    3.723682] [OSLAB] MemTotal : 924852, MemFree : 838188
+[    3.723760] initcall ip6_tables_init+0x0/0x9c returned 0 after 53 usecs
+[    3.723782] calling  ip6table_filter_init+0x0/0x64 @ 1
+[    3.723809] [OSLAB] user : 0, nice : 0, system : 370, idle : 348, iowait : 0, irq : 0, softirq : 1
+[    3.723827] [OSLAB] MemTotal : 924852, MemFree : 838188
+[    3.725281] initcall ip6table_filter_init+0x0/0x64 returned 0 after 1383 usecs
+[    3.725306] calling  ip6table_mangle_init+0x0/0x94 @ 1
+[    3.725336] [OSLAB] user : 0, nice : 0, system : 371, idle : 348, iowait : 0, irq : 0, softirq : 1
+[    3.725356] [OSLAB] MemTotal : 924852, MemFree : 838188
+[    3.726220] initcall ip6table_mangle_init+0x0/0x94 returned 0 after 816 usecs
+[    3.726244] calling  nf_defrag_init+0x0/0x5c @ 1
+[    3.726272] [OSLAB] user : 0, nice : 0, system : 371, idle : 348, iowait : 0, irq : 0, softirq : 1
+[    3.726291] [OSLAB] MemTotal : 924852, MemFree : 838188
+[    3.726403] initcall nf_defrag_init+0x0/0x5c returned 0 after 87 usecs
+[    3.726426] calling  nf_log_ipv6_init+0x0/0x64 @ 1
+[    3.726453] [OSLAB] user : 0, nice : 0, system : 371, idle : 348, iowait : 0, irq : 0, softirq : 1
+[    3.726471] [OSLAB] MemTotal : 924852, MemFree : 838188
+[    3.726502] initcall nf_log_ipv6_init+0x0/0x64 returned 0 after 8 usecs
+[    3.726524] calling  ipv6header_mt6_init+0x0/0x24 @ 1
+[    3.726550] [OSLAB] user : 0, nice : 0, system : 371, idle : 348, iowait : 0, irq : 0, softirq : 1
+[    3.726568] [OSLAB] MemTotal : 924852, MemFree : 838188
+[    3.726593] initcall ipv6header_mt6_init+0x0/0x24 returned 0 after 3 usecs
+[    3.726614] calling  reject_tg6_init+0x0/0x24 @ 1
+[    3.726641] [OSLAB] user : 0, nice : 0, system : 371, idle : 348, iowait : 0, irq : 0, softirq : 1
+[    3.726659] [OSLAB] MemTotal : 924852, MemFree : 838188
+[    3.726684] initcall reject_tg6_init+0x0/0x24 returned 0 after 3 usecs
+[    3.726704] calling  sit_init+0x0/0xd0 @ 1
+[    3.726731] [OSLAB] user : 0, nice : 0, system : 371, idle : 348, iowait : 0, irq : 0, softirq : 1
+[    3.726748] [OSLAB] MemTotal : 924852, MemFree : 838188
+[    3.726764] sit: IPv6, IPv4 and MPLS over IPv4 tunneling driver
+[    3.735480] initcall sit_init+0x0/0xd0 returned 0 after 8494 usecs
+[    3.735506] calling  packet_init+0x0/0x88 @ 1
+[    3.735537] [OSLAB] user : 0, nice : 0, system : 372, idle : 349, iowait : 0, irq : 0, softirq : 1
+[    3.735557] [OSLAB] MemTotal : 924852, MemFree : 838188
+[    3.735579] NET: Registered protocol family 17
+[    3.740592] initcall packet_init+0x0/0x88 returned 0 after 4894 usecs
+[    3.740614] calling  packet_diag_init+0x0/0x24 @ 1
+[    3.740641] [OSLAB] user : 0, nice : 0, system : 372, idle : 349, iowait : 0, irq : 0, softirq : 1
+[    3.740660] [OSLAB] MemTotal : 924852, MemFree : 838188
+[    3.740686] initcall packet_diag_init+0x0/0x24 returned 0 after 4 usecs
+[    3.740709] calling  vlan_proto_init+0x0/0x98 @ 1
+[    3.740735] [OSLAB] user : 0, nice : 0, system : 372, idle : 349, iowait : 0, irq : 0, softirq : 1
+[    3.740753] [OSLAB] MemTotal : 924852, MemFree : 838188
+[    3.740769] 8021q: 802.1Q VLAN Support v1.8
+[    3.745569] initcall vlan_proto_init+0x0/0x98 returned 0 after 4676 usecs
+[    3.746585] calling  init_machine_late+0x0/0xa0 @ 1
+[    3.746615] [OSLAB] user : 0, nice : 0, system : 373, idle : 350, iowait : 0, irq : 0, softirq : 1
+[    3.746635] [OSLAB] MemTotal : 924852, MemFree : 838188
+[    3.746670] initcall init_machine_late+0x0/0xa0 returned 0 after 12 usecs
+[    3.746692] calling  swp_emulation_init+0x0/0x7c @ 1
+[    3.746718] [OSLAB] user : 0, nice : 0, system : 373, idle : 350, iowait : 0, irq : 0, softirq : 1
+[    3.746736] [OSLAB] MemTotal : 924852, MemFree : 838188
+[    3.746765] Registering SWP/SWPB emulation handler
+[    3.752138] initcall swp_emulation_init+0x0/0x7c returned 0 after 5253 usecs
+[    3.752162] calling  init_oops_id+0x0/0x54 @ 1
+[    3.752188] [OSLAB] user : 0, nice : 0, system : 373, idle : 350, iowait : 0, irq : 0, softirq : 1
+[    3.752207] [OSLAB] MemTotal : 924852, MemFree : 838188
+[    3.752238] initcall init_oops_id+0x0/0x54 returned 0 after 10 usecs
+[    3.752261] calling  pm_qos_power_init+0x0/0x94 @ 1
+[    3.752288] [OSLAB] user : 0, nice : 0, system : 373, idle : 350, iowait : 0, irq : 0, softirq : 1
+[    3.752305] [OSLAB] MemTotal : 924852, MemFree : 838188
+[    3.752917] initcall pm_qos_power_init+0x0/0x94 returned 0 after 569 usecs
+[    3.752942] calling  pm_debugfs_init+0x0/0x48 @ 1
+[    3.752993] [OSLAB] user : 0, nice : 0, system : 373, idle : 350, iowait : 0, irq : 0, softirq : 1
+[    3.753012] [OSLAB] MemTotal : 924852, MemFree : 838188
+[    3.753072] initcall pm_debugfs_init+0x0/0x48 returned 0 after 37 usecs
+[    3.753094] calling  printk_late_init+0x0/0x1e8 @ 1
+[    3.753120] [OSLAB] user : 0, nice : 0, system : 373, idle : 350, iowait : 0, irq : 0, softirq : 1
+[    3.753139] [OSLAB] MemTotal : 924852, MemFree : 838188
+[    3.753170] initcall printk_late_init+0x0/0x1e8 returned 0 after 9 usecs
+[    3.753193] calling  init_srcu_module_notifier+0x0/0x3c @ 1
+[    3.753219] [OSLAB] user : 0, nice : 0, system : 373, idle : 350, iowait : 0, irq : 0, softirq : 1
+[    3.753237] [OSLAB] MemTotal : 924852, MemFree : 838188
+[    3.753266] initcall init_srcu_module_notifier+0x0/0x3c returned 0 after 6 usecs
+[    3.753288] calling  tk_debug_sleep_time_init+0x0/0x48 @ 1
+[    3.753314] [OSLAB] user : 0, nice : 0, system : 373, idle : 350, iowait : 0, irq : 0, softirq : 1
+[    3.753332] [OSLAB] MemTotal : 924852, MemFree : 838188
+[    3.753386] initcall tk_debug_sleep_time_init+0x0/0x48 returned 0 after 31 usecs
+[    3.753411] calling  fault_around_debugfs+0x0/0x48 @ 1
+[    3.753437] [OSLAB] user : 0, nice : 0, system : 373, idle : 350, iowait : 0, irq : 0, softirq : 1
+[    3.753455] [OSLAB] MemTotal : 924852, MemFree : 838188
+[    3.753511] initcall fault_around_debugfs+0x0/0x48 returned 0 after 32 usecs
+[    3.753533] calling  check_early_ioremap_leak+0x0/0x74 @ 1
+[    3.753560] [OSLAB] user : 0, nice : 0, system : 373, idle : 350, iowait : 0, irq : 0, softirq : 1
+[    3.753578] [OSLAB] MemTotal : 924852, MemFree : 838188
+[    3.753601] initcall check_early_ioremap_leak+0x0/0x74 returned 0 after 2 usecs
+[    3.753622] calling  set_hardened_usercopy+0x0/0x3c @ 1
+[    3.753648] [OSLAB] user : 0, nice : 0, system : 373, idle : 350, iowait : 0, irq : 0, softirq : 1
+[    3.753666] [OSLAB] MemTotal : 924852, MemFree : 838188
+[    3.753689] initcall set_hardened_usercopy+0x0/0x3c returned 1 after 2 usecs
+[    3.753711] calling  ubifs_init+0x0/0xdc @ 1
+[    3.753738] [OSLAB] user : 0, nice : 0, system : 373, idle : 350, iowait : 0, irq : 0, softirq : 1
+[    3.753756] [OSLAB] MemTotal : 924852, MemFree : 838188
+[    3.756227] mmc0: new HS200 MMC card at address 0001
+[    3.757967] initcall ubifs_init+0x0/0xdc returned 0 after 4065 usecs
+[    3.761862] calling  prandom_reseed+0x0/0x3c @ 1
+[    3.761895] [OSLAB] user : 0, nice : 0, system : 374, idle : 351, iowait : 0, irq : 0, softirq : 1
+[    3.761916] [OSLAB] MemTotal : 924852, MemFree : 836408
+[    3.761970] initcall prandom_reseed+0x0/0x3c returned 0 after 30 usecs
+[    3.761994] calling  pci_resource_alignment_sysfs_init+0x0/0x2c @ 1
+[    3.762020] [OSLAB] user : 0, nice : 0, system : 374, idle : 351, iowait : 0, irq : 0, softirq : 1
+[    3.762038] [OSLAB] MemTotal : 924852, MemFree : 836408
+[    3.762079] initcall pci_resource_alignment_sysfs_init+0x0/0x2c returned 0 after 18 usecs
+[    3.762101] calling  pci_sysfs_init+0x0/0x64 @ 1
+[    3.762126] [OSLAB] user : 0, nice : 0, system : 374, idle : 351, iowait : 0, irq : 0, softirq : 1
+[    3.762144] [OSLAB] MemTotal : 924852, MemFree : 836408
+[    3.762228] initcall pci_sysfs_init+0x0/0x64 returned 0 after 60 usecs
+[    3.762250] calling  clk_debug_init+0x0/0x11c @ 1
+[    3.762276] [OSLAB] user : 0, nice : 0, system : 374, idle : 351, iowait : 0, irq : 0, softirq : 1
+[    3.762294] [OSLAB] MemTotal : 924852, MemFree : 836408
+[    3.763721] mmcblk0: mmc0:0001 004GA0 3.69 GiB 
+[    3.769828] mmcblk0boot0: mmc0:0001 004GA0 partition 1 2.00 MiB
+[    3.777388] mmcblk0boot1: mmc0:0001 004GA0 partition 2 2.00 MiB
+[    3.784673] mmcblk0rpmb: mmc0:0001 004GA0 partition 3 512 KiB, chardev (244:0)
+[    3.796561] initcall clk_debug_init+0x0/0x11c returned 0 after 33418 usecs
+[    3.796593] calling  deferred_probe_initcall+0x0/0xbc @ 1
+[    3.796626] [OSLAB] user : 0, nice : 0, system : 381, idle : 351, iowait : 0, irq : 0, softirq : 1
+[    3.796647] [OSLAB] MemTotal : 924852, MemFree : 835168
+[    3.799834] probe of iio-hwmon returned 1 after 2373 usecs
+[    3.800224] initcall deferred_probe_initcall+0x0/0xbc returned 0 after 3461 usecs
+[    3.800250] calling  ubi_init+0x0/0x26c @ 1
+[    3.800280] [OSLAB] user : 0, nice : 0, system : 381, idle : 351, iowait : 0, irq : 0, softirq : 1
+[    3.800301] [OSLAB] MemTotal : 924852, MemFree : 835168
+[    3.800974] initcall ubi_init+0x0/0x26c returned 0 after 628 usecs
+[    3.801000] calling  init_netconsole+0x0/0x298 @ 1
+[    3.801029] [OSLAB] user : 0, nice : 0, system : 381, idle : 351, iowait : 0, irq : 0, softirq : 1
+[    3.801049] [OSLAB] MemTotal : 924852, MemFree : 835168
+[    3.801133] printk: console [netcon0] enabled
+[    3.806096] netconsole: network logging started
+[    3.811180] initcall init_netconsole+0x0/0x298 returned 0 after 9868 usecs
+[    3.811204] calling  gpio_keys_init+0x0/0x28 @ 1
+[    3.811232] [OSLAB] user : 0, nice : 0, system : 382, idle : 351, iowait : 0, irq : 0, softirq : 1
+[    3.811251] [OSLAB] MemTotal : 924852, MemFree : 835168
+[    3.811984] initcall gpio_keys_init+0x0/0x28 returned 0 after 691 usecs
+[    3.812007] calling  rtc_hctosys+0x0/0x124 @ 1
+[    3.812034] [OSLAB] user : 0, nice : 0, system : 382, idle : 352, iowait : 0, irq : 0, softirq : 1
+[    3.812053] [OSLAB] MemTotal : 924852, MemFree : 835168
+[    3.812093] aspeed-rtc 1e781000.rtc: hctosys: unable to read the hardware clock
+[    3.816630] probe of mmc0:0001 returned 1 after 54243 usecs
+[    3.820346] initcall rtc_hctosys+0x0/0x124 returned -22 after 8070 usecs
+[    3.820372] calling  firmware_memmap_init+0x0/0x4c @ 1
+[    3.820401] [OSLAB] user : 0, nice : 0, system : 383, idle : 352, iowait : 0, irq : 0, softirq : 1
+[    3.820420] [OSLAB] MemTotal : 924852, MemFree : 835168
+[    3.820444] initcall firmware_memmap_init+0x0/0x4c returned 0 after 2 usecs
+[    3.820466] calling  of_fdt_raw_init+0x0/0x84 @ 1
+[    3.820492] [OSLAB] user : 0, nice : 0, system : 383, idle : 352, iowait : 0, irq : 0, softirq : 1
+[    3.820510] [OSLAB] MemTotal : 924852, MemFree : 835168
+[    3.820947] initcall of_fdt_raw_init+0x0/0x84 returned 0 after 399 usecs
+[    3.820973] calling  tcp_congestion_default+0x0/0x2c @ 1
+[    3.821002] [OSLAB] user : 0, nice : 0, system : 383, idle : 352, iowait : 0, irq : 0, softirq : 1
+[    3.821020] [OSLAB] MemTotal : 924852, MemFree : 835168
+[    3.821049] initcall tcp_congestion_default+0x0/0x2c returned 0 after 6 usecs
+[    3.821072] calling  clear_boot_tracer+0x0/0x3c @ 1
+[    3.821099] [OSLAB] user : 0, nice : 0, system : 383, idle : 352, iowait : 0, irq : 0, softirq : 1
+[    3.821117] [OSLAB] MemTotal : 924852, MemFree : 835168
+[    3.821140] initcall clear_boot_tracer+0x0/0x3c returned 0 after 2 usecs
+[    3.821164] calling  clk_disable_unused+0x0/0x138 @ 1
+[    3.821191] [OSLAB] user : 0, nice : 0, system : 383, idle : 352, iowait : 0, irq : 0, softirq : 1
+[    3.821209] [OSLAB] MemTotal : 924852, MemFree : 835168
+[    3.821686] initcall clk_disable_unused+0x0/0x138 returned 0 after 442 usecs
+[    3.822584] RAMDISK: squashfs filesystem found at block 0
+[    3.828745] RAMDISK: Loading 16162KiB [1 disk] into ram disk... |\x08/\x08-\x08\\x08|\x08/\x08-\x08\\x08|\x08/\x08-\x08\\x08|\x08/\x08-\x08\\x08|\x08/\x08-\x08\\x08|\x08/\x08-\x08\\x08|\x08/\x08-\x08\\x08|\x8
+[    4.198095] -\x08\\x08|\x08/\x08-\x08\\x08|\x08/\x08-\x08\\x08|\x08/\x08-\x08\\x08|\x08/\x08-\x08\\x08|\x08/\x08-\x08\\x08|\x08/\x08-\x08\\x08|\x08/\x08-\x08\\x08|\x08/\x08-\x08\\x08|\x08/\x08-\x08\\x08|\x088
+[    4.676112] scsi 0:0:0:0: Direct-Access     SanDisk  Ultra USB 3.0    1.00 PQ: 0 ANSI: 6
+[    4.676674] -\x08\\x08|\x08/\x08-\x08\\x08|\x08/\x08-\x08\\x08|\x08/\x08-\x08\\x08|\x08/\x08-\x08\\x08|\x08/\x08-\x08\\x08|\x08/\x08-\x08\\x08|\x08/\x08-\x08\\x08|\x08/\x08-\x08\\x08|\x08/\x08-\x08\\x08|\x08.
+[    4.773959] sd 0:0:0:0: Attached scsi generic sg0 type 0
+[    4.816350] sd 0:0:0:0: [sda] 60088320 512-byte logical blocks: (30.8 GB/28.7 GiB)
+[    4.834815] sd 0:0:0:0: [sda] Write Protect is off
+[    4.840215] sd 0:0:0:0: [sda] Mode Sense: 43 00 00 00
+[    4.841812] sd 0:0:0:0: [sda] Write cache: disabled, read cache: enabled, doesn't support DPO or FUA
+[    4.865866]  sda: sda1
+[    4.876471] sd 0:0:0:0: [sda] Attached SCSI removable disk
+[    4.882793] probe of 0:0:0:0 returned 1 after 109705 usecs
+[    5.095362] VFS: Mounted root (squashfs filesystem) readonly on device 1:0.
+[    5.104118] devtmpfs: mounted
+[    5.114952] Freeing unused kernel memory: 1024K
+[    5.201611] Checked W+X mappings: passed, no W+X pages found
+[    5.208021] Run /sbin/init as init process
+[    6.007682] jffs2: notice: (129) jffs2_build_xattr_subsystem: complete building xattr subsystem, 0 of xdatum (0 unchecked, 0 orphan) and 0 of xref (0 dead, 0 orphan) found.
+[   11.840909] jffs2: notice: (129) jffs2_build_xattr_subsystem: complete building xattr subsystem, 0 of xdatum (0 unchecked, 0 orphan) and 0 of xref (0 dead, 0 orphan) found.
+[   29.194408] jffs2: notice: (129) jffs2_build_xattr_subsystem: complete building xattr subsystem, 0 of xdatum (0 unchecked, 0 orphan) and 0 of xref (0 dead, 0 orphan) found.
+[   29.693616] jffs2: notice: (129) jffs2_build_xattr_subsystem: complete building xattr subsystem, 0 of xdatum (0 unchecked, 0 orphan) and 0 of xref (0 dead, 0 orphan) found.
+[   30.177736] jffs2: notice: (129) jffs2_build_xattr_subsystem: complete building xattr subsystem, 0 of xdatum (0 unchecked, 0 orphan) and 0 of xref (0 dead, 0 orphan) found.
+[   35.474952] ftgmac100 1e660000.ftgmac eth0: Link is Up - 100Mbps/Full - flow control off
+[   35.484065] IPv6: ADDRCONF(NETDEV_CHANGE): eth0: link becomes ready
