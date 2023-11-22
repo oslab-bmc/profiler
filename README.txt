@@ -58,3 +58,4 @@ $ node start.js
         - var kernel_dir_path = path.join("/", "home", "keti","oslab_profiler", "kernel_management"); //kernel management 경로 수정
 
 /------------------------------------------------/
+

@@ -1,25 +1,28 @@
 # profiler
 README [oslab_profiler]
 
-프로파일러 구조
+### 프로파일러 구조
 3-3 : 웹 기반 프로파일러 소스코드
 kernel_management : BMC 커널 버전 관리
 
-프로파일러 통신 구조
-BMC 서버 : server_CP
-프로파일러(개발환경 - 서버, 프론트) : oslab_profiler
+### 프로파일러 통신 구조
+#### BMC 서버 : server_CP
 
-개발환경
+#### 프로파일러(개발환경 - 서버, 프론트) : oslab_profiler
+
+#### 개발환경
         - 커널 버전 관리
         - 웹 서버 <-> BMC 서버와 통신
 /------------------------------------------------/
-[사용 메뉴얼]
+
+### [사용 메뉴얼]
 BMC에서 server_CP 업로드 및 실행
 개발환경의 프로파일러 경로에서 3-3/src/start.js 실행
 $ node start.js
 
 
 /------------------------------------------------/
+
 [웹 서버 이식을 위해 수정해야될 ip:port 목록]
 1. 3-3/public/getDirectoryTree.js
         - node_server_ip : 웹 서버 ip;
@@ -59,4 +62,5 @@ $ node start.js
         - var kernel_dir_path = path.join("/", "home", "keti","oslab_profiler", "kernel_management"); //kernel management 경로 수정
 
 /------------------------------------------------/
+
 
