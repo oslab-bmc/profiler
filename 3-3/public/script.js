@@ -1,12 +1,13 @@
 //boot mode scrpt file
 var device_driver_info;
+var device_driver_info_2;
 func_name_flag = 1;
 count_flag = 1;
 time_flag = 1;
 flag = 0;
 var playAlert;	//반복 수행하는 객체(?)	
-var node_server_ip = '192.168.0.33'
-var node_server_port = ':4000'
+var node_server_ip = '203.253.25.202'
+var node_server_port = ':9000'
 
 
 function initArray(arr) {
@@ -32,12 +33,14 @@ function getLiIndex(ul, li_target) {
 
 function flip_color(target) {
 	if (target.style.background == "white") {
-		target.style.background = "#2753FF";
-		target.style.color = "white";
+		target.style.background = "red";
+		target.style.backgroundColor = "#01607d";
+		target.style.transform = "scale(1.1)";
 	}
 	else {
 		target.style.background = "white";
-		target.style.color = "#2753FF";
+		target.style.color = "#01607d";
+		target.style.transform = "scale(1)";
 	}
 }
 
@@ -111,7 +114,7 @@ var version_check_count = 0;
 var boot_button_elem = document.getElementById("boot_mode_button");
 
 async function fetchData(path, params) {
-	var url = 'http://192.168.0.33:4000/';
+	var url = 'http://203.253.25.202:9000/';
 
 	if (path) {
 		url += path;
@@ -132,6 +135,7 @@ async function fetchData(path, params) {
 }
 
 var old_info;
+
 ul.onclick = async function(event) {
 	console.log('[line 136] ul.onclick')
 	var target = getEventTarget(event);
@@ -150,7 +154,7 @@ ul.onclick = async function(event) {
 		uncheck = 1;
 	}
 	else {
-		if (version_check_count == 2)
+		if (version_check_count == 2) // 2개의 버전에 대해서만 비교
 			return ;
 
 		version_check_count++;
@@ -159,59 +163,90 @@ ul.onclick = async function(event) {
 	flip_color(target);
 	is_checked_version[li_index] = 1 - is_checked_version[li_index];
 
-	if (uncheck)
-		return ;
+	// if (uncheck)
+	// 	return ;
+		
+	
+	var params = new Object();
+	var count = 0;
+	params["selected_1"] = null;
+	params["selected_2"] = null;
 
-	(async() => {
-		var params = new Object();
-		var count = 0;
-
-		for (var i = 0; i < is_checked_version.length; i++) {
-			if (is_checked_version[i] == 1) {
-				count++;
-
-				if (count == 1)
-					params["selected_1"] = i+1;
-				else if (count == 2) {
-					params["selected_2"] = i+1;
-					break ;
-				}
+	for (var i = 0; i < is_checked_version.length; i++) {
+		if (is_checked_version[i] == 1) {
+			count++;
+			console.log('ischecked version[', i, '] = ', is_checked_version[i]);
+			console.log('count : ', count);
+			if (count == 1) {
+				params["selected_1"] = i+1;
+			}
+			else if (count == 2) {
+				params["selected_2"] = i+1;
+				break ;
 			}
 		}
-		console.log('[line 181] fetchData call :: getDirectoryJSON')
-		fetchData('getDirectoryJSON', params)
-			.then(json => {
-					//console.log(json);
-					document.getElementById('code_view_left').innerHTML = json[0].htmlcode.toString();
-			});
-	})();
+	}
 
+	console.log("selected 1,. 2 : ", params["selected_1"], params["selected_2"]);
+
+	console.log('[line 181] fetchData call :: getDirectoryJSON')
+	fetchData('getDirectoryJSON', params)
+		.then(json => {
+				//console.log(json);
+				document.getElementById('code_view_left').innerHTML = json[0].htmlcode.toString();
+			}
+		);
+	
 	console.log('[line 189] drawChart - performance')
-	kernel_version_list.then(function(data) {
-		var params = {
-			"kernel_version": data[li_index]
-		};
 
-		device_driver_info = fetchData('get_device_driver_info', params).then(function(info) {
-			if (version_check_count == 1)
-				drawChart(info);
-			else if (version_check_count == 2)
-				drawChart(info, old_info);
-			// console.log(info, 'click')
-			return info;
-		});
+	if (params["selected_1"] == null && params["selected_2"] == null) {
+		document.getElementsByClassName('line_chart')[0].innerHTML = ""
+		document.getElementsByClassName('pie_chart')[0].innerHTML = ""
+	}
+
+	var ver_params = {
+		"kernel_version" : "V" + (li_index+1)
+	}
+	var ver_params1 = {
+		"kernel_version" : "V" + params["selected_1"]
+	}
+	var ver_params2 = {
+		"kernel_version" : "V" + params["selected_2"]
+	}
+
+	if (params["selected_2"] == null) {
+		if (params["selected_1"] == null) {
+			// 현재 데이터로 그래프 그림 그리기
+			drawChart();
+		}
+		else {
+			device_driver_info = fetchData('get_device_driver_info', ver_params1);
+			drawChart(device_driver_info, null, params);
+			// 선택된 버전 하나에 대해서만 그림 그리기
+		}
+	}
+	else {
+		device_driver_info = fetchData('get_device_driver_info', ver_params1);
+		device_driver_info_2 = fetchData('get_device_driver_info', ver_params2);
+		drawChart(device_driver_info, device_driver_info_2, params);
+		// 선택된 두 버전에 대해서 그림 그리기
+	}
+	
+	fetchData('calc_dmesg_based_watt', ver_params).then(function(watt){
+		if (params["selected_1"] == li_index + 1) {
+			document.getElementById('v2_Power_usage').innerText=document.getElementById('v1_Power_usage').innerText
+			document.getElementById('v1_Power_usage').innerText=watt
+		}
+		else if (params["selected_2"] == li_index + 1) {
+			document.getElementById('v2_Power_usage').innerText=watt
+		}			
 		
-		//2023 06 09 GYKim
-		//Calculate version power consumption
-		fetchData('calc_dmesg_based_watt', params).then(function(watt){
-			console.log('watt: ', watt)
-			document.getElementById('v'+version_check_count+'_Power_usage').innerText=watt
-		});
-		
-		return data;
+		if (params["selected_1"] == null)
+			document.getElementById('v1_Power_usage').innerText=0
+		if (params["selected_2"] == null)
+			document.getElementById('v2_Power_usage').innerText=0
 	});
-
-	old_info = device_driver_info;
+	
 }
 
 function boot_mode_handler(event) {
@@ -246,7 +281,7 @@ function exit_handler(event) {
 }
 
 function nextPage(){
-	var link = 'http://192.168.0.33:4000/secondPage';
+	var link = 'http://203.253.25.202:9000/secondPage';
 	console.log('page 1->page 2')
 	location.href=link;
 }
@@ -293,7 +328,7 @@ function fan_mode_handler(event) {
 	flag = flag==0?1:0;
 	if(flag==1){
 		console.log('flag = ' + flag)
-		// axios.post('http://192.168.0.4:8000/fan/do').then(response =>{
+		// axios.post('http://203.253.25.207:8000/fan/do').then(response =>{
 
 		// }).catch(function (error) {
 		// 	console.log(error);
@@ -336,7 +371,7 @@ function fan_mode_handler(event) {
 function get_fan_info(){
 	var pie_str="Fan Status : ";
 	
-	// axios.get('http://192.168.0.4:8000/fan').then(response =>{
+	// axios.get('http://203.253.25.207:8000/fan').then(response =>{
 	// 	pie_str += response.data
 	// 	console.log(pie_str)
 	// 	document.getElementById('code_view_right_div').innerText = pie_str+"\n";
@@ -428,7 +463,7 @@ function time_handler(event) {
 	drawChart(device_driver_info);
 }
 
-function drawChart(device_driver_info, device_driver_info_2) {
+function drawChart(device_driver_info, device_driver_info_2, params) {
 	google.load('visualization', '1', {
 	packages: ['corechart', 'line', 'Timeline']
 	});
@@ -443,50 +478,64 @@ function drawChart(device_driver_info, device_driver_info_2) {
 			['User Space', 3.5, 15],
 	]);
 	*/
+
 	var container = document.getElementsByClassName('pie_chart')[0];
 	var chart_1 = new google.visualization.Timeline(container);
+	var chart_2 = new google.visualization.Timeline(container);
 	var timeline_1 = new google.visualization.DataTable();
 
-	timeline_1.addColumn({ type: 'string', id: 'Area' });
-	timeline_1.addColumn({ type: 'number', id: 'Start' });
-	timeline_1.addColumn({ type: 'number', id: 'End' });
+if (!device_driver_info && !device_driver_info_2) {
+	fetchData('bootgraph/current')
+		.then(res => {
+			console.log(res);
+			var parser = new DOMParser();
+			const svg = res[0].svg;
+			console.log(svg);
+			var newSvg = parser.parseFromString(svg, "image/svg+xml").documentElement;
+			console.log(newSvg);
+			newSvg.setAttribute("width", "20%");
+			newSvg.setAttribute("height", "100%");
+			container.innerHTML = '';
+			container.appendChild(newSvg);
+			chart_1.container = newSvg;
+		})
+	.catch(error => console.error('svg 가져오기 실패: ', error));
+}
+else if (!device_driver_info_2) {
+	fetchData('bootgraph/kernel_1', params)
+		.then (res => {
+			var parser = new DOMParser();
+			const svg = res[0].svg;
+			var newSvg = parser.parseFromString(svg, "image/svg+xml").documentElement;
+			console.log(newSvg);
+			newSvg.setAttribute("width", "20%");
+			newSvg.setAttribute("height", "100%");
+			container.innerHTML = '';
+			container.appendChild(newSvg);
+			chart_1.container = newSvg;
+		})
+}	
+else {
+	fetchData('bootgraph/kernel_2', params)
+		.then (res => {
+			var parser = new DOMParser();
+			const svg1 = res[0].svg1;
+			const svg2 = res[0].svg2;
 
-	var options_1 = {
-		colors: ['black', 'black', 'black'],
-		timeline: { rowLabelStyle: {fontSize: 25 }},
-		width: document.getElementsByClassName('pie_chart')[0].clientWidth,
-		height: document.getElementsByClassName('pie_chart')[0].clientHeight,
+			var newSvg1 = parser.parseFromString(svg1, "image/svg+xml").documentElement;
+			var newSvg2 = parser.parseFromString(svg2, "image/svg+xml").documentElement;
+			newSvg1.setAttribute("width", "20%");
+			newSvg1.setAttribute("height", "100%");
+			newSvg2.setAttribute("width", "20%");
+			newSvg2.setAttribute("height", "100%");
+			container.innerHTML = '';
+			container.appendChild(newSvg1);
+			container.appendChild(newSvg2);
+			chart_1.container = newSvg1;
+			chart_2.container = newSvg2;
+		})
+}
 
-		legend: {
-			alignment: 'center',
-			position: 'left',
-			textStyle: {
-				fontSize: 20,
-			},
-		},
-		fontSize: 30,
-		chartArea: { left: 0, top: 500, width: '100%', height: '95%'}
-	};
-
-	if (!device_driver_info_2) {
-		timeline_1.addRows([
-			['Bootloader', 0, 1700],
-			['Kernel Space', 1700, 4900],
-			['User Space', 4900, 13000],
-		]);
-	}
-	else {
-		timeline_1.addRows([
-			['Bootloader_1', 0, 2000],
-			['Bootloader_2', 0, 1950],
-			['Kernel Space_1', 2000, 7600],
-			['Kernel Space_2', 1950, 5500],
-			['User Space_1', 7600, 19000],
-			['User Space_2', 5500, 16800],
-		]);
-	}
-
-	chart_1.draw(timeline_1, options_1);
 
 	var cpu_1 = new google.visualization.DataTable();
 	var mem_1 = new google.visualization.DataTable();
@@ -516,6 +565,89 @@ function drawChart(device_driver_info, device_driver_info_2) {
 	mem_2.addColumn('number', 'Times');
 	mem_2.addColumn('number', 'MEM_2');
 	mem_2.addColumn({type: 'string', role: 'tooltip', 'p': {'html': true}});
+
+	var options_2 = {
+		interpolateNulls: true,
+
+		width: document.getElementsByClassName('line_chart')[0].clientWidth,
+		height: document.getElementsByClassName('line_chart')[0].clientHeight,
+
+		title: 'Initialize Process of Device Driver and File System',
+		hAxis: {
+			title: 'Times (s)',
+			titleTextStyle: {
+				fontSize: 30
+			},
+			textStyle: {
+				fontSize: 20
+			}
+		},
+
+		vAxis: {
+			title: 'Percentage (%)',
+			titleTextStyle: {
+				fontSize: 30
+			},
+			textStyle: {
+				fontSize: 20
+			}
+		},
+
+		tooltip: { 
+			isHtml: true,
+			trigger: 'selection'
+		},
+
+		pointSize: 3
+	};
+
+	if (!device_driver_info && !device_driver_info_2) {
+		fetchData('bootgraph/cur_dmesg')
+			.then (res => {
+				const info = res[0].info;
+				console.log(info);
+
+				for (var info_index = 0; info_index < info.length; info_index ++) {
+					var cpu_tooltip_html, mem_tooltip_html;
+
+					cpu_tooltip_html = createCustomChartToolTip (
+						'CPU Utilization : ',
+						info[info_index].init_time,
+						info[info_index].cpu_util.toFixed(4) * 100,
+						info[info_index].device_driver_name,
+						info[info_index].return_value,
+						info[info_index].ftrace_log
+					);
+
+					mem_tooltip_html = createCustomChartToolTip (
+						'Memory Utilization : ',
+						info[info_index].init_time,
+						info[info_index].mem_util.toFixed(4) * 100,
+						info[info_index].device_driver_name,
+						info[info_index].return_value,
+						info[info_index].ftrace_log
+					);
+
+					cpu_1.addRows([[
+						info[info_index].start_time + info[info_index].init_time, 
+						info[info_index].cpu_util * 100,
+						cpu_tooltip_html
+					]]);
+		
+					mem_1.addRows([[
+						info[info_index].start_time + info[info_index].init_time, 
+						info[info_index].mem_util * 100,
+						mem_tooltip_html,
+					]]);
+
+					
+				}
+				var joined_data_1 = google.visualization.data.join(cpu_1, mem_1, 'full', [[0, 0]], [1, 2], [1, 2]);
+				var chart_2 = new google.visualization.AreaChart(document.getElementsByClassName('line_chart')[0]);
+				chart_2.draw(joined_data_1, options_2);
+			})
+		return;
+	}
 
 	(async() => {
 		info_1 = await device_driver_info;
@@ -596,40 +728,7 @@ function drawChart(device_driver_info, device_driver_info_2) {
 		joined_data_1 = google.visualization.data.join(joined_data_1, joined_data_2, 'full', [[0, 0]], [1, 2, 3, 4], [1, 2, 3, 4]);
 	}
 
-	var options_2 = {
-		interpolateNulls: true,
-
-		width: document.getElementsByClassName('line_chart')[0].clientWidth,
-		height: document.getElementsByClassName('line_chart')[0].clientHeight,
-
-		title: 'Initialize Process of Device Driver and File System',
-		hAxis: {
-			title: 'Times (s)',
-			titleTextStyle: {
-				fontSize: 30
-			},
-			textStyle: {
-				fontSize: 20
-			}
-		},
-
-		vAxis: {
-			title: 'Percentage (%)',
-			titleTextStyle: {
-				fontSize: 30
-			},
-			textStyle: {
-				fontSize: 20
-			}
-		},
-
-		tooltip: { 
-			isHtml: true,
-			trigger: 'selection'
-		},
-
-		pointSize: 3
-	};
+	
 
 	var chart_2 = new google.visualization.AreaChart(document.getElementsByClassName('line_chart')[0]);
 	chart_2.draw(joined_data_1, options_2);

@@ -5,10 +5,10 @@ count_flag = 1;
 time_flag = 1;
 flag = 0;
 var playAlert_getStatus;	//반복 수행하는 객체(?)	
-var node_server_ip = '192.168.0.33'
-var node_server_port = ':4000'
-var bmc_server_ip = '192.168.0.4'
-var bmc_server_port = ':8000'
+var node_server_ip = '203.253.25.202'
+var node_server_port = ':9000'
+var bmc_server_ip = '203.253.25.207'
+var bmc_server_port = ':9000'
 
 
 google.charts.load('current', {'packages':['line']});
@@ -48,28 +48,25 @@ function drawChart() {
 		console.log('fetch::/getHttpCodeList\n'+json);
 		finally_rowArr = []
 		data.addColumn('number', 'ResponseTime');
-		/* 예제
-		
 		data.addColumn('number', 'Guardians of the Galaxy');
 		data.addColumn('number', 'The Avengers');
-      	data.addColumn('number', 'Transformers: Age of Extinction');
+    data.addColumn('number', 'Transformers: Age of Extinction');
 		data.addRows([
 			[1,  37.8, 80.8, 41.8],
 			[2,  30.9, 69.5, 32.4],
 			[3,  25.4,   57, 25.7],
 			[4,  11.7, 18.8, 10.5],
 			[5,  11.9, 17.6, 10.4],
-			[6,   8.8, 13.6,  7.7],
-			[7,   7.6, 12.3,  9.6],
-			[8,  12.3, 29.2, 10.6],
-			[9,  16.9, 42.9, 14.8],
-			[10, 12.8, 30.9, 11.6],
-			[11,  5.3,  7.9,  4.7],
-			[12,  6.6,  8.4,  5.2],
-			[13,  4.8,  6.3,  3.6],
-			[14,  4.2,  6.2,  3.4]
+			// [6,   8.8, 13.6,  7.7],
+			// [7,   7.6, 12.3,  9.6],
+			// [8,  12.3, 29.2, 10.6],
+			// [9,  16.9, 42.9, 14.8],
+			// [10, 12.8, 30.9, 11.6],
+			// [11,  5.3,  7.9,  4.7],
+			// [12,  6.6,  8.4,  5.2],
+			// [13,  4.8,  6.3,  3.6],
+			// [14,  4.2,  6.2,  3.4]
 		]);
-		*/
 		
 		console.log('json[0].request_info.list.length:' , json[0].request_info.list.length)
 		
@@ -269,7 +266,7 @@ var version_number = 10;
 // var boot_button_elem = document.getElementById("boot_mode_button");
 
 // // async function fetchData(path, params) {
-// // 	var url = 'http://'+node_server_ip+node_server_port+':4000/';
+// // 	var url = 'http://'+node_server_ip+node_server_port+':9000/';
 
 // // 	if (path) {
 // // 		url = url.concat('', path);

@@ -1,5 +1,8 @@
 var express = require('express');
-var fs = require('fs');
+var fs = require('fs'); //hdw (file i/o)
+const { exec } = require('child_process'); //hdw (bootgraph)
+const { execSync } = require('child_process'); //pmh (kernel_management)
+
 var app = express();
 
 // for Hashing
@@ -14,8 +17,8 @@ var readline = require('readline');
 var rq = require('request');	//sudo npm install request
 var router = new express.Router();
 
-var bmc_server_ip = '192.168.0.4'
-var bmc_server_port = ':8000'
+var bmc_server_ip = '203.253.25.207'
+var bmc_server_port = ':9000'
 
 app.use(express.static(__dirname + '/../public'));
 path = require('path');
@@ -130,61 +133,26 @@ app.use((req, res, next) => {
 
 app.use(bodyParser.json());
 
-// json {version_name, build_date}
 var kernel_version_list = [];
 
-// var kernel_dir_path = '/home/jaeseop/html_test/kernel_management';
-//var kernel_dir_path = '/home/ssrlab-sub/gwangyong/BMC/kernel_management';
 
 //client 위치 변경시 변경해야될 부분
-var kernel_dir_path = path.join("/", "home", "ssrlab", "profiler", "kernel_management");
-
-var kernel_dir_list = fs.readdirSync(kernel_dir_path);
+var kernel_dir_path = path.join("/", "home", "keti","oslab_profiler", "kernel_management");
+var kernel_dir_list = fs.readdirSync(kernel_dir_path).filter(item => item !== 'ORG');
+var kernel_dir_org = kernel_dir_path+'/ORG';
 var count_version = 0;
 var unregistered_file = [];
-
-// get kernel version using Makefile contents // example "5.4.62" // not use
-/**
-async function get_kernel_version(Makefile_path) {
-	var fileStream = fs.createReadStream(Makefile_path);
-
-		var rl = readline.createInterface({
-		input: fileStream,
-		crlfDelay: Infinity,
-	});
-
-	var version, patchlevel, sublevel;
-	for await (const line of rl) {
-		if (line.indexOf('VERSION') != -1) {
-			version = line.split(" ")[2];
-			continue ;
-		}
-
-		if (line.indexOf('PATCHLEVEL') != -1) {
-			patchlevel = line.split(" ")[2];
-			continue ;
-		}
-
-		if (line.indexOf('SUBLEVEL') != -1) {
-			sublevel = line.split(" ")[2];
-			break ;
-		}
-	}
-
-	return [version, patchlevel, sublevel];
-}
-
- */
 var device_driver_info = new Array();
 var log_list = [];	//현재 관리하고 있는 커널 버전에 대한 파악(부팅 로그(dmesg 로그), Ftrace 로그 등 파싱) [start.js, line 75]
+
 (async () => {
 	try {
 		for (var list_index = 0; list_index < kernel_dir_list.length; list_index++) {
 			if (kernel_dir_list[list_index][0] == 'V') {
 				var version = kernel_dir_list[list_index];
 
-				log_list[list_index] = await parse_trace(version);
-				console.log('[parse_trace_' + count_version + '] finish');
+				// log_list[list_index] = await parse_trace(version);
+				// console.log('[parse_trace_' + count_version + '] finish');
 
 				device_driver_info[list_index] = await parse_dmesg(version, log_list[list_index]);
 				console.log('[parse_dmesg_' + count_version + '] finish');
@@ -193,7 +161,10 @@ var log_list = [];	//현재 관리하고 있는 커널 버전에 대한 파악(�
 
 				continue;
 			}	//<-- 새로운 버전이 추가됨 [start.js, line 89]
-
+			// pmh
+			if (kernel_dir_list[list_index] == "ORG") {
+				continue;
+			}
 			unregistered_file.push(list_index);
 		}
 		//<-- 새로운 커널 버전의 전체 소스코드에 대한 해시 파일 저장 [start.js, 92]
@@ -289,13 +260,14 @@ function isdigit(c) {
 }
 
 function isnumber(n) {
-	for (var number_index = 0; number_index < n.length; number_index++)
-		if ((n[number_index] <= '0' || n[number_index] >= '9') && n[number_index] != '.')
-			return false;
+// 	for (var number_index = 0; number_index < n.length; number_index++)
+// 		if ((n[number_index] <= '0' || n[number_index] >= '9') && n[number_index] != '.')
+// 			return false;
 
-	return true;
+// 	return true;
+// 
+	return typeof n === 'number';
 }
-
 function get_pre_function_name(function_name) {
 	// platform, driver, init, probe
 	var index = 0;
@@ -311,29 +283,29 @@ function get_pre_function_name(function_name) {
 }
 
 async function parse_trace(kernel_version) {
-	console.log('[parse_trace] kernel_version: ', kernel_version);
+	// console.log('[parse_trace] kernel_version: ', kernel_version);
 	var log_list = new Array();
-	var path = kernel_dir_path + '/' + kernel_version + '/trace.txt';
+	// var path = kernel_dir_path + '/' + kernel_version + '/trace.txt';
 
-	var logs = fs.readFileSync(path).toString().split("\n");
+	// var logs = fs.readFileSync(path).toString().split("\n");
 
-	for (var log_index = 0; log_index < logs.length; log_index++) {
-		var trace_str_list = logs[log_index].split(/[ |!+@#*;]/).filter(Boolean);
+	// for (var log_index = 0; log_index < logs.length; log_index++) {
+	// 	var trace_str_list = logs[log_index].split(/[ |!+@#*;]/).filter(Boolean);
 
-		if (!(trace_str_list.length))
-			continue;
+	// 	if (!(trace_str_list.length))
+	// 		continue;
 
-		if (!isdigit(trace_str_list[0][0]))
-			continue;
+	// 	if (!isdigit(trace_str_list[0][0]))
+	// 		continue;
 
-		trace_str_list.shift();
+	// 	trace_str_list.shift();
 
-		// to do work
-		if (trace_str_list[0] == "==========>" || trace_str_list[0] == "<==========")
-			continue;
+	// 	// to do work
+	// 	if (trace_str_list[0] == "==========>" || trace_str_list[0] == "<==========")
+	// 		continue;
 
-		log_list.push(trace_str_list);
-	}
+	// 	log_list.push(trace_str_list);
+	// }
 	return log_list;
 }
 
@@ -364,115 +336,6 @@ async function parse_dmesg(kernel_version, log_list) {
 		if (str.search("] calling") != -1) {
 			obj.start_time = Number(str_list[0]);
 			obj.device_driver_name = str_list[2];
-			var pre_parent_function_name;
-			var parent_func_line = 0;
-
-			pre_parent_function_name = get_pre_function_name(obj.device_driver_name);
-
-			if (!pre_parent_function_name || pre_parent_function_name.length == 1)
-				continue;
-
-			//console.log("[pre_parent_function_name] ", pre_parent_function_name, ", [device_driver_name] ", obj.device_driver_name);
-
-			// find parent function (obj.device_driver_name)
-			var i = 0;
-			for (var parent_function_index = 0; parent_function_index < log_list.length - 1; parent_function_index++) {
-				var log_str_list = log_list[parent_function_index];
-				if (log_str_list[log_str_list.length - 1].search("{") == -1)
-					continue;
-
-				if (isnumber(log_str_list[0])) {
-					//pre_parent_function_name[0] = get_pre_function_name(log_str_list[2]);
-					comp_str = log_str_list[2];
-				}
-				else {
-					//pre_parent_function_name[0] = get_pre_function_name(log_str_list[0]);
-					comp_str = log_str_list[0];
-				}
-
-				//console.log("[comp_str] ", comp_str, ", [log_str_list[0]] ", log_str_list[0], );
-
-				//if (!pre_parent_function_name[0] || !pre_parent_function_name[1] || pre_parent_function_name[0].length == 1 || pre_parent_function_name[1].length == 1)
-				//	continue ;
-
-				// find parent function
-				//if (comp_str.substring(0, pre_parent_function_name.length) == pre_parent_function_name && (comp_str.search("probe") != -1 || comp_str.search("init") != -1)) {
-				if (comp_str.substring(0, pre_parent_function_name.length) == pre_parent_function_name && (comp_str.search("probe") != -1)) {
-					//console.log('comp_str: ', comp_str, ', pre_parent_funtion_name: ', pre_parent_function_name);
-					parent_func_line = parent_function_index;
-					break;
-				}
-
-				/*
-				   if (pre_parent_function_name[0] == pre_parent_function_name[1]) {
-				   console.log(obj.device_driver_name, temp);
-				   console.log(pre_parent_function_name[0]);
-				   }
-				 */
-			}
-
-			if (!parent_func_line)
-				continue;
-
-			var count_bracket = 1;
-			var count_line = 1;
-			var child_funcs = new Array();
-
-			var func_list = new Array();
-			//func_list.push(log_list[parent_func_line]);
-			func_list.push(comp_str);
-
-			//console.log("==================================");
-			//console.log(log_list[parent_func_line]);
-
-			for (var child_function_index = parent_func_line + 1; child_function_index < log_list.length; child_function_index++) {
-				var log_str_list = log_list[child_function_index];
-
-				//console.log(count_line++, log_str_list);
-
-				if (log_str_list[1] == "=>")
-					continue;
-
-				if (log_str_list[log_str_list.length - 1].search('{') != -1) {
-					func_list.push(log_str_list[0]);
-					count_bracket += 1;
-					continue;
-				}
-
-				if (log_str_list[2].search('}') != -1) {
-					count_bracket -= 1;
-					var func_name = func_list.pop();
-
-					if (!log_dict[func_name]) {
-						log_dict[func_name] = new Array();
-						log_dict[func_name].push(1);
-						log_dict[func_name].push(Number(log_str_list[0]));
-					}
-					else {
-						log_dict[func_name][0] += 1;
-						log_dict[func_name][1] += Number(log_str_list[0]);
-					}
-
-					if (!count_bracket)
-						break;
-
-					continue;
-				}
-
-				if (isdigit(log_str_list[0][0])) {
-					if (!log_dict[log_str_list[2]]) {
-						log_dict[log_str_list[2]] = new Array();
-						log_dict[log_str_list[2]].push(1);
-						log_dict[log_str_list[2]].push(Number(log_str_list[0]));
-					}
-					else {
-						log_dict[log_str_list[2]][0] += 1;
-						log_dict[log_str_list[2]][1] += Number(log_str_list[0]);
-					}
-					continue;
-				}
-			}
-			obj.ftrace_log = log_dict;
 		}
 
 		// parse memory info
@@ -540,154 +403,116 @@ app.get('/get_ftrace_log', function (req, res) {
 });
 
 var selected_1, selected_2;
+var diff_log = [];
 app.get('/getDirectoryJSON', function (req, res) {
 	console.log('[line 544] app.get(getDirectoryJSON)')
 	selected_1 = req.query.selected_1;
 	selected_2 = req.query.selected_2;
+	console.log('selected 1 ', selected_1);
+	console.log('selected 2' , selected_2);
 	list = '<ul>';
-	//var directoryPath = "/home/jaeseop/linux";
-	var path = kernel_dir_path + '/V' + req.query.selected_1 + '/';
 
-	(async () => {
-		if (req.query.selected_2 == null) {
-			// var json_list = getDirectoryArchitectureToJSONformat(kernel_dir_path + '/V' + req.query.selected_1 + '/linux');
-			console.log('[line 554] if - getDirectoryArchitectureToJSONformat call _ parameter: ',kernel_dir_path + '/V' + req.query.selected_1 + '/linux')
-			var json_list = getDirectoryArchitectureToJSONformat(kernel_dir_path + '/V' + req.query.selected_1 + '/linux');
+	// if (selected_2 !== 1 && selected_2 !== 2) {
+	if (isNaN(selected_2)){
+		// var json_list = getDirectoryArchitectureToJSONformat(kernel_dir_path + '/V' + req.query.selected_1 + '/linux');
+		console.log('[line 554] if - getDirectoryArchitectureToJSONformat call _ parameter: ',kernel_dir_path + '/V' + req.query.selected_1 + '/linux')
+		var json_list = getDirectoryArchitectureToJSONformat(kernel_dir_path + '/V' + req.query.selected_1 + '/linux');
+		
+		list = json_list + '</ul>';
 
-			list = json_list + '</ul>';
+		res.json([{
+			htmlcode: list,
+		}]);
+	}
+	else {
+		// pmh
+		var code_view_html = '';
+		var current_log = null;
+		diff_log = [];
 
+		console.log('[line 462]........ exec diff dir')
+		
+		var kernel_1 = kernel_dir_path + '/V' + req.query.selected_1 + '/kernel-source__molt';
+		var kernel_2 = kernel_dir_path + '/V' + req.query.selected_2 + '/kernel-source__molt';
+		var kernel_org = kernel_dir_org + '/kernel-source';
+		var command = './comp_kernel/ssu_diff '+kernel_org + ' ' + kernel_1 + ' ' + kernel_2;
+		console.log(command);
+		const stdout = execSync(command).toString();
+		const diff_lines = stdout.split('\n');
+
+		for (var line of diff_lines) {
+			if (line.startsWith('diff ')) {
+				if (current_log) {
+					diff_log.push(current_log);
+				}
+				const path = line.slice(5);
+				current_log = { path, diffdata : [] };
+			}
+			else if (current_log) {
+				current_log.diffdata.push(line);
+			}
+		}
+		if (current_log)
+			diff_log.push(current_log);
+			
+		if (diff_log.length !== 0) {
+			const pathTree = createPathTree(diff_log);
+			const visualizationHTML = generateHtmlTree(pathTree);
 			res.json([{
-				htmlcode: list,
+				htmlcode: visualizationHTML,
 			}]);
 		}
-		else {
-			console.log('[line 564] else - getHashDiffToArray call ')
-			
-			var code_view_html = '';
-
-			getHashDiffToArray(req.query.selected_1, req.query.selected_2).then(function (arr) {
-				var diff_arr = [];
-				for (var i = 0; i < (arr.length) / 2; i++)
-					diff_arr[i] = (arr[i].split(" ")[0]).split("/");
-
-				console.log("diff_arr: \n", diff_arr, "\n")
-				console.log('[line 574] path_arrary_to_html _ parameter: ')
-				code_view_html = path_array_to_html(diff_arr, 0, [], '');	//path, index, str, html
-
-				//console.log('code_view_html: ', code_view_html);
-				list += code_view_html + '</ul>';
-
-				res.json([{
-					htmlcode: list,
-				}]);
-
-				/*
-				for (var i = 0; i < (diff_arr.length + 1) / 2; i++) {
-					var diff_paths = (diff_arr[i].split(" "))[0].split("/");
-					var name = '';
-
-					for (var j = 0; j < diff_paths.length; j++) {
-						name += diff_paths[j];
-
-						var stats = fs.lstatSync(path + name);
-						if (stats.isDirectory()) 
-							name += '/';
-
-						if (diff_paths[j] in path_dict) 
-							continue ;
-						else {
-							path_dict[diff_paths[j]] = 1; // check
-							console.log('abs_path: ', path + name);
-
-							if (stats.isDirectory()) {
-								code_view_html += '<details close> <summary class="folder">' + name + '</summary>';
-								code_view_html += '<ul>';
-
-								if (j != diff_paths.length - 1) {
-									code_view_html += '</ul></details>';
-									code_view_html += '</li>';
-								}
-							}
-						}
-					}
-					code_view_html += '</ul></details>';
-					code_view_html += '</li>';
-				}
-				list += code_view_html + '</ul>';
-				console.log('list: ', list);
-				*/
-			});
-		}
-
-	})();
-});
-// 경로 수정: /home/jaeseop/html_test -> /home/ssrlab-sub/gwangyong/BMC
-var path_dict = new Object();
-function path_array_to_html(path, index, str, html) {
-	//return "<ul><details close> <summary class=\"folder\">V1</summary><ul><li id=\"/home/jaeseop/html_test/kernel_management/V1/dmesg.txt\" onclick=\"selectFile(this.id)\">dmesg.txt</li></ul></details></li></ul>";
-	//0618
-
-	
-
-	return '<ul><details close> <summary class=\"folder\">' + 'linux' + '</summary>' + '<ul>' +
-		'<li id=\"/home/ssrlab-sub/gwangyong/BMC/kernel_management/V1/linux/.config\" onclick=\"selectFile(this.id)\">' + '.config' + '</li>' +
-
-		'<details close> <summary class=\"folder\">' + 'drivers' + '</summary>' + '<ul>' +
-
-		'<details close> <summary class=\"folder\">' + 'tty' + '</summary>' + '<ul>' +
-
-		'<details close> <summary class=\"folder\">' + 'serial' + '</summary>' + '<ul>' +
-
-		'<details close> <summary class=\"folder\">' + '8250' + '</summary>' + '<ul>' +
-
-		'<li id=\"/home/ssrlab-sub/gwangyong/BMC/kernel_management/V1/linux/drivers/tty/serial/8250/8250_core.c\" onclick=\"selectFile(this.id)\">' + '8250_core.c' + '</li>' +
-
-		'</ul></details>' + '</li>' +
-
-		'</ul></details>' + '</li>' +
-
-		'</ul></details>' + '</li>' +
-
-		'</ul></details>' + '</li>' +
-
-		'</ul></details>' + '</li>' +
-		'</ul>';
-
-	// to be modified // recursive, stack, ... not easy
-	/*
-	for (var path_index = 0; path_index < path.length; path_index++) {
-		if (!str[path_index])
-			str[path_index] = kernel_dir_path;
-
-		str[path_index] += ('/' + path[path_index][index]);
-
-		if (path_dict[path[index]])
-			path_array_to_html (path, index + 1, str, html);
-		else {
-			console.log('str[path_index]: ', str[path_index]);
-			var stats = fs.lstatSync(str[path_index]);
-
-			if (stats.isDirectory()) {
-				console.log(str, ' is directory');
-				html += '<details close> <summary class=\"folder\">' + path[index] +'</summary>';
-				html += '<ul>'
-
-				path_array_to_html (path, index+1, str, html);
-
-				html += '</ul></details>';
-				html += '</li>';
-
-				path_dict[path[index]] = 1;
-			}
-			else {
-				html += '<li id=\"' + str + '\" onclick=\"selectFile(this.id)\">' + path[index];
-				html += '</li>';
-			}
-		}
-
-		return html;
+		
 	}
-	*/
+});
+
+function createPathTree(paths) {
+	const pathTree = {};
+	paths.forEach(data => {
+		const pathParts = data.path.split('/');
+		let currentNode = pathTree;
+		let diffData = data.diffdata; // diff 데이터 가져오기
+		let path = data.path;
+	  	let skipV2 = false;
+	  	pathParts.forEach((part, index) => {
+			if (skipV2) {
+	      			if (index === pathParts.length - 1) {
+					currentNode[part] = { isFile: true, path: path, diffData: diffData };
+	      			} else if (!currentNode[part]) {
+					currentNode[part] = {};
+	      			}
+	      			currentNode = currentNode[part];
+	    		}
+	    		if (part === 'kernel_management') {
+	      			skipV2 = true;
+	    		}
+	  	});
+	});
+	return pathTree;
+}
+
+function generateHtmlTree(node) {
+	let html = '';
+      
+	for (const key in node) {
+	  	if (node[key].isFile) {
+	    		// 파일일 경우, 파일로 표시하고 onclick 이벤트 추가
+	   		html += `<li id="${node[key].path}" onclick=\"selectFile(this.id)\">${key}</li>`;
+			html += `<script type="text/javascript">`
+			html += `"${node[key].path}".click(function() {
+				selectFile(node[key].diffData);
+			});`
+			html += `</script>`;
+	  	} else {
+	    		html += `<details close><summary class="folder">${key}</summary>`;
+	    		html += '<ul>';
+	    		html += generateHtmlTree(node[key]);
+	    		html += '</ul>';
+	    		html += '</details>';
+		}
+	}
+	
+	return html;
 }
 
 app.post('/viewFile', function (req, res) {
@@ -702,28 +527,19 @@ app.post('/viewFile', function (req, res) {
 		});
 	}
 	else {
-		//var first_file = fs.readFileSync(file_path).toString().split('\n');
-		var tmp_path = file_path.split(selected_1);
-
-		var second_path = tmp_path[0] + selected_2 + tmp_path[1];
-		//var second_file = fs.readFileSync(second_path).toString().split('\n');
-
-		/*
-		var file_diff = first_file
-				.filter(x => !second_file.includes(x))
-				.concat(second_file.filter(x => !first_file.includes(x)));
-		*/
-		var spawn = require('child_process').spawn;
-		var diff_res = spawn('diff', [file_path, second_path]);
-
-		diff_res.stdout.on('data', function (data) {
-			console.log('stdout: ', data);
-
+		if (diff_log.length < 1) {
 			res.json([{
-				//str:file_diff.toString()
-				str: data.toString()
-			}]);
-		});
+				str: log.path.toString()
+			}])
+		}
+		
+		for (const log of diff_log) {
+			if (log.path === file_path) {
+				res.json([{
+					str: log.diffdata.join('\n')
+				}])
+			}
+		}
 	}
 });
 
@@ -779,6 +595,172 @@ app.get('/cpu/usage', function (req, res) {
 	}, function (err, response, body) {
 		res.json(JSON.parse(body))
 		console.log('get usage of CPU',JSON.parse(body)["usage"])
+	})
+});
+
+app.get('/process_info', function (req, res) {
+	console.log('[GET]:: /process_info')
+	rq.get({
+		url: "http://"+bmc_server_ip+bmc_server_port+"/process_info"
+	}, function (err, response, body) {
+		res.json(JSON.parse(body));
+		console.log(JSON.parse(body));
+	})
+});
+
+app.get('/bootgraph', function (req, res) {//hdw
+	console.log('[GET]:: /bootgraph')
+	rq.get({
+		 url: "http://"+bmc_server_ip+bmc_server_port+"/bootgraph"
+	}, function (err, response, body) {
+		 res.json(JSON.parse(body))//JSON.parse(body)["dmesg"]
+		 // 파일에 데이터 쓰기
+		 fs.writeFile('../bootgraph/cur_bootgraph.txt', JSON.parse(body)["dmesg"], (err) => {
+		 if (err) {
+				console.error('파일에 쓰기 오류 발생:', err);
+		 } else {
+				console.log('파일에 데이터 쓰기 성공');
+				exec('cat ../bootgraph/cur_bootgraph.txt | perl ../bootgraph/bootgraph.pl > ../bootgraph/cur_bootgraph.svg', (error, stdout, stderr) => {
+					if (error) {
+					  console.error(`오류 발생: ${error}`);
+					  return;
+					}
+					console.log('cat 명령 결과:');
+					console.log(stdout);
+				  });
+		 	}
+		 });
+	})
+});
+
+app.get('/bootgraph/current', function (req, res) {//pmh
+	console.log('[GET]:: /boograph/current');
+	fs.readFile('../bootgraph/cur_bootgraph.svg', 'utf8', function(error, data) {
+		res.set('Content-type', 'image/svg+xml');
+		res.json ([{
+			svg : data
+		}])
+	});
+});
+
+app.get('/bootgraph/kernel_1', function (req, res) {
+	console.log('[GET]:: /bootgraph/kernel_1');
+	var selected_1 = req.query.selected_1;
+	path = kernel_dir_path + '/V' + selected_1 + '/bootgraph.svg';
+	fs.readFile(path, 'utf8', function(error, data) {
+		res.set('Content-type', 'image/svg+xml');
+		res.json([{
+			svg: data
+		}])
+	});
+});
+
+app.get('/bootgraph/kernel_2', function (req, res) {
+	console.log('[GET]:: /bootgraph/kernel_2');
+	var selected_1 = req.query.selected_1;
+	var selected_2 = req.query.selected_2;
+	var path1 = kernel_dir_path + '/V' + selected_1 + '/bootgraph.svg';
+	var path2 = kernel_dir_path + '/V' + selected_2 + '/bootgraph.svg';
+	fs.readFile(path1, 'utf8', function(error, data1) {
+		fs.readFile(path2, 'utf8', function (error2, data2) {
+			res.set('Content-type', 'image/svg+xml');
+			res.json([{
+				svg1: data1,
+				svg2: data2
+			}])
+		});
+	});
+});
+
+app.get('/bootgraph/cur_dmesg', function (req, res) {
+	console.log('[GET]:: /bootgraph/cur_dmesg');
+	var path = '../bootgraph/cur_bootgraph.txt';
+
+	var data = fs.readFileSync(path, {encoding: 'utf8', flag: 'r'});
+	var datas = data.split('\n');
+
+	var cpu_infos = new Array();
+	var obj = new Object();
+	var log_dict = {};
+	var info_array = new Array();
+
+	for (var data_index = 0; data_index < datas.length; data_index++) {
+		var str = datas[data_index];
+		if (str.search("] initcall") == -1 &&
+			str.search("OSLAB") == -1 &&
+			str.search("] calling") == -1)
+			continue;
+
+		var str_list = str.split(/[\[\]+,: ]/).filter(Boolean);
+
+		// parse start point
+		if (str.search("] calling") != -1) {
+			obj.start_time = Number(str_list[0]);
+			obj.device_driver_name = str_list[2];
+		}
+
+		// parse memory info
+		if (str.search("MemTotal") != -1) {
+			var mem_total = Number(str_list[3]);
+			var mem_free = Number(str_list[5]);
+
+			obj.mem_util = (mem_total - mem_free) / mem_total;
+			continue;
+		}
+
+		// parse cpu info
+		if (str.search("nice") != -1) {
+			var new_cpu_infos = new Array();
+
+			var idx = 0;
+			for (var cpu_info_idx = 3; cpu_info_idx < 17; cpu_info_idx += 2) {
+				new_cpu_infos[idx++] = Number(str_list[cpu_info_idx]);
+			}
+
+			var user = (new_cpu_infos[0] + new_cpu_infos[1]) - (cpu_infos[0] + cpu_infos[1]);
+			var system = (new_cpu_infos[2] + new_cpu_infos[5] + new_cpu_infos[6]) -
+				(cpu_infos[2] + cpu_infos[5] + cpu_infos[6]);
+			var idle = (new_cpu_infos[3] - cpu_infos[3]);
+			var iowait = (new_cpu_infos[4] - cpu_infos[4]);
+
+			var aSum = Math.max(user + system + idle + iowait, 1);
+			cpu_infos = new_cpu_infos;
+
+			obj.cpu_util = (user / aSum) + (system / aSum);
+
+			if (isNaN(obj.cpu_util))
+				obj.cpu_util = 0;
+
+			if (obj.cpu_util > 1)
+				obj.cpu_util = 1;
+
+			continue;
+		}
+
+		// parse end point
+		if (str.search("] initcall") != -1) {
+			obj.init_time = Number(str_list[7]) / 1000000;
+			obj.return_value = Number(str_list[5]);
+
+			info_array.push(obj);
+
+			obj = new Object();
+			log_dict = {};
+			continue;
+		}
+	}
+	res.json([{
+		info : info_array
+	}]);
+})
+
+app.get('/signal', function (req, res) {//hdw
+	console.log('[GET]:: /signal')
+	rq.get({
+		url: "http://"+bmc_server_ip+bmc_server_port+"/signal"
+	}, function (err, response, body) {
+		res.json(JSON.parse(body));
+		// console.log(JSON.parse(body));
 	})
 });
 
@@ -915,7 +897,7 @@ app.get('/calc_dmesg_based_watt', function (req, res) {
 	// var str2 = str[1].split("]")
 	
 	usage_watt = Number(str2[0])* AST2600_watt
-	res.json(usage_watt.toFixed(3));
+	res.send(usage_watt.toFixed(3));
 });
 app.get('/getHttpCodeList', function (req, res) {
 	var data = fs.readFileSync("./httpcodereport.json", 'utf8');
@@ -938,5 +920,4 @@ app.get('/getHttpResonseTime_info', function (req, res) {
 	res.json([words]);
 });
 
-app.listen(4000);
-
+app.listen(9000);

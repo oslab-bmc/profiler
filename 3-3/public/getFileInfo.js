@@ -1,6 +1,6 @@
 var before_element;
-var node_server_ip = '192.168.0.33'
-var node_server_port = ':4000'
+var node_server_ip = '203.253.25.202'
+var node_server_port = ':9000'
 
 function selectFile(id){
     console.log('click :: '+id);

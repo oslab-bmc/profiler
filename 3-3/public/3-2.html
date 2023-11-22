@@ -6,6 +6,7 @@
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 	  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <script type="text/javascript" defer src="/script.js"></script>
+    <!-- <script type="text/javascript" defer src="/public/requestChart.js"></script> -->
     <script type="text/javascript" defer src="/getDirectoryTree.js"></script>
     <script type="text/javascript" defer src="/getFileInfo.js"></script>
     <title>profiling tool project 1</title>
@@ -13,12 +14,14 @@
 <body>
 <div class="main">
   <div class="left">
+    <div class="kernel_version">
     <div class="text">
-      <p>Kernel Version Management</p>
+      <p>Kernel<br/>Version<br/>Management</p>
     </div>
-	<div class="left_bottom">
-	  <ul id="kernel_version_list">
-	</div>
+    <div class="left_bottom">
+      <ul id="kernel_version_list">
+    </div>
+  </div>
   </div>
 
   <div class="right">
@@ -26,8 +29,8 @@
           <img src="profiling_tool_icon.png" height=75% alt="My Image">
       </div>
       <div class="text">
-        <h1 style="font-size: 45px">Full Stack Profiler for Baseboard Management Controller</h1>
-        <p>Soongsil Univ. OSLAB</p>
+        <h1>Full Stack Profiler for a Baseboard Management Controller</h1>
+        <!-- <p>Soongsil Univ. OSLAB</p> -->
       </div>
     </div>
     
@@ -35,43 +38,47 @@
     <div class="code_view" id="code_view">
         <div class="code_view_left" id="code_view_left_div">
 			<div id="code_view_title">
-				<h1 style="font-size: 35px">Code</h1>
+				<h1 style="font-size: 35px;">Code</h1>
 			</div>
             <div id="code_view_left" class="directory-list"></div>
         </div>
-        <div class="code_view_right">
-			<pre>
-				<code id="code_view_right_div">
-				</code>
-			</pre>
-        </div>
+      <div class="code_view_right" id = "code_view_right_div">
+			  <pre>
+				  <code>
+				  </code>
+			  </pre>
+      </div>
 	  </div>
 	  <div class="perf_view">
-		  
-      <span style="float: left; width: 100%;">
-        <div>
-          <h1 class="perf_title">Performance</h1>
-        </div>
-        <!--V1 전력소모량-->
-        <span class="sub_title">
-          <p1>First Version: </p1>
-          <span id="v1_Power_usage"> ... </span>
-          <p1>Ws</p1>
-        </span>
-        <!--V2 전력소모량-->
-        <span class="sub_title">
-          <p1>Second Version: </p1>
-          <span id="v2_Power_usage"> ... </span>
-          <p1>Ws</p1>
-        </span>
-      </span>
-		  <div class="line_chart"></div>
-		  <div class="pie_chart"></div>
+          <h1 class="perf_view_h1">Performance</h1>
+          <div>
+            <div style="display: flex; flex-direction: row; gap: 30px; margin-top: 20px; margin-bottom: 20px;">
+              <!--V1 전력소모량-->
+              <span class="sub_title">
+                <span>First Version: </span>
+                <span id="v1_Power_usage" style="background: linear-gradient(to top, rgba(98, 102, 104, 0.24) 50%, transparent 50%);"> ... </span>
+                <span style="background: linear-gradient(to top, rgba(98, 102, 104, 0.24) 50%, transparent 50%);">Ws</span>
+              </span>
+              <!--V2 전력소모량-->
+              <span class="sub_title">
+                <span>Second Version: </span>
+                <span id="v2_Power_usage" style="background: linear-gradient(to top, rgba(98, 102, 104, 0.24) 50%, transparent 50%);"> ... </span>
+                <span style="background: linear-gradient(to top, rgba(98, 102, 104, 0.24) 50%, transparent 50%);">Ws</span>
+              </span>
+            </div>
+            <div style="display: flex; height: 80%; flex-direction: row; gap: 20px;">
+              <div class="line_chart"></div>
+              <div class="pie_chart"> 
+                <!-- <img src="css/image/bootgraph_fast_0919.svg" alt="bootlog" width="80%" height="100%" style="margin-bottom: 50%; position: relative; top: -10%;"/> -->
+              </div>
+              <div class="pie_chart2">
+                
+              </div>
+            </div>
+          </div>
 	  </div>
 
     
-  </div>
-  <div class="kernel_version">
   </div>
 </div>
 <div class="select_mode_bar">
@@ -91,7 +98,7 @@
     <div style="float: right; margin-right: 5%; margin-top:0.5%;"><button id="" onclick="request_count_handler()">Call Counter</button> </div>
     <div style="float: right; margin-right: 5%; margin-top:0.5%;"><button id="" onclick="get_CPU_Memory_INFO_handler()">get CPU & Memory info</button> </div>
     <div style="float: right; margin-right: 5%; margin-top:0.5%;"><button id="" onclick="nextPage()">next_page</button> </div>
-    <!-- <div style="float: right; margin-right: 5%; margin-top:0.5%;"><a href="http://192.168.0.6:4000/secondPage">NEXT</a></div> -->
+    <!-- <div style="float: right; margin-right: 5%; margin-top:0.5%;"><a href="http://192.168.0.6:9000/secondPage">NEXT</a></div> -->
     <div style="float: right; margin-right: 5%; margin-top:0.5%;"><button id="fan_button" onclick="fan_mode_handler()">Fan Test Button</button></div>
 </div>
 <link href="/css/3-2.css" rel="stylesheet"/>

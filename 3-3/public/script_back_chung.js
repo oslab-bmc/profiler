@@ -4,8 +4,8 @@ count_flag = 1;
 time_flag = 1;
 flag = 0;
 var playAlert;	//반복 수행하는 객체(?)	
-var node_server_ip = '192.168.0.33'
-var node_server_port = '4000'
+var node_server_ip = '203.253.25.202'
+var node_server_port = '9000'
 function initArray(arr) {
 	for (var step = 0; step < arr.length; step++)
 		arr[step] = 0;
@@ -82,7 +82,7 @@ var version_check_count = 0;
 var boot_button_elem = document.getElementById("boot_mode_button");
 
 async function fetchData(path, params) {
-	var url = 'http://'+node_server_ip+node_server_port+':4000/';
+	var url = 'http://'+node_server_ip+node_server_port+':9000/';
 
 	if (path) {
 		url = url.concat('', path);
@@ -154,13 +154,13 @@ function exit_handler(event) {
 }
 
 function nextPage(){
-	var link = 'http://'+node_server_ip+node_server_port+':4000/secondPage';
+	var link = 'http://'+node_server_ip+node_server_port+':9000/secondPage';
  
 	location.href=link;
 }
 
 function request_count_handler(event) {
-	fetch('http://'+node_server_ip+node_server_port+':4000/getStats')
+	fetch('http://'+node_server_ip+node_server_port+':9000/getStats')
         .then(
             response => response.json()
         )
@@ -174,7 +174,7 @@ function request_count_handler(event) {
 }
 
 function get_CPU_Memory_INFO_handler(event) {
-	fetch('http://'+node_server_ip+node_server_port+':4000/cpuinfo/on')
+	fetch('http://'+node_server_ip+node_server_port+':9000/cpuinfo/on')
 	.then(
 		response => response.json()
 	)
@@ -199,7 +199,7 @@ function fan_mode_handler(event) {
 	flag = flag==0?1:0;
 	if(flag==1){
 		console.log('flag = ' + flag)
-		// axios.post('http://192.168.0.4:8000/fan/do').then(response =>{
+		// axios.post('http://203.253.25.207:8000/fan/do').then(response =>{
 
 		// }).catch(function (error) {
 		// 	console.log(error);
@@ -211,7 +211,7 @@ function fan_mode_handler(event) {
                 'Content-Type': 'application/json'
             }
         };
-		fetch('http://'+node_server_ip+node_server_port+':4000/fan/do', fetchdata)
+		fetch('http://'+node_server_ip+node_server_port+':9000/fan/do', fetchdata)
 			.then(
 				response => response.json()
 			);
@@ -226,11 +226,11 @@ function fan_mode_handler(event) {
                 'Content-Type': 'application/json'
             }
         };
-		fetch('http://'+node_server_ip+node_server_port+':4000/fan/end', fetchdata)
+		fetch('http://'+node_server_ip+node_server_port+':9000/fan/end', fetchdata)
 			.then(
 				response => response.json()
 			);
-		// fetch("http://'+node_server_ip+node_server_port+':4000/fan/end", {
+		// fetch("http://'+node_server_ip+node_server_port+':9000/fan/end", {
 		// 	method: "DELETE",
 		// 	})
 		// 	.then((response) => response.json())
@@ -241,7 +241,7 @@ function fan_mode_handler(event) {
 function get_fan_info(){
 	var pie_str="Fan Status : ";
 	
-	// axios.get('http://192.168.0.4:8000/fan').then(response =>{
+	// axios.get('http://203.253.25.207:8000/fan').then(response =>{
 	// 	pie_str += response.data
 	// 	console.log(pie_str)
 	// 	document.getElementById('code_view_right_div').innerText = pie_str+"\n";
@@ -249,7 +249,7 @@ function get_fan_info(){
 	// 	console.log(error);
 	// });
 
-	fetch('http://'+node_server_ip+node_server_port+':4000/fan')
+	fetch('http://'+node_server_ip+node_server_port+':9000/fan')
 	.then(
 		response => response.json()
 	)

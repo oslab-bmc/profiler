@@ -3,7 +3,7 @@ const { createProxyMiddleware } = require('http-proxy-middleware');
 module.exports = function(app){
   app.use(
       createProxyMiddleware('/fan', {
-          target: 'http://192.168.0.4:8000',
+          target: 'http://203.253.25.207:9000',
           changeOrigin: true
       })
   )

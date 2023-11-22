@@ -6,56 +6,78 @@
     <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
 	  <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
     <script type="text/javascript" defer src="/secondpage_script.js"></script>
-    <script type="text/javascript" defer src="/cpuUsageChart.js"></script>
+    <script type="text/javascript" async src="/processStatus.js"></script>
+    <script type="text/javascript" async src="/cpuUsageChart.js"></script>
+    <script type="text/javascript" defer src="/zoom.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>profiling tool project 1</title>
   </head>
 <body>
 <div class="main">
   <div class="left">
-    <div class="text">
-      <p style="font-size: 30px;">Profiler communication information</p>
-    </div>
-	<div id="left_bottom" class="left_bottom">
-	</div>
+        <div class="kernel_version">
+            <div class="text">
+            <p>Profiler<br/>Communication<br/>Information</p>
+            </div>
+            <div class="btnFlex">
+              <button class="index_btnStyle_Container">Version 1</button>
+              <button class="index_btnStyle_Container">Version 2</button>
+            </div>
+        </div>
+	<!-- <div id="left_bottom" class="left_bottom">
+	</div> -->
   </div>
-
   <div class="right">
-      <div class="img">
+        <div class="img">
           <img src="profiling_tool_icon.png" height=75% alt="My Image">
-      </div>
-      <div class="text">
-        <h1 style="font-size: 45px">Full Stack Profiler for Baseboard Management Controller</h1>
-        <p>Soongsil Univ. OSLAB</p>
-      </div>
+        </div>
+        <h1>
+          Full Stack Profiler for a Baseboard Management Controller
+        </h1>
     </div>
   <div class="right_bottom">
     <div class="code_view" id="code_view">
       <div class="code_view_left" id="code_view_left_div">
         <div id="code_view_title">
           <!-- <h1 style="font-size: 45px">Code</h1> -->
-          <h1 style="font-size: auto;">HTTP response Time report</h1>
+          <h1 style="font-size: 30px; margin-bottom: 0;">Process Status</h1>
         </div>
-        <div id="view_CPU" class="view_CPU"></div>
           </div>
-        <div id="response_time" class="response_time">
+          <div class="cpuBox">
+            <div id="view_CPU" class="view_CPU">
+              <!-- <h1 style="font-size: 20px; margin-top: 0; margin-bottom: 0; font-weight: 500;">Process List</h1> -->
+              <ul class="list_btn_box">
+              </ul>
+            </div>
+              <div id="response_time" class="response_time"></div>
           <!-- <pre>
             <code id="code_view_right_div"></code>
           </pre> -->
       </div>
       </div>
       <div class="perf_view">
+        <!-- <h1 class="perf_view_h1">CPU Usage</h1> -->
         <!-- <h1 style="text-align: left; font-size: 45px">Performance</h1> -->
-        <h1 style="text-align: left; font-size: auto;">Performance</h1>
         <!-- <div id="line_chart" class="line_chart"></div><<< response chart
         <div id="pie_chart" class="pie_chart"></div><<< mem -->
-        <span id="processor_div" class="processor_div">
-          <div id="prosessor_list" class="prosessor_list"></div><!--<<< processer info-->
-          <div id="prosessor_info" class="prosessor_info"></div>
+        <!-- <span id="processor_div" class="processor_div"> -->
+          <!-- <div id="prosessor_list" class="prosessor_list"></div>
+          <div id="prosessor_info" class="prosessor_info"></div> -->
         </span>
-        <div id="prosessor_usage" class="prosessor_usage"></div><!--<<< cpu usage %-->
+        <div class="processorBox">
+          <div style="display: flex; flex-direction: column; width: 25%; align-items: center;">
+            <h1 class="perf_view_h1">Profiler Log</h1>
+            <div id="processor_log" class="processor_log">
+              <ul class="processlog_list" id="processList">
+              </ul>
+            </div>
+          </div>
+          <div style="display: flex; flex-direction: column; width: 100%; align-items: center;">
+            <h1 class="perf_view_h1" style="margin-left: 60px;">CPU and Memory Usage</h1>
+            <div id="prosessor_usage" class="prosessor_usage"></div><!--<<< cpu usage %-->
+          </div>
+        </div>
     </div>
-  </div>
-  <div class="kernel_version">
   </div>
 </div>
 <div class="select_mode_bar">
